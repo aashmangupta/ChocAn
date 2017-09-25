@@ -1,0 +1,7 @@
+ul#menu li {
+  display:inline;
+}
+a {
+  text-decoration: none;
+  color:black;
+}
