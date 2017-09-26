@@ -4,67 +4,69 @@
 </head>
 <style>
 </style>
-
+<div id = "header">
 <h1>Glossary</h1>
+</div>
 <hr>
 <body>
   <div style ="text-align:center">
-    <ul id = "menu">
-      <a href = "../report.html"><li>Home</li></a>
-      <li> | </li>
-      <a href = "vpp.html"><li>VPP Images</li></a>
-      <li> | </li>
-      <a href = "usecase.html"><li>Case Descriptions</li></a>
-      <li> | </li>
-      <a href = "stats.html"><li>BitBucket Statistics</li></a>
-    </ul>
+    <form>
+      <input type = "button" value = "Home" onclick="location.href='../report.html'"/>
+      <input type = "button" value = "Glossary" onclick="location.href='glossary.html'"/>
+      <input type = "button" value = "Use Case Diagrams" onclick="location.href='vpp.html'" />
+      <input type = "button" value = "Use Case Descriptions" onclick = "location.href='usecase.html'" />
+    </form>
   </div>
-  <h3>Glossary of terms</h3>
+  <div >
+  <h3>Glossary of Terms</h3>
+  </div>
+<div id = "glossary">
 <ul style = "list-style-type:none">
 <li>
-<b>ChocAn:</b> Organization dedicated to helping people addicted to chocolate.
+<span class = "title">ChocAn:</span> Organization dedicated to helping people addicted to chocolate.
 </li>
 <li>
-<b>Members:</b> People using the ChocAn service. They also posses a plastic card,
+<span class = "title">Members:</span> People using the ChocAn service. They also posses a plastic card,
 which contains their information and nine digit member number.
 </li>
 <li>
-<b>Provider:</b> Health care professionals who provide service to members.
+<span class = "title">Provider:</span> Health care professionals who provide service to members.
 </li>
 <li>
-<b>Suspended:</b> This means that the member's membership has been stopped, because
+<span class = "title">Suspended:</span> This means that the member's membership has been stopped, because
 the member has not paid membership fees for at least a month.
 </li>
 <li>
-<b>6-digit service code:</b> This code corresponds to the type of service provided.
+<span class = "title">6-digit service code:</span> This code corresponds to the type of service provided.
 </li>
 <li>
-<b>Fee:</b> The amount of money to be paid to the provider by ChocAn. (totaled every week)
+<span class = "title">Fee:</span> The amount of money to be paid to the provider by ChocAn. (totaled every week)
 </li>
 <li>
-<b>Provider Directory:</b> An alphabetically ordered list of service names and corresponding service codes and fees.
+<span class = "title">Provider Directory:</span> An alphabetically ordered list of service names and corresponding service codes and fees.
 </li>
 <li>
-<b>Member Report:</b> Printed at the ChocAn data center. Contains member's name, number, address, city, state, and ZIP code.
+<span class = "title">Member Report:</span> Printed at the ChocAn data center. Contains member's name, number, address, city, state, and ZIP code.
 Also contains every service provided.(Service name, date of service, provider name)
 </li>
 <li>
-<b>Provider Report:</b> Contains provider's name, number, address, city, state, total consultations & fees, and ZIP code.
+<span class = "title">Provider Report:</span> Contains provider's name, number, address, city, state, total consultations & fees, and ZIP code.
 Also contains every service provided.(date, member name & number, service code, and fees)
 </li>
 <li>
-<b>Summary Report:</b> Given to manager. Lists every provider to be paid that week, the number of consultations each had,
+<span class = "title">Summary Report:</span> Given to manager. Lists every provider to be paid that week, the number of consultations each had,
 and his or her total fee for that week.
 </li>
 <li>
-<b>Acme Accounting Services:</b> Third party responsible for financial procedures such as recording payments of
+<span class = "title">Acme Accounting Services:</span> Third party responsible for financial procedures such as recording payments of
 membership fees, suspending members whose fees are overdue, and reinstating
 suspended members who have now paid what they owed.
 </li>
 <li>
-<b>EFT(Electronic Funds Transfer):</b> A file should be set up containing the provider name, provider number,
+<span class = "title">EFT(Electronic Funds Transfer):</span> A file should be set up containing the provider name, provider number,
 and the amount to be transferred.
 </li>
+</ul>
 </div>
 </body>
 </html>

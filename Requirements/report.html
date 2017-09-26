@@ -2,11 +2,13 @@
 <head>
   <link rel= "stylesheet" type = "text/css" href="css/style.css">
 <style>
-  </style>
+</style>
+<div id = "header">
 <h1>Group 8 Project 1 - Report</h1>
+</div>
 <hr>
-  <div style = "text-align:right">
-    <ul id = "menu">
+  <div style = "text-align:right", "float: right" >
+    <ul id = "header">
       <li>Name: Spencer Fuhriman | </li>
       <li>CWID: 11719118 | </li>
       <li>Crimson: stfuhriman@crimson.ua.edu | </li>
@@ -18,64 +20,52 @@
 </head>
 <body>
   <div style ="text-align:center">
-    <ul id = "menu">
-      <a href = "report.html"><li>Home</li></a>
-      <li> | </li>
-      <a href = "external/glossary.html"><li>Glossary</li></a>
-      <li> | </li>
-      <a href = "#VPP"><li>VPP</li></a>
-      <li> | </li>
-      <a href = "#case"><li>Case Descriptions</li></a>
-      <li> | </li>
-      <a href = "#statistics"><li>BitBucket Statistics</li></a>
-    </ul>
+    <form>
+      <input type = "button" value = "Home" onclick="location.href='report.html'"/>
+      <input type = "button" value = "Glossary" onclick="location.href='external/glossary.html'"/>
+      <input type = "button" value = "Use Case Diagrams" onclick="location.href='external/vpp.html'" />
+      <input type = "button" value = "Use Case Descriptions" onclick = "location.href='external/usecase.html'" />
+    </form>
   </div>
 <div>
-<table id = "tasks">
+<h3>Task Chart</h3>
+<table class = "tasks">
   <tr>
-    <th>Team Member Name</th>
+    <th>Member Name</th>
     <th>Tasks Completed</th>
     <th>Percentage</th>
   </tr>
   <tr>
     <td>Aashman Gupta</td>
-    <td> - </td>
-    <td> % </td>
+    <td> Glossary and some use cases </td>
+    <td style = "text-align: right"> % </td>
   </tr>
   <tr>
     <td>Alex Ramsayer</td>
-    <td> - </td>
-    <td> % </td>
+    <td> Project manager and some HTML</td>
+    <td style = "text-align: right"> % </td>
   </tr>
   <tr>
     <td>Ben Sanders</td>
-    <td> - </td>
-    <td> % </td>
+    <td> Use cases and some VPP diagrams</td>
+    <td style = "text-align: right"> % </td>
   </tr>
   <tr>
     <td>Derek Hastings</td>
-    <td> - </td>
-    <td> % </td>
+    <td> Use cases and some VPP diagrams</td>
+    <td style = "text-align: right"> % </td>
   </tr>
   <tr>
     <td>Spencer Fuhriman</td>
-    <td> - </td>
-    <td> % </td>
+    <td> Most HTML and CSS </td>
+    <td style = "text-align: right"> % </td>
   </tr>
   <tr>
-    <th>Total Hours Worked: </th>
-    <td style = "text-align: right"> # </td>
+    <th style = "width: 50%">Total Hours Worked: </th>
+    <td colspan = "2" style = "text-align: right, width: 50%"> # </td>
   </tr>
 </table>
-</div>
-<div id = "VPP">
-</div>
-<div id = "glossary">
-</div>
-<div id = "case">
-</div>
-<div id = "statistics">
-</div>
-
+<h3>Bitbucket Statistics</h3>
+<img/>
 </body>
 </html>

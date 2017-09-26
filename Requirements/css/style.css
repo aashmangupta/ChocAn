@@ -1,7 +1,82 @@
-ul#menu li {
+ul#header li {
   display: inline;
+}
+div#glossary {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+div#image {
+  text-align: center;
+}
+div#header {
+  background: white; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(
+    right,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 1)
+  ); /*Safari 5.1-6*/
+  background: -o-linear-gradient(
+    left,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 1)
+  ); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(
+    left,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 1)
+  ); /*Fx 3.6-15*/
+  background: linear-gradient(
+    to left,
+    rgba(255, 0, 0, 0),
+    rgba(255, 0, 0, 1)
+  ); /*Standard*/
 }
 a {
   text-decoration: none;
   color: black;
+}
+input[type = "button"] {
+  background-color: #fd532f;
+  border: 2px solid black;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: comic, courier;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 3px solid black;
+  text-align: left;
+  padding: 6px 4px;
+}
+tr:nth-child(even) {
+  background-color: #fd9680;
+}
+body {
+  font-family: comic, courier;
+}
+h1 {
+  text-align: left;
+  text-decoration: none;
+  padding: 5px;
+  padding-left: 6px;
+  margin: 4px 2px;
+  color: black;
+}
+.title {
+  font-weight: bold;
+  color: #fd532f;
+}
+hr {
+  color: black;
+  height: 2px;
 }

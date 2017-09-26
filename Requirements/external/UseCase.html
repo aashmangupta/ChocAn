@@ -4,82 +4,21 @@
 </head>
 <style>
 </style>
-
+<div id = "header">
 <h1>Use Case Descriptions</h1>
+</div>
 <hr>
 <body>
   <div style ="text-align:center">
-    <ul id = "menu">
-      <a href = "../report.html"><li>Home</li></a>
-      <li> | </li>
-      <a href = "glossary.html"><li>Glossary</li></a>
-      <li> | </li>
-      <a href = "vpp.html"><li>VPP Images</li></a>
-      <li> | </li>
-      <a href = "stats.html"><li>BitBucket Statistics</li></a>
-    </ul>
+    <form>
+      <input type = "button" value = "Home" onclick="location.href='../report.html'"/>
+      <input type = "button" value = "Glossary" onclick="location.href='glossary.html'"/>
+      <input type = "button" value = "Use Case Diagrams" onclick="location.href='vpp.html'" />
+      <input type = "button" value = "Use Case Descriptions" onclick = "location.href='usecase.html'" />
+    </form>
   </div>
-
-
-<p><strong>Use Case: </strong>Monthly Fee</p>
-<p><strong>Context: </strong>Member pays monthly fee to ChocAn</p>
-<p><strong>Actors: </strong>Member, ChocAn Server</p>
-<p><strong>Main Success Scenario: </strong></p>
-<ol>
-<li>Member fee is paid and Member&rsquo;s subscription is renewed for another month or they are given a member card if they are new</li>
-</ol>
-<p><strong>Extensions: </strong></p>
-<ol>
-<li>If the fee is not paid then membership is suspended</li>
-</ol>
-<p>&nbsp;</p>
-
-<hr>
-
-<p><strong>Use Case: </strong>Member Card Swiped or Number Entered</p>
-<p><strong>Context: </strong>A Member enters a ChocAn building and swipes their member card or enters member number on keypad</p>
-<p><strong>Actors: </strong>Member, ChocAn Data Center</p>
-<p><strong>Main Success Scenario: </strong></p>
-<ol>
-<li>Member&rsquo;s card is swiped or Member number is entered</li>
-<li>Card info is sent to the ChocAn Data Center</li>
-<ol style="list-style-type: lower-roman; padding-bottom: 0;">
-<li style="margin-left:2em"> Membership status is checked using the members nine-digit member number sent to the ChacAn Data Center</li>
-</ol>
-<li>Member&rsquo;s membership is validated, the word Validated, appears on the keypad and they are allowed to proceed</li>
-</ol>
-<p><strong>Extensions: </strong></p>
-<ol>
-<li>If a Member&rsquo;s card is swiped or member number is entered and does not come back as valid then they have not paid their membership fee and must do that, or their member number was invalid. A &ldquo;Member Suspended&rdquo; message means they have to pay their fees. </li></ol>
-<p>&nbsp;</p>
-<hr>
-<p><strong>Use Case: </strong>Billing after services</p>
-<p><strong>Context: </strong>Billing ChocAn after a service was provided</p>
-<p><strong>Actors: </strong>Provider, ChocAn, Member</p>
-<p><strong>Main Success Scenario: </strong></p>
-<ol>
-<li>After a service is provided the provider swipes member card</li>
-<li>if validate appears then they enter the date the service was provided in MM-DD-YYYY order</li>
-<li>The provider uses the Provider Directory to look up the six-digit service code that corresponds to the service provided</li>
-<li>Once the code is found the code is keyed in</li>
-<li>The system displays the name of the service provided for the provider to verify the appropriate code was used</li>
-<li>The software product then looks up the fee for the service provided and displays it on the provider&rsquo;s terminal</li>
-<li>For verification purposes the provider has a form to fill out for the date and time the service was provided, member name and number, service code, and fee to be paid</li>
-</ol>
-<p><strong>Extensions: </strong></p>
-<ol>
-<li>If the card or member number provided comes back as Invalid then other action must be taken to continue</li>
-<li>If the service code provided isn&rsquo;t entered correctly then an error message appears or the wrong service name is appear on the screen</li>
-</ol>
-<p>&nbsp;</p>
-<hr>
-<p><strong>Use Case: </strong>Provider totals fees paid</p>
-<p><strong>Context: </strong>At the end of the week the provider totals the fees to be paid to that provider by ChocAn</p>
-<p><strong>Actors: </strong>Provider</p>
-<p><strong>Main Success Scenario:</strong></p>
-<ol>
-<li>The provider totals the fees up</li>
-</ol>
-<p><strong>Extensions:</strong> </p>
-
+<div id = "usecases">
+<!-- Use cases go here -->
+</div>
 </body>
+</html>
