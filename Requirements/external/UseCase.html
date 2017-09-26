@@ -18,7 +18,139 @@
     </form>
   </div>
 <div id = "usecases">
-<!-- Use cases go here -->
+
+<p><strong>Use Case: </strong>Get Provider Directory</p>
+<p><strong>Context: </strong>Provider requests a copy of the Provider Directory, a list of service codes and fees</p>
+<p><strong>Actors: </strong>Provider, ChocAn Server</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>The Provider makes a request via our software and receives an email with an attached Provider Directory</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p><strong>Use Case: </strong>Validate Member</p>
+<p><strong>Context: </strong>A Member enters a ChocAn building and swipes their member card or enters member&nbsp;number on keypad</p>
+<p><strong>Actors: </strong>Member, ChocAn Data Center</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>Member&rsquo;s card is swiped or Member number is entered</li>
+<li>Card info is sent to the ChocAn Data Center
+<ol>
+<li>Membership status is checked using the members nine-digit member number&nbsp;sent to the ChocAn Data Center</li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li>Member&rsquo;s membership is validated, the word Validated appears on the keypad, and they are allowed to proceed</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+<li>If a Member&rsquo;s card is swiped or member number is entered and does not come back as valid then they have not paid their membership fee and must do that, or their member number was invalid. A &ldquo;Member Suspended&rdquo; message means they have to pay their fees.</li>
+</ol>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p><strong>Use Case: </strong>Create Patient/Provider Visit</p>
+<p><strong>Context: </strong>Billing ChocAn after a service was provided</p>
+<p><strong>Actors: </strong>Provider, ChocAn, Member</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>After a service is provided the provider swipes member card</li>
+<li>if validate appears then they enter the date the service was provided in MM-DD-YYYY order</li>
+</ol>
+<ol start="3">
+<li>The provider uses the Provider Directory to look up the six-digit service code that corresponds to the service provided</li>
+</ol>
+<ol start="4">
+<li>Once the code is found the code is keyed in</li>
+<li>The system displays the name of the service provided for the provider to verify the appropriate code was used</li>
+</ol>
+<ol start="6">
+<li>The software product then looks up the fee for the service provided and displays it on the provider&rsquo;s terminal</li>
+</ol>
+<ol start="7">
+<li>For verification purposes the provider has a form to fill out for the date and time the service was provided, member name and number, service code, and fee to be paid</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+<li>If the card or member number provided comes back as Invalid then other action must be taken to continue</li>
+<li>If the service code provided isn&rsquo;t entered correctly then an error message appears or the wrong service name could appear on the screen</li>
+</ol>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p><strong>Use Case: </strong>Create EFT File</p>
+<p><strong>Context: </strong>file consisting of EFT data is written to disk for management by banking software</p>
+<p><strong>Actors: </strong>ChocAn Data Center</p>
+<p><strong>Main Success Scenario:</strong></p>
+<ol>
+<li>The Data Center writes a file consisting of the provider name, the provider number, and the amount to be transferred</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p><strong>Use Case: </strong>Run Main Accounting Procedure</p>
+<p><strong>Context: </strong>Run every Friday to read week&rsquo;s file of services provided and print out a report</p>
+<p><strong>Actors: </strong>ChocAn Data Center</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>Files are read and report is printed out</li>
+</ol>
+<p><strong>Extensions: </strong>Can also be run at any point by a ChocAn manager</p>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p><strong>Use Case: </strong>Get Member Report</p>
+<p><strong>Context: </strong>Each week the Members who have visited a provider receive a list of services that were provided to that Member in date order. The report includes Member&rsquo;s name, number, street address, city, state, ZIP code.</p>
+<p><strong>Actors: </strong>ChocAn Data Center, Manager</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>Report is created at the ChocAn Data Center with the information listed above</li>
+<li>Each Member who has used a service during the week is emailed with the report</li>
+</ol>
+<p><strong>Extensions: </strong>If a Member had not used their service that week then they do not receive an email</p>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p><strong>Use Case: </strong>Get Provider Report</p>
+<p><strong>Context: </strong>Report shows all the services the Provider provided during the past week</p>
+<p><strong>Actors: </strong>ChocAn Data Center, Provider</p>
+<p><strong>Main Success Scenario:</strong></p>
+<ol>
+<li>At the end of every week a report is created that contains a list of the services provided by each provider. This report includes the Provider&rsquo;s name, number, address, city, state, total consultations &amp; fees, and ZIP code. It also contains every service provided and their data, member name, member number, service code, and fee.</li>
+</ol>
+<p><strong>Extensions: </strong>If a provider didn&rsquo;t bill ChocAn that week then they do not receive a report.</p>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p><strong>Use Case: </strong>Get Manager Summary Report</p>
+<p><strong>Context: </strong>At the end of each week a report is given to ChocAn managers for account payable. </p>
+<p><strong>Actors: </strong>ChocAn Data Center</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>At the end of the week the report is created and sent out to each manager. The reports include every provider that needs to be paid, the number of consultations they had, and their total fee for the week. It also includes a total number of providers, consultations, and fees across the entire report.</li>
+</ol>
+<p><strong>Extensions: </strong>If no provider has any consultations in a week then a manager will not receive a report.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
 </div>
 </body>
 </html>
