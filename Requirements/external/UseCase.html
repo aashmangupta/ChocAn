@@ -2,8 +2,6 @@
 <head>
   <link rel= "stylesheet" type = "text/css" href="../css/style.css">
 </head>
-<style>
-</style>
 <div id = "header">
 <h1>Use Case Descriptions</h1>
 </div>
@@ -17,8 +15,8 @@
       <input type = "button" value = "Use Case Descriptions" onclick = "location.href='usecase.html'" />
     </form>
   </div>
-<div id = "usecases">
-
+<h3>List of Use Case Descriptions</h3>
+<div class = "odd">
 <p><strong>Use Case: </strong>Get Provider Directory</p>
 <p><strong>Context: </strong>Provider requests a copy of the Provider Directory, a list of service codes and fees</p>
 <p><strong>Actors: </strong>Provider, ChocAn Server</p>
@@ -27,11 +25,8 @@
 <li>The Provider makes a request via our software and receives an email with an attached Provider Directory</li>
 </ol>
 <p><strong>Extensions: </strong></p>
-<p>&nbsp;</p>
-
-<hr>
-
-
+</div>
+<div class = "even">
 <p><strong>Use Case: </strong>Validate Member</p>
 <p><strong>Context: </strong>A Member enters a ChocAn building and swipes their member card or enters member&nbsp;number on keypad</p>
 <p><strong>Actors: </strong>Member, ChocAn Data Center</p>
@@ -51,11 +46,8 @@
 <ol>
 <li>If a Member&rsquo;s card is swiped or member number is entered and does not come back as valid then they have not paid their membership fee and must do that, or their member number was invalid. A &ldquo;Member Suspended&rdquo; message means they have to pay their fees.</li>
 </ol>
-<p>&nbsp;</p>
-
-<hr>
-
-
+</div>
+<div class = "odd">
 <p><strong>Use Case: </strong>Create Patient/Provider Visit</p>
 <p><strong>Context: </strong>Billing ChocAn after a service was provided</p>
 <p><strong>Actors: </strong>Provider, ChocAn, Member</p>
@@ -82,11 +74,8 @@
 <li>If the card or member number provided comes back as Invalid then other action must be taken to continue</li>
 <li>If the service code provided isn&rsquo;t entered correctly then an error message appears or the wrong service name could appear on the screen</li>
 </ol>
-<p>&nbsp;</p>
-
-<hr>
-
-
+</div>
+<div class = "even">
 <p><strong>Use Case: </strong>Create EFT File</p>
 <p><strong>Context: </strong>file consisting of EFT data is written to disk for management by banking software</p>
 <p><strong>Actors: </strong>ChocAn Data Center</p>
@@ -95,11 +84,8 @@
 <li>The Data Center writes a file consisting of the provider name, the provider number, and the amount to be transferred</li>
 </ol>
 <p><strong>Extensions: </strong></p>
-<p>&nbsp;</p>
-
-<hr>
-
-
+</div>
+<div class = "odd">
 <p><strong>Use Case: </strong>Run Main Accounting Procedure</p>
 <p><strong>Context: </strong>Run every Friday to read week&rsquo;s file of services provided and print out a report</p>
 <p><strong>Actors: </strong>ChocAn Data Center</p>
@@ -108,11 +94,8 @@
 <li>Files are read and report is printed out</li>
 </ol>
 <p><strong>Extensions: </strong>Can also be run at any point by a ChocAn manager</p>
-<p>&nbsp;</p>
-
-<hr>
-
-
+</div>
+<div class = "even">
 <p><strong>Use Case: </strong>Get Member Report</p>
 <p><strong>Context: </strong>Each week the Members who have visited a provider receive a list of services that were provided to that Member in date order. The report includes Member&rsquo;s name, number, street address, city, state, ZIP code.</p>
 <p><strong>Actors: </strong>ChocAn Data Center, Manager</p>
@@ -122,11 +105,8 @@
 <li>Each Member who has used a service during the week is emailed with the report</li>
 </ol>
 <p><strong>Extensions: </strong>If a Member had not used their service that week then they do not receive an email</p>
-<p>&nbsp;</p>
-
-<hr>
-
-
+</div>
+<div class = "odd">
 <p><strong>Use Case: </strong>Get Provider Report</p>
 <p><strong>Context: </strong>Report shows all the services the Provider provided during the past week</p>
 <p><strong>Actors: </strong>ChocAn Data Center, Provider</p>
@@ -135,11 +115,8 @@
 <li>At the end of every week a report is created that contains a list of the services provided by each provider. This report includes the Provider&rsquo;s name, number, address, city, state, total consultations &amp; fees, and ZIP code. It also contains every service provided and their data, member name, member number, service code, and fee.</li>
 </ol>
 <p><strong>Extensions: </strong>If a provider didn&rsquo;t bill ChocAn that week then they do not receive a report.</p>
-<p>&nbsp;</p>
-
-<hr>
-
-
+</div>
+<div class = "even">
 <p><strong>Use Case: </strong>Get Manager Summary Report</p>
 <p><strong>Context: </strong>At the end of each week a report is given to ChocAn managers for account payable. </p>
 <p><strong>Actors: </strong>ChocAn Data Center</p>
@@ -148,9 +125,6 @@
 <li>At the end of the week the report is created and sent out to each manager. The reports include every provider that needs to be paid, the number of consultations they had, and their total fee for the week. It also includes a total number of providers, consultations, and fees across the entire report.</li>
 </ol>
 <p><strong>Extensions: </strong>If no provider has any consultations in a week then a manager will not receive a report.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
 </div>
 </body>
 </html>
