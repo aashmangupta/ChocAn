@@ -1,68 +1,158 @@
 <html>
 <head>
-  <link rel= "stylesheet" type = "text/css" href="css/style.css">
-<style>
-</style>
+  <style>
+  ul#header li {
+    display: inline;
+  }
+  div#glossary {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+  div#stats {
+    text-align: center;
+    border: 5px solid black;
+  }
+  div#image {
+    text-align: center;
+    border: 5px solid black;
+  }
+  div#header {
+    background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(
+      right,
+      rgba(255, 0, 0, 0),
+      rgba(255, 0, 0, 1)
+    ); /*Safari 5.1-6*/
+    background: -o-linear-gradient(
+      left,
+      rgba(255, 0, 0, 0),
+      rgba(255, 0, 0, 1)
+    ); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(
+      left,
+      rgba(255, 0, 0, 0),
+      rgba(255, 0, 0, 1)
+    ); /*Fx 3.6-15*/
+    background: linear-gradient(
+      to left,
+      rgba(255, 0, 0, 0),
+      rgba(255, 0, 0, 1)
+    ); /*Standard*/
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  input[type = "button"] {
+    background-color: #fd532f;
+    border: 2px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: comic, courier;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td,
+  th {
+    border: 3px solid black;
+    text-align: left;
+    padding: 6px 4px;
+  }
+  tr:nth-child(even) {
+    background-color: #fd9680;
+  }
+  body {
+    font-family: comic, courier;
+  }
+  h1 {
+    text-align: left;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 6px;
+    margin: 4px 2px;
+    color: black;
+  }
+  .title {
+    font-weight: bold;
+    color: #fd532f;
+  }
+  .odd {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: white;
+  }
+  .even {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: #fd9680;
+  }
+  hr {
+    color: black;
+    background-color: black;
+    height: 2px;
+  }
+  </style>
+</head>
+<div id = "header">
 <h1>Group 8 Project 1 - Report</h1>
+</div>
 <hr>
-  <div>
-    <ul id = "menu">
-      <li>Name: Alexander Ramsayer | </li>
-      <li>CWID: 11724240 | </li>
-      <li>Crimson: agramsayer@crimson.ua.edu | </li>
-      <li>Hours Spent: 8-9 | </li>
-      <li>Submitter: Spencer Fuhriman</li>
+  <div style = "text-align:right", "float: right" >
+    <ul id = "header">
+      <li>Name: [Name] | </li>      <!-- modify these 4 fields -->
+      <li>CWID: [CWID] | </li>
+      <li>Crimson: [mail] | </li>
+      <li>Hours Spent: [hours] | </li>
     </ul>
   </div>
 <hr>
-</head>
 <body>
 <div>
-<table id = "tasks">
+<h3>Task Chart</h3>
+<table class = "tasks">
   <tr>
-    <th>Team Member Name</th>
+    <th>Member Name</th>
     <th>Tasks Completed</th>
     <th>Percentage</th>
   </tr>
   <tr>
     <td>Aashman Gupta</td>
     <td> Glossary and some of the use cases </td>
-    <td> 20% </td>
+    <td style = "text-align: right"> 20% </td>
   </tr>
   <tr>
     <td>Alex Ramsayer</td>
-    <td> Project manager, some of the HTML, some of the VPP diagram </td>
-    <td> 20% </td>
+    <td> Project manager and some of the HTML</td>
+    <td style = "text-align: right"> 20% </td>
   </tr>
   <tr>
     <td>Ben Sanders</td>
-    <td> Use cases and some of the VPP diagram </td>
-    <td> 20% </td>
+    <td> Use cases and some of the VPP diagram</td>
+    <td style = "text-align: right"> 20% </td>
   </tr>
   <tr>
     <td>Derek Hastings</td>
-    <td> Use cases and some of the VPP diagram </td>
-    <td> 20% </td>
+    <td> Use cases and some of the VPP diagram</td>
+    <td style = "text-align: right"> 20% </td>
   </tr>
   <tr>
     <td>Spencer Fuhriman</td>
     <td> Most of the HTML and the CSS </td>
-    <td> 20% </td>
+    <td style = "text-align: right"> 20% </td>
   </tr>
   <tr>
-    <th>Total Hours Worked: </th>
-    <td style = "text-align: right"> 46 hours </td>
+    <th style = "width: 50%">Total Time Spent: </th>
+    <td colspan = "2" style = "text-align: right"> 46 hours </td>
   </tr>
 </table>
 </div>
-<div id = "VPP">
-</div>
-<div id = "glossary">
-</div>
-<div id = "case">
-</div>
-<div id = "statistics">
-</div>
-
 </body>
 </html>
