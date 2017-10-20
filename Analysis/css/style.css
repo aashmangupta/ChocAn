@@ -44,12 +44,12 @@ input[type = "button"] {
   background-color: #fd532f;
   border: 2px solid black;
   color: black;
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 2px 2px;
   cursor: pointer;
   font-family: comic, courier;
 }
