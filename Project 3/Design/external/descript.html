@@ -1,0 +1,272 @@
+<html>
+<head>
+  <link rel= "stylesheet" type = "text/css" href="../css/style.css">
+</head>
+<div id = "header">
+<h1>Use Case Descriptions</h1>
+</div>
+<hr>
+<body>
+  <div id = "menu">
+    <form>
+      <input type = "button" value = "Home" onclick="location.href='../report.html'"/>
+      <input type = "button" value = "Glossary" onclick="location.href='glossary.html'"/>
+      <input type = "button" value = "Use Case Diagram" onclick="location.href='usecase.html'" />
+      <input type = "button" value = "Use Case Descriptions" onclick = "location.href='descript.html'" />
+      <input type = "button" value = "Stereotype Class Diagram" onclick = "location.href='stereo.html'" />
+      <input type = "button" value = "Activity Diagrams" onclick = "location.href='activity.html'" />
+      <input type = "button" value = "Sequence Diagrams" onclick = "location.href='sequence.html'" />
+      <input type = "button" value = "Class Diagram" onclick = "location.href='class.html'" />
+    </form>
+  </div>
+<h3>List of Use Case Descriptions</h3>
+<div class = "odd">
+<p><strong>Use Case: </strong>Get Provider Directory</p>
+<p><strong>Context: </strong>Provider requests a copy of the Provider Directory, a list of service codes and fees</p>
+<p><strong>Actors: </strong>Provider, ChocAn Server</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>The Provider makes a request via our software to the ChocAn Server</li>
+<li>The Provider receives an email including the attached Provider Directory with a list of service names and their corresponding service code and fees</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+1a. The member hands their card to the Provider to be used
+</ol>
+</div>
+<div class = "even">
+<p><strong>Use Case: </strong>Validate Member</p>
+<p><strong>Context: </strong>A Member enters a ChocAn building and swipes their member card or enters member number on keypad
+</p>
+<p><strong>Actors: </strong>Member, ChocAn Data Center</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>Member&rsquo;s card is swiped or Member number is entered</li>
+<li>Card info is sent to the ChocAn Data Center</li>
+<ol>
+2.1 Membership status is checked using the members nine-digit member number&nbsp;sent to the ChocAn Data Center</li>
+</ol>
+<li>Member&rsquo;s membership is validated, the word Validated appears on the keypad, and they are allowed to proceed</li>
+<ol>
+  3.1 The member is then allowed to proceed.
+</ol>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+1a. If a Member&rsquo;s card is swiped or member number is entered and a Member Suspended message appears this means they must pay their fees. <br>
+1b. If a Member&rsquo;s card is swiped or member number is entered and does not come back as valid then they have not paid their membership fee and must do that, or their member number was invalid.
+</ol>
+</div>
+<div class = "odd">
+<p><strong>Use Case: </strong>Create Patient/Provider Visit</p>
+<p><strong>Context: </strong>Billing ChocAn after a service was provided</p>
+<p><strong>Actors: </strong>Provider, ChocAn, Member</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>After a service is provided the provider swipes member card</li>
+<li>if validate appears then they enter the date the service was provided in MM-DD-YYYY order</li>
+<li>The provider uses the Provider Directory to look up the six-digit service code that corresponds to the service provided</li>
+<li>Once the code is found the code is keyed in</li>
+<li>The system displays the name of the service provided for the provider to verify the appropriate code was used</li>
+<li>The software product then looks up the fee for the service provided and displays it on the provider&rsquo;s terminal</li>
+<li>For verification purposes the provider has a form to fill out for the date and time the service was provided, member name and number, service code, and fee to be paid</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+1a. If the card or member number provided comes back as Invalid then other action must be taken to continue<br>
+2a. Date of service is needed because hardware or other difficulties may have prevented the provider from billing ChocAn immediately after providing the service<br>
+3a. An incorrect service code being entered results in an Error message appearing on the screen.<br>
+</ol>
+</div>
+<div class = "even">
+<p><strong>Use Case: </strong>Create EFT File</p>
+<p><strong>Context: </strong>File consisting of EFT data is written to disk for management by banking software</p>
+<p><strong>Actors: </strong>ChocAn Data Center</p>
+<p><strong>Main Success Scenario:</strong></p>
+<ol>
+<li>The Data Center writes a file consisting of the provider name, the provider number, and the amount to be transferred</li>
+<li>Banking computers later ensure that each provider&rsquo;s bank account is accredited with the appropriate amount</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+1a. The File does not need to be sent as an email attachment
+</ol>
+</div>
+<div class = "odd">
+<p><strong>Use Case: </strong>Run Main Accounting Procedure</p>
+<p><strong>Context: </strong>Reads week&rsquo;s file of services provided and print out a report</p>
+<p><strong>Actors: </strong>ChocAn Data Center</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>Automatically runs on Friday at midnight</li>
+<li>The file of services for the week are then read and a number of reports are printed out</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+2a. Each file can be manually run at any point during the week by a ChocAn manager
+</ol>
+</div>
+<div class = "even">
+<p><strong>Use Case: </strong>Get Member Report</p>
+<p><strong>Context: </strong>Each week the Members who have visited a provider receives a report</p>
+<p><strong>Actors: </strong>ChocAn Data Center, Manager</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>Report is created at the ChocAn Data Center and sent to each member who has consulted a ChocAn provider to get services</li>
+<li>Each report consists of the member&rsquo;s name, number, street address, city, state, and ZIP code.</li>
+<ol>
+  2.1 For each service, the report contains the date of service, the provider name, and the service name<br>
+  2.2 The services are sorted in order of service date
+</ol>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+1a. If a member did not use their service that week no email is received
+</ol>
+</div>
+<div class = "odd">
+<p><strong>Use Case: </strong>Get Provider Report</p>
+<p><strong>Context: </strong>Report shows all the services the Provider provided during the past week</p>
+<p><strong>Actors: </strong>ChocAn Data Center, Provider</p>
+<p><strong>Main Success Scenario:</strong></p>
+<ol>
+<li>Report of services provided to ChocAn members is created at the ChocAn Data Center and sent to each provider who has billed ChocAn during the week.</li>
+<li>Each report consists of the provider&rsquo;s name, number, street address, city, state, and ZIP code.</li>
+<ol>
+  2.1 For each service, the report contains the date of service, date and time data, member name, member number, service code, and fee to be paid<br>
+  2.2 Sorted in the order that the data was received by the computer<br>
+</ol>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. If a provider didn&rsquo;t bill ChocAn that week then they do not receive a report.</p>
+</ol>
+</div>
+<div class = "even">
+<p><strong>Use Case: </strong>Get Manager Summary Report</p>
+<p><strong>Context: </strong>At the end of each week a report is given to ChocAn managers for account payable. </p>
+<p><strong>Actors: </strong>ChocAn Data Center</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+<li>A summary report is given to the manager for accounts payable</li>
+<ol>
+  1.1. Lists every provider to be paid that week, the number of consolations each had, and his/her total fee for the week
+</ol>
+<li>The total number of providers who provided services, the total number of consultations, and the overall fee total are printed.</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. If no provider has any consultations in a week then a manager will not receive a report.
+</ol>
+</div>
+<div class = "odd">
+<p><strong>Use Case: </strong>Management of Members</p>
+<p><strong>Context: </strong>Operators can manage member profiles.</p>
+<p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators.</p>
+<p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Member gets added by ChocAn operator.</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+1a. Member records can be updated by operators if needed<br>
+1b. Members who resign are deleted from the system by the operators.<br>
+1c. Member number may also need to be validated
+</ol>
+</div>
+<div class = "even">
+  <p><strong>Use Case: </strong>Management of Providers</p>
+  <p><strong>Context: </strong>Operators can manage provider profiles</p>
+  <p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators</p>
+  <p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Provider gets added by ChocAn operator</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+1a.	Provider records can be updated by operators if needed.<br>
+1b.	Providers who resign are deleted from the system by the operators.
+</ol>
+</div>
+<div class = "odd">
+  <p><strong>Use Case: </strong>Add Member</p>
+  <p><strong>Context: </strong>Operation to be done while managing members</p>
+  <p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators</p>
+  <p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Member name and information is added to the system</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. Member is not added if member already exists
+</ol>
+</div>
+<div class = "even">
+  <p><strong>Use Case: </strong>Edit Member</p>
+  <p><strong>Context: </strong>Operation to be done while managing members</p>
+  <p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators</p>
+  <p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Modify member information that is already in the system</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. Information cannot be modified if it is not in the system already
+</ol>
+</div>
+<div class = "odd">
+  <p><strong>Use Case: </strong>Delete Member</p>
+  <p><strong>Context: </strong>Operation to be done while managing members</p>
+  <p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators</p>
+  <p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Member name and information removed from system</li>
+  <li>Operator must confirm before deleting</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. Member name and information cannot be removed from system if it is not in the system already
+</ol>
+</div>
+<div class = "even">
+  <p><strong>Use Case: </strong>Add Provider</p>
+  <p><strong>Context: </strong>Operation to be done while managing providers</p>
+  <p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators</p>
+  <p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Provider name and information is added to the system</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. Member is not added if member already exists
+</ol>
+</div>
+<div class = "odd">
+  <p><strong>Use Case: </strong>Edit Provider</p>
+  <p><strong>Context: </strong>Operation to be done while managing members</p>
+  <p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators</p>
+  <p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Modify provider information that is already in the system</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. Information cannot be modified if it is not in the system already
+</ol>
+</div>
+<div class = "even">
+  <p><strong>Use Case: </strong>Delete Provider</p>
+  <p><strong>Context: </strong>Operation to be done while managing members</p>
+  <p><strong>Actors: </strong>ChocAn Data Center, ChocAn operators</p>
+  <p><strong>Main Success Scenario: </strong></p>
+<ol>
+  <li>Provider name and information removed from system</li>
+  <li>Operator must confirm before deleting</li>
+</ol>
+<p><strong>Extensions: </strong></p>
+<ol>
+  1a. Provider name and information cannot be removed from system if it is not in the system already
+</ol>
+</div>
+</body>
+</html>
