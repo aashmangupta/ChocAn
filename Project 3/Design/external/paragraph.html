@@ -1,0 +1,26 @@
+<html>
+<head>
+  <link rel= "stylesheet" type = "text/css" href="../css/style.css">
+</head>
+<div id = "header">
+<h1>Use Case Descriptions</h1>
+</div>
+<hr>
+<body>
+  <div id = "menu">
+    <form>
+      <input type = "button" value = "Home" onclick="location.href='../report.html'"/>
+      <input type = "button" value = "Glossary" onclick="location.href='glossary.html'"/>
+      <input type = "button" value = "Use Case Diagram" onclick="location.href='usecase.html'" />
+      <input type = "button" value = "Use Case Descriptions" onclick = "location.href='descript.html'" />
+      <input type = "button" value = "Stereotype Class Diagram" onclick = "location.href='stereo.html'" />
+      <input type = "button" value = "Activity Diagrams" onclick = "location.href='activity.html'" />
+      <input type = "button" value = "Sequence Diagrams" onclick = "location.href='sequence.html'" />
+      <input type = "button" value = "Class Diagram" onclick = "location.href='class.html'" />
+      <input type = "button" value = "Coupling/Cohesion Paragraph" onclick = "location.href='paragraph.html'" />
+    </form>
+  </div>
+<h3>Cohesion and Coupling Paragraph</h3>
+<li>Our design for the ChocAn system groups related objects and use cases to create maximum cohesion within groups and minimal coupling between groups. We have a master object ChocAnControl which holds core system data like the master list of members, providers, and services provided, and contains methods to link between and to our modules. The ChocAnControl object interfaces with control classes for each module that contain the more specific methods to edit stored data, input/create new data, and generate reports to be emailed. Many of our classes inherit from super classes. The user interface masks all the inner workings of the system and is specific to the type of user utilizing the system. The methods by which many tasks are performed and uniform and differ only in specifics, making code reuse possible. ChocAn naturally lends itself to this style of modularized system. </li>
+</body>
+</html>
