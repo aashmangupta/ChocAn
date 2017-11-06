@@ -1,0 +1,60 @@
+<html>
+<head>
+  <link rel= "stylesheet" type = "text/css" href="Design/css/style.css">    <!-- change path to ../css/style.css when moved to internal folders-->
+</head>
+<div id = "header">
+<h1>Group 8 Project 1 - Report</h1>
+</div>
+<html>
+<hr>
+  <div style = "text-align:right", "float: right" >
+    <ul id = "header">
+      <li>Name: Derek Hastings | </li>
+      <li>CWID: 11630355 | </li>
+      <li>Crimson: dthastings@crimson.ua.edu | </li>
+      <li>Hours Spent:  15 | </li>
+      <li>Submitter: Derek Hastings</li>
+    </ul>
+  </div>
+<hr>
+<body>
+<div>
+<h3>Task Chart</h3>
+<table class = "tasks">
+  <tr>
+    <th>Member Name</th>
+    <th>Tasks Completed</th>
+    <th>Percentage</th>
+  </tr>
+  <tr>
+    <td>Aashman Gupta</td>
+    <td>Sequence Diagrams</td>
+    <td style = "text-align: right"> 18% </td>
+  </tr>
+  <tr>
+    <td>Alex Ramsayer</td>
+    <td>Main Class Diagram, Paragraph, HTML</td>
+    <td style = "text-align: right"> 26% </td>
+  </tr>
+  <tr>
+    <td>Ben Sanders</td>
+    <td>Sequence Diagrams</td>
+    <td style = "text-align: right"> 18% </td>
+  </tr>
+  <tr>
+    <td>Derek Hastings</td>
+    <td>Sequence Diagrams</td>
+    <td style = "text-align: right"> 18% </td>
+  </tr>
+  <tr>
+    <td>Spencer Fuhriman</td>
+    <td>Sequence Diagrams, HTML</td>
+    <td style = "text-align: right"> 20% </td>
+  </tr>
+  <tr>
+    <th style = "width: 50%">Total Time Spent: </th>
+    <td colspan = "2" style = "text-align: right"> 30-40 hours </td>
+  </tr>
+</table>
+</body>
+</html>
