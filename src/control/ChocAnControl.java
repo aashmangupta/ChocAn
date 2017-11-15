@@ -3,6 +3,7 @@ package control;
 import java.util.ArrayList;
 
 import objects.Member;
+import objects.ProviderDirectory;
 
 public class ChocAnControl {
 	
@@ -11,8 +12,7 @@ public class ChocAnControl {
 	
 	
 	public ProviderDirectory getProviderDirectory(){
-		
-		
+		return new ProviderDirectory();
 	}
 
 }
