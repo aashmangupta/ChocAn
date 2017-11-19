@@ -1,3 +1,4 @@
+package objects;
 
 public class ProviderDirectory {
 	private Service service = new Service();
