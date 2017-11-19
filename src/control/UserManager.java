@@ -23,9 +23,10 @@ public class UserManager {
 		
 	public boolean addMember() {
 		boolean out = true;
+		long memID = 123456789;						//Access promt
 		Member memToAdd;
 		for(int i = 0; i < ChocAn.members.size(); i++) {
-			if(ChocAn.members.get(i).name.equals("member 1"))  {
+			if(ChocAn.members.get(i).id == memID)  {
 				out = false;
 			}
 		}
@@ -43,7 +44,22 @@ public class UserManager {
 		}
 	}
 	public boolean editMember() {
-		return true;
+		boolean out = false;
+		int memNum;
+		long memID = 123456789;								//Access prompt
+		for(int i = 0; i < ChocAn.members.size(); i++) {
+			if(ChocAn.members.get(i).id == memID)  {
+				out = true;
+				memNum = i;
+			}
+		}
+		if(out) {
+			
+			return false;
+		}
+		else {
+			return false;
+		}
 	}
 	public boolean deleteMember() {
 		return true;
