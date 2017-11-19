@@ -2,12 +2,12 @@ package objects;
 
 public class User {
 	
-	String name;
-	long id;
-	String address;
-	String city;
-	String zipCode;
-	String state;
+	public String name;
+	public long id;
+	public String address;
+	public String city;
+	public String zipCode;
+	public String state;
 	
 	public User(String name, long ID, String add, String city, String zip, String st) {
 		this.name = name;
