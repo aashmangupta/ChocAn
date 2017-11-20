@@ -9,16 +9,24 @@ public class Visit {
 	private Service service = new Service();
 	
 	public Visit(Date d, Member m, Provider p, Service s) {
-		Date = d;
+		dateOfService = d;
 		member = m;
 		provider = p;
 		service = s;
 	}
 	
+	/**
+	 * 
+	 * @return Date, this returns the date the visit is on.
+	 */
 	public Date getDate() {
 		return Date;
 	}
-
+	
+	/**
+	 * 
+	 * @param newDate, a new date for the visit to be set to.
+	 */
 	public void setDate(Date newDate) {
 		dateOfService = newDate;
 	}

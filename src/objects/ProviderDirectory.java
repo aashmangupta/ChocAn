@@ -3,14 +3,15 @@ package objects;
 public class ProviderDirectory {
 	private Service service = new Service();
 	
-	private List<Service> services = new ArrayList<>();
+	private List<Service> services = new ArrayList<Service>();
 	
 	public ProviderDirectory() {
 		
+		services = []
 	}
 	
 	/**
-	 * Description: .
+	 * 
 	 * 
 	 * @param
 	 * @return void
