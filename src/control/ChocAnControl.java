@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import objects.Member;
 import objects.ProviderDirectory;
+import interfaces.UserInterface;
 
 public class ChocAnControl {
 	

@@ -2,8 +2,8 @@ package objects;
 
 public class Provider extends User{
 	
-	int totalFees;
-	int totalVisits;	
+	public int totalFees;
+	public int totalVisits;	
 	
 	public Provider() {
 		super("John Doe", 123456789, "001 main street", "town", "000001", "state");

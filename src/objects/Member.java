@@ -2,7 +2,7 @@ package objects;
 
 public class Member extends User{
 	
-	boolean accountStatus;
+	public boolean accountStatus;
 	
 	public Member() {
 		super("John Doe", 123456789, "001 main street", "town", "000001", "state");
