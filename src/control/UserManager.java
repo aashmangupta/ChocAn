@@ -21,7 +21,16 @@ public class UserManager {
 	/**
 	 * 
 	 */
-	public void areYouSure() {
+	public boolean areYouSure() {
+		String check;
+		ChocAn.userInterface.prompt("Are you sure that you want to delete? (yes/no)");					//Access prompt
+		check = scan.nextLine();
+		if(check.equals("yes")) {
+			return true;
+		}
+		else {
+			return false;
+		}
 		//Prompt user to make sure they do want to delete a user
 	}
 		
@@ -52,7 +61,7 @@ public class UserManager {
 			ChocAn.userInterface.prompt("Enter account stauts: 1-active, 0-suspended");					//Access prompt
 			stat = scan.nextInt();
 			if(stat == 1) { memToAdd.accountStatus = true; }
-			else { memToAdd.accountStatus = false; }
+			if(stat == 0) { memToAdd.accountStatus = false; }
 			
 			ChocAn.members.add(memToAdd);
 			return true;
@@ -63,9 +72,68 @@ public class UserManager {
 	}
 	public boolean editMember() {
 		boolean out = false;
-		int memNum;
+		int memNum = 0;
 		long memID;
-		String query;
+		int test;
+		String query = "none";
+		ChocAn.userInterface.prompt("Enter member ID");					//Access prompt
+		memID = scan.nextLong();
+		for(int i = 0; i < ChocAn.members.size(); i++) {
+			if(ChocAn.members.get(i).id == memID)  {
+				out = true;
+				memNum = i;
+			}
+		}
+		while(query != "stop") {
+			if(out) {
+				ChocAn.userInterface.prompt("What do you want to edit? (ID, name, add, city, zip, st, status) (stop) to end edit");					//Access prompt
+				query = scan.nextLine();
+				if(query.equals("ID")) {
+					ChocAn.userInterface.prompt("Enter new member ID");					//Access prompt
+					ChocAn.members.get(memNum).id = scan.nextLong();
+					memID = ChocAn.members.get(memNum).id;
+				}
+				else if(query.equals("name")) {
+					ChocAn.userInterface.prompt("Enter new member name");					//Access prompt
+					ChocAn.members.get(memNum).name = scan.nextLine();
+				}
+				else if(query.equals("add")) {
+					ChocAn.userInterface.prompt("Enter new member address");					//Access prompt
+					ChocAn.members.get(memNum).address = scan.nextLine();
+				}
+				else if(query.equals("city")) {
+					ChocAn.userInterface.prompt("Enter new member city");					//Access prompt
+					ChocAn.members.get(memNum).city = scan.nextLine();
+				}
+				else if(query.equals("zip")) {
+					ChocAn.userInterface.prompt("Enter new member zipCode");					//Access prompt
+					ChocAn.members.get(memNum).zipCode = scan.nextLine();
+				}
+				else if(query.equals("st")) {
+					ChocAn.userInterface.prompt("Enter new member state");					//Access prompt
+					ChocAn.members.get(memNum).state = scan.nextLine();
+				}
+				else if(query.equals("status")) {
+					ChocAn.userInterface.prompt("Enter new member status (1 for active, 0 for suspended");					//Access prompt
+					test = scan.nextInt();
+					if(test == 0) { ChocAn.members.get(memNum).accountStatus = true; }
+					if(test == 1) { ChocAn.members.get(memNum).accountStatus = false; }
+					
+				}
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		return false;
+	}
+	public boolean deleteMember() {
+		boolean out = false;
+		int memNum = 0;
+		long memID;
+		int test;
+		String query = "none";
 		ChocAn.userInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
 		for(int i = 0; i < ChocAn.members.size(); i++) {
@@ -75,16 +143,18 @@ public class UserManager {
 			}
 		}
 		if(out) {
-			ChocAn.userInterface.prompt("Enter member ID");					//Access prompt
-			query = scan.nextLine();
-			return false;
+			if(areYouSure()) {
+				ChocAn.members.remove(memNum);
+				return true;
+			}
+			else {
+				ChocAn.userInterface.prompt("The member with ID" + memID + "was not deleted");
+				return false;
+			}
 		}
 		else {
 			return false;
 		}
-	}
-	public boolean deleteMember() {
-		return true;
 	}
 	
 	public boolean addProvider() {
