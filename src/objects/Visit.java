@@ -8,6 +8,9 @@ public class Visit {
 	private Provider provider = new Provider();
 	private Service service = new Service();
 	
+	public Visit() {
+	}
+	
 	public Visit(Date d, Member m, Provider p, Service s) {
 		dateOfService = d;
 		member = m;

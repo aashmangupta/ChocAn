@@ -14,6 +14,7 @@ public class Service {
 		fee = f;
 	}
 	
+	//delete this
 	private void setVar() {
 		name = name;
 		code = code;
@@ -21,12 +22,22 @@ public class Service {
 	}
 	
 	/**
-	 * This
+	 * This method returns the code of the service.
 	 * 
 	 * @param none.
 	 * @return code.
 	 */
 	public long getCode() {
 		return code;
+	}
+	
+	/**
+	 * This method returns the name of the service.
+	 * 
+	 * @param none.
+	 * @return name
+	 */
+	public String getName() {
+		return name;
 	}
 }

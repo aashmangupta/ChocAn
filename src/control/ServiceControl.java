@@ -1,16 +1,29 @@
 package control;
 
+import objects.Member;
+import objects.Provider;
+import objects.Visit;
+import objects.Service;
+import control.ChocAnControl;
+import interfaces.UserInterface;
 import java.util.Date;
+import java.util.Scanner;
 
 public class ServiceControl {
-	public long code;
-	public Date date;
-	public String comments;
+	private long code;
+	private Date date;
+	private String comments;
+	Scanner sc = new Scanner(System.in); 
+	Service service = new Service();
+	String commentString = "";
+	int i = 0;
+	
 	
 	public ServiceControl(long c, Date d, String com) {
 		code = c;
 		date = d;
 		comments = com;
+		ChocAnControl ChocAn = new ChocAnControl();
 	}
 	
 	/**
@@ -19,20 +32,27 @@ public class ServiceControl {
 	 * @param Member, Provider.
 	 * @return boolean.
 	 */
-	public boolean createVisit(Member m, Provider p){
+	public boolean createVisit(Member m, Provider p, Service s){
 		Visit newVisit = new Visit(date, m, p, s);
-		
+		return true;
 	}
 	
 	/**
-	 * This method displays the name of the visit on the screen for the provider and member.
+	 * This method displays the name of the visit (service) on the screen for the provider and member.
 	 * 
 	 * @param long.
 	 * @return void.
 	 * 
 	 */
 	public void displayName(long c) {
-		//print the name of the visit
+		for(i = 0; i < 5; ++i) {
+			if(service.getCode() == c) {
+				ChocAn.userInterface.prompt(service.getName());
+				return;
+			}
+		}
+		
+		ChocAn.userInterface.prompt("Error: Service not found.");
 	}
 	
 	/**
@@ -42,7 +62,10 @@ public class ServiceControl {
 	 * @return void.
 	 */
 	public void enterComments() {
-		
+		ChocAnControl.userInterface.prompt("Enter comments:");
+		commentString = sc.next();
+		commentString += sc.nextLine();
+		return;
 	}
 	
 	/**
@@ -52,6 +75,6 @@ public class ServiceControl {
 	 * @return void.
 	 */
 	public void displayError() {
-		userInterface.prompt("Error");
+		ChocAnControl.userInterface.prompt("Error");
 	}
 }
