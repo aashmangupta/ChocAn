@@ -3,6 +3,7 @@ package control;
 import java.util.ArrayList;
 
 import objects.Member;
+import objects.Provider;
 import objects.ProviderDirectory;
 import interfaces.UserInterface;
 

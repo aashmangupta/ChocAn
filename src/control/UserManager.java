@@ -158,7 +158,40 @@ public class UserManager {
 	}
 	
 	public boolean addProvider() {
-		return true;
+		boolean out = true;
+		long provID;
+		int stat;
+		ChocAn.userInterface.prompt("Enter provider ID");					//Access prompt
+		provID = scan.nextLong();
+		Provider provToAdd;
+		for(int i = 0; i < ChocAn.providers.size(); i++) {
+			if(ChocAn.providers.get(i).id == provID)  {
+				out = false;
+			}
+		}
+		if(out) {
+			provToAdd = new Provider();
+			ChocAn.userInterface.prompt("Enter provider name");					//Access prompt
+			provToAdd.name = scan.nextLine();
+			ChocAn.userInterface.prompt("Enter provider address");				//Access prompt
+			provToAdd.address = scan.nextLine();
+			ChocAn.userInterface.prompt("Enter provider city");				//Access prompt
+			provToAdd.city = scan.nextLine();
+			ChocAn.userInterface.prompt("Enter provider zip code");			//Access prompt
+			provToAdd.zipCode = scan.nextLine();
+			ChocAn.userInterface.prompt("Enter provider state");					//Access prompt
+			provToAdd.state = scan.nextLine();
+			//ChocAn.userInterface.prompt("Enter account stauts: 1-active, 0-suspended");					//Access prompt
+			//stat = scan.nextInt();
+			//if(stat == 1) { memToAdd.accountStatus = true; }
+			//if(stat == 0) { memToAdd.accountStatus = false; }
+			
+			ChocAn.providers.add(provToAdd);
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	public boolean editProvider() {
 		return true;
