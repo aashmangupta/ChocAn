@@ -9,7 +9,9 @@ import objects.Visit;
 import interfaces.UserInterface;
 
 public class ChocAnControl {
-	
+  
+    ArrayList<String> provider_data_pass = new ArrayList<String>();
+	ArrayList<String> provider_data_user = new ArrayList<String>();
 	ArrayList<Member> members = new ArrayList<Member>();
 	ArrayList<Provider> providers = new ArrayList<Provider>();
 	ArrayList<Visit> visits = new ArrayList<Visit>();
