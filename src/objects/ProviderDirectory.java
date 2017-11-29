@@ -28,6 +28,13 @@ public class ProviderDirectory {
 		
 	}
 	
+	/**
+	 * This method finds a specific service in the service directory using its
+	 * 	code then returns it.
+	 * 
+	 * @param code
+	 * @return Service
+	 */
 	int i = 0;
 	public Service getService(long code) {
 		for(i = 0; i < 5; ++i) {

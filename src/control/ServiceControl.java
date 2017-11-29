@@ -62,7 +62,7 @@ public class ServiceControl {
 	 * @return void.
 	 */
 	public void enterComments() {
-		ChocAnControl.userInterface.prompt("Enter comments:");
+		ChocAn.userInterface.prompt("Enter comments:");
 		commentString = sc.next();
 		commentString += sc.nextLine();
 		return;
@@ -75,6 +75,6 @@ public class ServiceControl {
 	 * @return void.
 	 */
 	public void displayError() {
-		ChocAnControl.userInterface.prompt("Error");
+		ChocAn.userInterface.prompt("Error");
 	}
 }
