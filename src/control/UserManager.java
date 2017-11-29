@@ -19,8 +19,10 @@ public class UserManager {
 	}
 	
 	/**
-	 * 
-	 */
+	   * This is the check function to make sure the user wants to delete a user.
+	   * 
+	   * @return boolean
+	   */
 	public boolean areYouSure() {
 		String check;
 		ChocAn.userInterface.prompt("Are you sure that you want to delete? (yes/no)");					//Access prompt
@@ -33,7 +35,12 @@ public class UserManager {
 		}
 		//Prompt user to make sure they do want to delete a user
 	}
-		
+	
+	/**
+	   * This is the function initiated by the user to add a new member to the system list.
+	   * @param
+	   * @return boolean 
+	   */
 	public boolean addMember() {
 		boolean out = true;
 		long memID;
@@ -70,6 +77,11 @@ public class UserManager {
 			return false;
 		}
 	}
+	/**
+	   * This is the function initiated by the user to edit an existing member in the system list.
+	   * @param
+	   * @return boolean 
+	   */
 	public boolean editMember() {
 		boolean out = false;
 		int memNum = 0;
@@ -128,6 +140,12 @@ public class UserManager {
 		}
 		return false;
 	}
+	
+	/**
+	   * This is the function initiated by the user to remove a member in the system list.
+	   * @param
+	   * @return boolean 
+	   */
 	public boolean deleteMember() {
 		boolean out = false;
 		int memNum = 0;
@@ -155,6 +173,11 @@ public class UserManager {
 		}
 	}
 	
+	/**
+	   * This is the function initiated by the user to add a new provider to the system list.
+	   * @param
+	   * @return boolean 
+	   */
 	public boolean addProvider() {
 		boolean out = true;
 		long provID;
@@ -192,6 +215,12 @@ public class UserManager {
 			return false;
 		}
 	}
+	
+	/**
+	   * This is the function initiated by the user to edit an existing provider in the system list.
+	   * @param
+	   * @return boolean 
+	   */
 	public boolean editProvider() {
 		boolean out = false;
 		int provNum = 0;
@@ -252,6 +281,12 @@ public class UserManager {
 		}
 		return false;
 	}
+	
+	/**
+	   * This is the function initiated by the user to remove a provider in the system list.
+	   * @param
+	   * @return boolean 
+	   */
 	public boolean deleteProvider() {
 		boolean out = false;
 		int provNum = 0;
