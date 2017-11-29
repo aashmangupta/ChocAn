@@ -10,9 +10,11 @@ import java.util.Scanner;
 
 public class UserManager {
 	
+	ChocAnControl ChocAn;
 	Scanner scan;
 	
 	public UserManager() {
+		ChocAn = new ChocAnControl();
 		scan = new Scanner(System.in);
 	}
 	
@@ -152,33 +154,16 @@ public class UserManager {
 		long memID;													//Scan variable to take in member ID to look for/edit
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
-<<<<<<< HEAD
-<<<<<<< .merge_file_a03708
 		for(int i = 0; i < ChocAn.members.size(); i++) {
 			if(ChocAn.members.get(i).id == memID)  {				//Find the input member ID to set index for later use
 				out = true;										
 				memNum = i;
 			}
 		}
+		
 		if(out) {													//If found then remove that indexed member from the arrayList
-			if(areYouSure()) {										//Ask if the user is sure
-				ChocAn.members.remove(memNum);	
-=======
-=======
->>>>>>> 3ad8dafa71ea16e5d1835dde3a2964e9ae0c2e8d
-		for(int i = 0; i < ChocAnControl.members.size(); i++) {
-			if(ChocAnControl.members.get(i).id == memID)  {
-				out = true;
-				memNum = i;
-			}
-		}
-		if(out) {
 			if(areYouSure()) {
 				ChocAnControl.members.remove(memNum);
-<<<<<<< HEAD
->>>>>>> .merge_file_a06228
-=======
->>>>>>> 3ad8dafa71ea16e5d1835dde3a2964e9ae0c2e8d
 				return true;
 			}
 			else {																			//otherwise report error
@@ -202,19 +187,10 @@ public class UserManager {
 		long provID;												//Scan variable to take in provider ID to look for/edit
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = scan.nextLong();
-		Provider provToAdd;
-<<<<<<< HEAD
-<<<<<<< .merge_file_a03708
-		for(int i = 0; i < ChocAn.providers.size(); i++) {			//Check to see if member by that ID already exists
-			if(ChocAn.providers.get(i).id == provID)  {
-				out = false;										
-=======
-=======
->>>>>>> 3ad8dafa71ea16e5d1835dde3a2964e9ae0c2e8d
-		for(int i = 0; i < ChocAnControl.providers.size(); i++) {
+		Provider provToAdd;									
+		for(int i = 0; i < ChocAnControl.providers.size(); i++) {		//Check to see if member by that ID already exists
 			if(ChocAnControl.providers.get(i).id == provID)  {
 				out = false;
->>>>>>> .merge_file_a06228
 			}
 		}
 		if(out) {													//If its not found then create it
