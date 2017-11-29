@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import objects.Member;
 import objects.Provider;
 import objects.ProviderDirectory;
+import objects.Visit;
 import interfaces.UserInterface;
 
 public class ChocAnControl {
@@ -23,7 +24,7 @@ public class ChocAnControl {
 	}
 	
 	public void runMainAccountingProcedure() {
-	    mainProcedure.produceMemberReports();
+	    mainProcedure.produceMemberReport();
 	    mainProcedure.produceManagerSummary();
 	    mainProcedure.produceProviderReports();
 	    mainProcedure.produceEFT();
@@ -34,10 +35,12 @@ public class ChocAnControl {
 	}
 	
 	public boolean generateReport(String type) {
-	    if(type == "member") mainProcedure.produceMemberReports();
+	    if(type == "member") mainProcedure.produceMemberReport();
 	    if(type == "manager") mainProcedure.produceManagerSummary();
 	    if(type == "provider") mainProcedure.produceProviderReports();
 	    if(type == "EFT") mainProcedure.produceEFT();
+	    
+	    return true;
 	}
 
 }

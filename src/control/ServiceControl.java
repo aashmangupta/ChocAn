@@ -19,11 +19,10 @@ public class ServiceControl {
 	int i = 0;
 	
 	
-	public ServiceControl(long c, Date d, String com) {
+	public ServiceControl(long c, Date d, String com, UserInterface userI) {
 		code = c;
 		date = d;
 		comments = com;
-		ChocAnControl ChocAn = new ChocAnControl();
 	}
 	
 	/**
@@ -47,12 +46,12 @@ public class ServiceControl {
 	public void displayName(long c) {
 		for(i = 0; i < 5; ++i) {
 			if(service.getCode() == c) {
-				ChocAn.userInterface.prompt(service.getName());
+				UserInterface.prompt(service.getName());
 				return;
 			}
 		}
 		
-		ChocAn.userInterface.prompt("Error: Service not found.");
+		UserInterface.prompt("Error: Service not found.");
 	}
 	
 	/**
@@ -62,7 +61,7 @@ public class ServiceControl {
 	 * @return void.
 	 */
 	public void enterComments() {
-		ChocAn.userInterface.prompt("Enter comments:");
+		UserInterface.prompt("Enter comments:");
 		commentString = sc.next();
 		commentString += sc.nextLine();
 		return;
@@ -75,6 +74,6 @@ public class ServiceControl {
 	 * @return void.
 	 */
 	public void displayError() {
-		ChocAn.userInterface.prompt("Error");
+		UserInterface.prompt("Error");
 	}
 }
