@@ -1,25 +1,34 @@
 package control;
 
 import java.util.ArrayList;
-
 import objects.Member;
 import objects.Provider;
 import objects.ProviderDirectory;
 import objects.Visit;
-import interfaces.UserInterface;
 
 public class ChocAnControl {
   
-    ArrayList<String> provider_data_pass = new ArrayList<String>();
-	ArrayList<String> provider_data_user = new ArrayList<String>();
-	ArrayList<Member> members = new ArrayList<Member>();
-	ArrayList<Provider> providers = new ArrayList<Provider>();
-	ArrayList<Visit> visits = new ArrayList<Visit>();
-	ProviderDirectory providerDirectory;
-	AccountingProcedure mainProcedure;	
-	ServiceControl serviceControl;
-	UserInterface userInterface;
-	boolean isFridayAtMidnight;
+    public static ArrayList<String> managerIds;
+    public static ArrayList<String> operatorIds;
+    public static ArrayList<Member> members;
+    public static ArrayList<Provider> providers;
+    public static ArrayList<Visit> visits;
+    public static ProviderDirectory providerDirectory;
+    public static AccountingProcedure mainProcedure;	
+    public static ServiceControl serviceControl;
+    public static boolean isFridayAtMidnight;
+    
+    ChocAnControl(){
+      managerIds = new ArrayList<String>();
+      operatorIds = new ArrayList<String>();
+      members = new ArrayList<Member>();
+      providers = new ArrayList<Provider>();
+      visits = new ArrayList<Visit>();
+      providerDirectory = new ProviderDirectory();
+      mainProcedure = new AccountingProcedure();
+      isFridayAtMidnight = false;
+    }
+    
 
 	public ProviderDirectory getProviderDirectory(){
 		return new ProviderDirectory();
@@ -44,5 +53,7 @@ public class ChocAnControl {
 	    
 	    return true;
 	}
+	
+	
 
 }
