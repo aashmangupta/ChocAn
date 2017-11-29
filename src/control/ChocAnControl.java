@@ -8,8 +8,8 @@ import objects.Visit;
 
 public class ChocAnControl {
   
-    public static ArrayList<String> managerIds;
-    public static ArrayList<String> operatorIds;
+    public static ArrayList<Long> managerIds;
+    public static ArrayList<Long> operatorIds;
     public static ArrayList<Member> members;
     public static ArrayList<Provider> providers;
     public static ArrayList<Visit> visits;
@@ -18,9 +18,9 @@ public class ChocAnControl {
     public static ServiceControl serviceControl;
     public static boolean isFridayAtMidnight;
     
-    ChocAnControl(){
-      managerIds = new ArrayList<String>();
-      operatorIds = new ArrayList<String>();
+    public ChocAnControl(){
+      managerIds = new ArrayList<Long>();
+      operatorIds = new ArrayList<Long>();
       members = new ArrayList<Member>();
       providers = new ArrayList<Provider>();
       visits = new ArrayList<Visit>();
