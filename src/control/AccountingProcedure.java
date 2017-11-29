@@ -1,4 +1,4 @@
-package reportProcedure;
+package control;
 
 public class AccountingProcedure {
 	void produceMemberReport() {
