@@ -10,11 +10,9 @@ import java.util.Scanner;
 
 public class UserManager {
 	
-	ChocAnControl ChocAn;
 	Scanner scan;
 	
 	public UserManager() {
-		ChocAn = new ChocAnControl();
 		scan = new Scanner(System.in);
 	}
 	
@@ -48,8 +46,8 @@ public class UserManager {
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
 		Member memToAdd;
-		for(int i = 0; i < ChocAn.members.size(); i++) {				//Search member list (arrayList in control) 
-			if(ChocAn.members.get(i).id == memID)  {					//To see if member already exists
+		for(int i = 0; i < ChocAnControl.members.size(); i++) {				//Search member list (arrayList in control) 
+			if(ChocAnControl.members.get(i).id == memID)  {					//To see if member already exists
 				out = false;
 			}
 		}
@@ -71,7 +69,7 @@ public class UserManager {
 			if(stat == 1) { memToAdd.accountStatus = true; }
 			if(stat == 0) { memToAdd.accountStatus = false; }
 			
-			ChocAn.members.add(memToAdd);						//Add member to the arrayList in control
+			ChocAnControl.members.add(memToAdd);						//Add member to the arrayList in control
 			return true;
 		}
 		else {
@@ -91,8 +89,8 @@ public class UserManager {
 		String query = "none";						//String check for editing while loop
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
-		for(int i = 0; i < ChocAn.members.size(); i++) {
-			if(ChocAn.members.get(i).id == memID)  {					//Check arrayList in control to find the referenced member
+		for(int i = 0; i < ChocAnControl.members.size(); i++) {
+			if(ChocAnControl.members.get(i).id == memID)  {					//Check arrayList in control to find the referenced member
 				out = true;
 				memNum = i;
 			}
@@ -104,34 +102,34 @@ public class UserManager {
 					query = scan.nextLine();
 					if(query.equals("ID")) {
 						UserInterface.prompt("Enter new member ID");					//Access prompt
-						ChocAn.members.get(memNum).id = scan.nextLong();
-						memID = ChocAn.members.get(memNum).id;
+						ChocAnControl.members.get(memNum).id = scan.nextLong();
+						memID = ChocAnControl.members.get(memNum).id;
 					}
 					else if(query.equals("name")) {
 						UserInterface.prompt("Enter new member name");					//Access prompt
-						ChocAn.members.get(memNum).name = scan.nextLine();
+						ChocAnControl.members.get(memNum).name = scan.nextLine();
 					}
 					else if(query.equals("add")) {
 						UserInterface.prompt("Enter new member address");					//Access prompt
-						ChocAn.members.get(memNum).address = scan.nextLine();
+						ChocAnControl.members.get(memNum).address = scan.nextLine();
 					}
 					else if(query.equals("city")) {
 						UserInterface.prompt("Enter new member city");					//Access prompt
-						ChocAn.members.get(memNum).city = scan.nextLine();
+						ChocAnControl.members.get(memNum).city = scan.nextLine();
 					}
 					else if(query.equals("zip")) {
 						UserInterface.prompt("Enter new member zipCode");					//Access prompt
-						ChocAn.members.get(memNum).zipCode = scan.nextLine();
+						ChocAnControl.members.get(memNum).zipCode = scan.nextLine();
 					}
 					else if(query.equals("st")) {
 						UserInterface.prompt("Enter new member state");					//Access prompt
-						ChocAn.members.get(memNum).state = scan.nextLine();
+						ChocAnControl.members.get(memNum).state = scan.nextLine();
 					}
 					else if(query.equals("status")) {
 						UserInterface.prompt("Enter new member status (1 for active, 0 for suspended");					//Access prompt
 						test = scan.nextInt();
-						if(test == 0) { ChocAn.members.get(memNum).accountStatus = true; }
-						if(test == 1) { ChocAn.members.get(memNum).accountStatus = false; }
+						if(test == 0) { ChocAnControl.members.get(memNum).accountStatus = true; }
+						if(test == 1) { ChocAnControl.members.get(memNum).accountStatus = false; }
 						
 					}
 				}
@@ -154,6 +152,7 @@ public class UserManager {
 		long memID;													//Scan variable to take in member ID to look for/edit
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
+<<<<<<< .merge_file_a03708
 		for(int i = 0; i < ChocAn.members.size(); i++) {
 			if(ChocAn.members.get(i).id == memID)  {				//Find the input member ID to set index for later use
 				out = true;										
@@ -163,6 +162,17 @@ public class UserManager {
 		if(out) {													//If found then remove that indexed member from the arrayList
 			if(areYouSure()) {										//Ask if the user is sure
 				ChocAn.members.remove(memNum);	
+=======
+		for(int i = 0; i < ChocAnControl.members.size(); i++) {
+			if(ChocAnControl.members.get(i).id == memID)  {
+				out = true;
+				memNum = i;
+			}
+		}
+		if(out) {
+			if(areYouSure()) {
+				ChocAnControl.members.remove(memNum);
+>>>>>>> .merge_file_a06228
 				return true;
 			}
 			else {																			//otherwise report error
@@ -187,9 +197,15 @@ public class UserManager {
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = scan.nextLong();
 		Provider provToAdd;
+<<<<<<< .merge_file_a03708
 		for(int i = 0; i < ChocAn.providers.size(); i++) {			//Check to see if member by that ID already exists
 			if(ChocAn.providers.get(i).id == provID)  {
 				out = false;										
+=======
+		for(int i = 0; i < ChocAnControl.providers.size(); i++) {
+			if(ChocAnControl.providers.get(i).id == provID)  {
+				out = false;
+>>>>>>> .merge_file_a06228
 			}
 		}
 		if(out) {													//If its not found then create it
@@ -210,7 +226,7 @@ public class UserManager {
 			UserInterface.prompt("Enter the total cost of fees");	//Access prompt
 			provToAdd.totalFees = scan.nextInt();
 			
-			ChocAn.providers.add(provToAdd);
+			ChocAnControl.providers.add(provToAdd);
 			return true;
 		}
 		else {
@@ -231,8 +247,8 @@ public class UserManager {
 		String query = "none";
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = scan.nextLong();
-		for(int i = 0; i < ChocAn.providers.size(); i++) {
-			if(ChocAn.providers.get(i).id == provID)  {
+		for(int i = 0; i < ChocAnControl.providers.size(); i++) {
+			if(ChocAnControl.providers.get(i).id == provID)  {
 				out = true;
 				provNum = i;
 			}
@@ -244,36 +260,36 @@ public class UserManager {
 				query = scan.nextLine();
 				if(query.equals("ID")) {
 					UserInterface.prompt("Enter new member ID");					//Access prompt
-					ChocAn.providers.get(provNum).id = scan.nextLong();
-					provID = ChocAn.providers.get(provNum).id;
+					ChocAnControl.providers.get(provNum).id = scan.nextLong();
+					provID = ChocAnControl.providers.get(provNum).id;
 				}
 				else if(query.equals("name")) {
 					UserInterface.prompt("Enter new member name");					//Access prompt
-					ChocAn.providers.get(provNum).name = scan.nextLine();
+					ChocAnControl.providers.get(provNum).name = scan.nextLine();
 				}
 				else if(query.equals("add")) {
 					UserInterface.prompt("Enter new provider address");					//Access prompt
-					ChocAn.providers.get(provNum).address = scan.nextLine();
+					ChocAnControl.providers.get(provNum).address = scan.nextLine();
 				}
 				else if(query.equals("city")) {
 					UserInterface.prompt("Enter new provider city");					//Access prompt
-					ChocAn.providers.get(provNum).city = scan.nextLine();
+					ChocAnControl.providers.get(provNum).city = scan.nextLine();
 				}
 				else if(query.equals("zip")) {
 					UserInterface.prompt("Enter new provider zipCode");					//Access prompt
-					ChocAn.providers.get(provNum).zipCode = scan.nextLine();
+					ChocAnControl.providers.get(provNum).zipCode = scan.nextLine();
 				}
 				else if(query.equals("st")) {
 					UserInterface.prompt("Enter new member state");					//Access prompt
-					ChocAn.providers.get(provNum).state = scan.nextLine();
+					ChocAnControl.providers.get(provNum).state = scan.nextLine();
 				}
 				else if(query.equals("visits")) {
 					UserInterface.prompt("Enter new number of visits");					//Access prompt
-					ChocAn.providers.get(provNum).totalVisits = scan.nextInt();					
+					ChocAnControl.providers.get(provNum).totalVisits = scan.nextInt();					
 				}
 				else if(query.equals("fees")) {
 					UserInterface.prompt("Enter new provider fee total");					//Access prompt
-					ChocAn.providers.get(provNum).totalFees = scan.nextInt();
+					ChocAnControl.providers.get(provNum).totalFees = scan.nextInt();
 				}
 				return true;
 			}
@@ -295,15 +311,15 @@ public class UserManager {
 		long provID;
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = scan.nextLong();
-		for(int i = 0; i < ChocAn.providers.size(); i++) {
-			if(ChocAn.providers.get(i).id == provID)  {
+		for(int i = 0; i < ChocAnControl.providers.size(); i++) {
+			if(ChocAnControl.providers.get(i).id == provID)  {
 				out = true;
 				provNum = i;
 			}
 		}
 		if(out) {
 			if(areYouSure()) {
-				ChocAn.providers.remove(provNum);
+				ChocAnControl.providers.remove(provNum);
 				return true;
 			}
 			else {

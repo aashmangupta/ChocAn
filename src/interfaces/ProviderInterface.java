@@ -1,70 +1,63 @@
 package interfaces;
 
-import java.util.Date
-import java.util.Scan;
+import java.util.Date;
+import java.util.Scanner;
 import objects.Provider;
+import objects.ProviderDirectory;
 import control.ChocAnControl;
 
-//scanner needs to be imported in the main
 
 public class ProviderInterface extends UserInterface {
-  boolean logged_in = false;
-  String Provider_user;
-  String Provider_pass;
+  long Provider_id;
+  long current_member;
 
-  public ProviderInterface(String provider, String password){
-    Provider_user = provider;
-    Provider_pass = password;
+  public ProviderInterface(long id){
+    Provider_id = id;
   }
 
   public boolean login(){
-      boolean success = 0;
-      for (int i = 0; i < provider_data_user.size; i++){       //provider_data_user has to be an array from the main program
-        if (provider_data_user[i].equals(Provider_user)){
-          for (int j = 0; i < provider_data_pass.size; i++){    //provider_data_pass has to be an array from the main program
-            if (provider_data_pass[j].equals(Provider_pass)){
-              success = 1;
-              break;
-            }
-          }
-          break;
+      boolean success = false;
+      for (int i = 0; i < providerId.size(); i++){       //provider_data_user has to be an array from the main program
+        if (provider.getId().equals(Provider_id)){		//tell my boy to implement getId functionality
+        	success = true;
         }
       }
-      if (success == 1){
-       this.prompt("Provider Login Successful");
-        logged_in = true;
+      if (success == true){
+       UserInterface.prompt("Provider Login Successful");
         return true;
       }
       else {
-        this.prompt("Incorrect Provider Login");
+        UserInterface.prompt("Incorrect Provider Login");
         return false;
       }
   }
   public boolean swipeMemberCard(long member_number){
-    boolean success = 0;
+    boolean success = false;
     for (int i = 0; i < member_numbers; i++){     //member_numbers has to be an array from the main program
       if (member_numbers[i].equals(member_number)){
-        success = 1;
+        success = true;
         break;
       }
     }
-    if (success == 1){
-      this.prompt("Member number is verified");
+    if (success == true){
+      UserInterface.prompt("Member number is verified");
+      current_member = member_number;
 	     return true;
     }
     else {
-      this.prompt("Member number does not exist");
+      UserInterface.prompt("Member number does not exist");
       return false;
     }
   }
   public void getProviderDirectory(){
-    this.prompt("Enter 6 digit service code");
-    int code = "";
-    ////scanner
-    ProviderDirectory.getService(code);
+    UserInterface.prompt("Enter 6 digit service code");
+    Scanner service = new Scanner(System.in);
+    long code = service.nextInt();
+    ProviderDirectory provider = new ProviderDirectory();
+    provider.getService(code);
   }
   public void getServiceControl(){
-    ChocAnControl.runServiceControl();
+	ChocAnControl control.runServiceControl();
   }
 /*                May not be needed if ChocAnControl gathers the information itself
   public boolean enterCode(long code){
