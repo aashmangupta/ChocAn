@@ -1,5 +1,7 @@
 package interfaces;
 
+import objects.UserManager;
+
 public class OperatorInterface extends UserInterface {
 boolean logged_in = false;
 String Operator_user;
