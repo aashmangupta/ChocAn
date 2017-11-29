@@ -17,7 +17,7 @@ public class MemberReport {
 	}
 	
 	void generateFile() {
-		int i;
+		int i = 0, flag = 0;
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
 			fileWriter.write(currMember.name + '\n');
@@ -27,16 +27,22 @@ public class MemberReport {
 			fileWriter.write(currMember.state + '\n');
 			fileWriter.write(currMember.zipCode + '\n');
 			
-			for(i = 0; i < visitArray.size(); i++) {
-				if(currMember.name == visitArray.get(i).member.name) {
+			while(i <= visitArray.size()) {
+				for(i = flag; i < visitArray.size(); i++) {
+					if(currMember.name == visitArray.get(i).member.name) {
+						break;
+					}
+				}
+				if((i == visitArray.size()) && (currMember.name != visitArray.get(i).member.name)) {
 					break;
 				}
+				dateVisit = visitArray.get(i).dateOfService.toString();
+				fileWriter.write(dateVisit + '\n');
+				fileWriter.write(visitArray.get(i).provider.name + '\n');
+				fileWriter.write(visitArray.get(i).service.getName() + '\n');			
+				fileWriter.write('\n');
+				flag = i;
 			}
-
-			dateVisit = visitArray.get(i).dateOfService.toString();
-			fileWriter.write(dateVisit);
-			fileWriter.write(visitArray.get(i).provider.name);
-			fileWriter.write(visitArray.get(i).service.getName());			
 			fileWriter.close();
 		}
 		catch(IOException e) {
