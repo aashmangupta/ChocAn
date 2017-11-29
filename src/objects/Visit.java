@@ -3,10 +3,10 @@ package objects;
 import java.util.Date;
 
 public class Visit {
-	private Date dateOfService;
-	private Member member = new Member();
-	private Provider provider = new Provider();
-	private Service service = new Service();
+	public Date dateOfService;
+	public Member member = new Member();
+	public Provider provider = new Provider();
+	public Service service = new Service();
 	
 	public Visit() {
 	}

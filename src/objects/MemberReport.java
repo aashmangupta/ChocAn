@@ -1,25 +1,53 @@
 package objects;
-import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.InputStreamReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.io.IOException;
 
 public class MemberReport {
 	File currFile;
-	String memName;
+	Member currMember;
+	ArrayList<Visit> visitArray;
+	String dateVisit;
 	
 	MemberReport(Member member, ArrayList<Visit> visits) {
-		memName = member.name;
-		currFile = new File(memName + ".txt");
-		
+		currMember = member;
+		currFile = new File(currMember.name + ".txt");
+		visitArray = visits;
 	}
 	
-	void email() {
-		
+	void generateFile() {
+		int i;
+		try {
+			FileWriter fileWriter = new FileWriter(currFile);
+			fileWriter.write(currMember.name + '\n');
+			fileWriter.write((int) currMember.id + '\n');
+			fileWriter.write(currMember.address  + '\n');
+			fileWriter.write(currMember.city + '\n');
+			fileWriter.write(currMember.state + '\n');
+			fileWriter.write(currMember.zipCode + '\n');
+			
+			for(i = 0; i < visitArray.size(); i++) {
+				if(currMember.name == visitArray.get(i).member.name) {
+					break;
+				}
+			}
+
+			dateVisit = visitArray.get(i).dateOfService.toString();
+			fileWriter.write(dateVisit);
+			fileWriter.write(visitArray.get(i).provider.name);
+			fileWriter.write(visitArray.get(i).service.getName());			
+			fileWriter.close();
+		}
+		catch(IOException e) {
+			System.out.println("Error");
+		}
 	}
 
-	void generateFile() {
+	void email() {
 		
 	}
 }
