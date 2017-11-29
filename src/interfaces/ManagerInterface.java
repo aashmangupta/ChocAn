@@ -1,3 +1,5 @@
+package interfaces;
+
 public class ManagerInterface extends UserInterface {
   boolean logged_in = false;
   boolean reportGenerated = false; //default is false

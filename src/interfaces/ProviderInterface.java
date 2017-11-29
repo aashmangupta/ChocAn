@@ -1,4 +1,10 @@
+package interfaces;
+
 import java.util.Date;
+import java.util.Scan;
+import objects.Provider;
+import control.ChocAnControl;
+
 //scanner needs to be imported in the main
 
 public class ProviderInterface extends UserInterface {
@@ -52,21 +58,24 @@ public class ProviderInterface extends UserInterface {
     }
   }
   public void getProviderDirectory(){
-    //provider directory accessed
+    this.prompt("Enter 6 digit service code");
+    int code = "";
+    ////scanner
+    ProviderDirectory.getService(code);
   }
+  public void getServiceControl(){
+    ChocAnControl.runServiceControl();
+  }
+/*                May not be needed if ChocAnControl gathers the information itself
   public boolean enterCode(long code){
     //checks whether code was entered correctly
     //returns true if so
 	  return false;
   }
-  public boolean checkDatabase (long id){
-    //checks database if id exists
-    //returns true if so
-	  return false;
-  }
-  public boolean checkDate (Date date){
+  public boolean enterDate (Date date){
     //checks database if date exists
     //returns true if so
 	  return false;
   }
+  */
 }
