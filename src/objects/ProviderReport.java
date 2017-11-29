@@ -1,17 +1,19 @@
 package objects;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.io.IOException;
 
 public class ProviderReport {
 	File currFile;
-	String provName;
+	Provider currProvider;
+	ArrayList<Visit> visitArray;
+	String dateVisit;
 	
 	ProviderReport(Provider provider, ArrayList<Visit> visits) {
-		provName = provider.name;
-		currFile = new File(provName + ".txt");
+		currProvider = provider;
+		currFile = new File(currProvider.name + currProvider.id + ".txt");
+		visitArray = visits;
 	}
 	
 	void email() {

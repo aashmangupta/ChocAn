@@ -1,9 +1,6 @@
 package objects;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.io.IOException;
 
@@ -15,7 +12,7 @@ public class MemberReport {
 	
 	MemberReport(Member member, ArrayList<Visit> visits) {
 		currMember = member;
-		currFile = new File(currMember.name + ".txt");
+		currFile = new File(currMember.name + currMember.id + ".txt");
 		visitArray = visits;
 	}
 	
