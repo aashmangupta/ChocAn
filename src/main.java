@@ -6,6 +6,7 @@ import interfaces.OperatorInterface;
 import interfaces.ProviderInterface;
 import interfaces.UserInterface;
 
+<<<<<<< Updated upstream
 public class main {
 
   public static void main(String[] args) {
@@ -70,3 +71,5 @@ public class main {
   }
 
 }
+=======
+>>>>>>> Stashed changes
