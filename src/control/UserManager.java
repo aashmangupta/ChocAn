@@ -42,9 +42,9 @@ public class UserManager {
 	   * @return boolean 
 	   */
 	public boolean addMember() {
-		boolean out = true;
-		long memID;
-		int stat;
+		boolean out = true;											//Check variable to make sure the member exists and is created
+		long memID;													//Scan variable to take in member ID to make sure it doesnt exist
+		int stat;													//Scan int variable to use as glorified scan boolean
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
 		Member memToAdd;
@@ -55,6 +55,7 @@ public class UserManager {
 		}
 		if(out) {
 			memToAdd = new Member();
+			memToAdd.id = memID;
 			UserInterface.prompt("Enter member name");							//Access prompt
 			memToAdd.name = scan.nextLine();
 			UserInterface.prompt("Enter member address");						//Access prompt
@@ -83,11 +84,11 @@ public class UserManager {
 	   * @return boolean 
 	   */
 	public boolean editMember() {
-		boolean out = false;
-		int memNum = 0;
-		long memID;
-		int test;
-		String query = "none";
+		boolean out = false;						//Check variable to make sure the member exists and is edited
+		int memNum = 0;								//Starting the member in the array index
+		long memID;									//Scan variable to take in member ID to look for/edit
+		int test;									//Glorified boolean to use with scan
+		String query = "none";						//String check for editing while loop
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
 		for(int i = 0; i < ChocAn.members.size(); i++) {
@@ -148,28 +149,29 @@ public class UserManager {
 	   * @return boolean 
 	   */
 	public boolean deleteMember() {
-		boolean out = false;
-		int memNum = 0;
-		long memID;
+		boolean out = false;										//Boolean to see if member exists and if deleted
+		int memNum = 0;												//Int variable to represent the index in the member arrayList
+		long memID;													//Scan variable to take in member ID to look for/edit
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
 		for(int i = 0; i < ChocAn.members.size(); i++) {
-			if(ChocAn.members.get(i).id == memID)  {
-				out = true;
+			if(ChocAn.members.get(i).id == memID)  {				//Find the input member ID to set index for later use
+				out = true;										
 				memNum = i;
 			}
 		}
-		if(out) {
-			if(areYouSure()) {
-				ChocAn.members.remove(memNum);
+		if(out) {													//If found then remove that indexed member from the arrayList
+			if(areYouSure()) {										//Ask if the user is sure
+				ChocAn.members.remove(memNum);	
 				return true;
 			}
-			else {
+			else {																			//otherwise report error
 				UserInterface.prompt("The member with ID" + memID + "was not deleted");
 				return false;
 			}
 		}
-		else {
+		else {																				//otherwise report error
+			UserInterface.prompt("The member with ID" + memID + "does not exist");
 			return false;
 		}
 	}
@@ -180,25 +182,26 @@ public class UserManager {
 	   * @return boolean 
 	   */
 	public boolean addProvider() {
-		boolean out = true;
-		long provID;
+		boolean out = true;											//Check variable to make sure the provider exists and is created
+		long provID;												//Scan variable to take in provider ID to look for/edit
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = scan.nextLong();
 		Provider provToAdd;
-		for(int i = 0; i < ChocAn.providers.size(); i++) {
+		for(int i = 0; i < ChocAn.providers.size(); i++) {			//Check to see if member by that ID already exists
 			if(ChocAn.providers.get(i).id == provID)  {
-				out = false;
+				out = false;										
 			}
 		}
-		if(out) {
-			provToAdd = new Provider();
-			UserInterface.prompt("Enter provider name");				//Access prompt
+		if(out) {													//If its not found then create it
+			provToAdd = new Provider();	
+			provToAdd.id = provID;
+			UserInterface.prompt("Enter provider name");			//Access prompt
 			provToAdd.name = scan.nextLine();
 			UserInterface.prompt("Enter provider address");			//Access prompt
 			provToAdd.address = scan.nextLine();
-			UserInterface.prompt("Enter provider city");				//Access prompt
+			UserInterface.prompt("Enter provider city");			//Access prompt
 			provToAdd.city = scan.nextLine();
-			UserInterface.prompt("Enter provider zip code");			//Access prompt
+			UserInterface.prompt("Enter provider zip code");		//Access prompt
 			provToAdd.zipCode = scan.nextLine();
 			UserInterface.prompt("Enter provider state");			//Access prompt
 			provToAdd.state = scan.nextLine();
@@ -206,8 +209,6 @@ public class UserManager {
 			provToAdd.totalVisits = scan.nextInt();
 			UserInterface.prompt("Enter the total cost of fees");	//Access prompt
 			provToAdd.totalFees = scan.nextInt();
-			//if(stat == 1) { memToAdd.accountStatus = true; }
-			//if(stat == 0) { memToAdd.accountStatus = false; }
 			
 			ChocAn.providers.add(provToAdd);
 			return true;
