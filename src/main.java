@@ -13,10 +13,11 @@ public class main {
     Scanner scan = new Scanner(System.in);
     String input;
     Long id;
-    boolean match;
+    boolean match, loggedIn;
     
     ChocAnControl control = new ChocAnControl();
     
+    while(!loggedIn) {
     UserInterface.prompt("Welcome to ChocAn!");
     UserInterface.prompt("Provider, Manager, or Operator?");
     input = scan.nextLine();
@@ -32,10 +33,16 @@ public class main {
       if(input == "o") {
         OperatorInterface mi = new OperatorInterface();
       }    
+      loggedIn = true;
     }
     else {
       UserInterface.prompt("Invalid ID");
+      loggedIn = false;
     }
+   }
+    
+    
+    
     
 
   }
