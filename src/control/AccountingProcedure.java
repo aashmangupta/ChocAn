@@ -1,24 +1,24 @@
 package control;
 
 public class AccountingProcedure {
-	void produceMemberReport() {
-		
-	}
-	
-	void produceManagerSummary() {
-		
-	}
+    boolean produceMemberReport() {
+        return false;
+    }
+    
+    boolean produceManagerSummary() {
+        return false;
+    }
 
-	void produceProviderReports() {
-		
-	}
+    boolean produceProviderReports() {
+        return false;
+    }
 
-	void produceEFT() {
-		
-	}
+    boolean produceEFT() {
+        return false;
+    }
 
-	boolean checkVisits() {
-		
-		return true;
-	}
+    boolean checkVisits() {
+        
+        return true;
+    }
 }
