@@ -13,9 +13,9 @@ public class UserManager {
 	ChocAnControl ChocAn;
 	Scanner scan;
 	
-	public UserManager() {
-		ChocAn = new ChocAnControl();
-		scan = new Scanner(System.in);
+	public UserManager() {						//Constructor 
+		ChocAn = new ChocAnControl();			//creating local chocAnControl to access arrayLists
+		scan = new Scanner(System.in);			//Creates scanner to use in conjunction with prompt
 	}
 	
 	/**
@@ -23,11 +23,11 @@ public class UserManager {
 	   * 
 	   * @return boolean
 	   */
-	public boolean areYouSure() {
-		String check;
-		UserInterface.prompt("Are you sure that you want to delete? (yes/no)");					//Access prompt
-		check = scan.nextLine();
-		if(check.equals("yes")) {
+	public boolean areYouSure() {		
+		String check;																	//Return boolean to see if user is sure
+		UserInterface.prompt("Are you sure that you want to delete? (yes/no)");			//Access prompt
+		check = scan.nextLine();				
+		if(check.equals("yes")) {						
 			return true;
 		}												//Check to make sure 
 		else {
