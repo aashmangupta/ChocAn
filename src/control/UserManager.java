@@ -20,7 +20,7 @@ public class UserManager {
 	
 	/**
 	   * This is the check function to make sure the user wants to delete a user.
-	   * 
+	   * @param 
 	   * @return boolean
 	   */
 	public boolean areYouSure() {		
