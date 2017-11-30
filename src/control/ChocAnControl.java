@@ -53,6 +53,12 @@ public class ChocAnControl {
 	    
 	    return true;
 	}
+
+
+  public static void runServiceControl() {
+    // TODO Auto-generated method stub
+    
+  }
 	
 	
 

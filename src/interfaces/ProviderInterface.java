@@ -17,8 +17,8 @@ public class ProviderInterface extends UserInterface {
 
   public boolean login(){
       boolean success = false;
-      for (int i = 0; i < providerId.size(); i++){       //provider_data_user has to be an array from the main program
-        if (provider.getId().equals(Provider_id)){		//tell my boy to implement getId functionality
+      for (int i = 0; i < ChocAnControl.providers.size(); i++){       //provider_data_user has to be an array from the main program
+        if (ChocAnControl.providers.get(i).id == (Provider_id)){		//tell my boy to implement getId functionality
         	success = true;
         }
       }
@@ -33,8 +33,8 @@ public class ProviderInterface extends UserInterface {
   }
   public boolean swipeMemberCard(long member_number){
     boolean success = false;
-    for (int i = 0; i < member_numbers; i++){     //member_numbers has to be an array from the main program
-      if (member_numbers[i].equals(member_number)){
+    for (int i = 0; i < ChocAnControl.members.size(); i++){     //member_numbers has to be an array from the main program
+      if (ChocAnControl.members.get(i).id == (member_number)){
         success = true;
         break;
       }
@@ -57,7 +57,7 @@ public class ProviderInterface extends UserInterface {
     provider.getService(code);
   }
   public void getServiceControl(){
-	ChocAnControl control.runServiceControl();
+	ChocAnControl.runServiceControl();
   }
 /*                May not be needed if ChocAnControl gathers the information itself
   public boolean enterCode(long code){

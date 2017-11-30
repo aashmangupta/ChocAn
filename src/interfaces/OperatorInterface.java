@@ -1,19 +1,20 @@
 package interfaces;
 
 import control.UserManager;
+import control.ChocAnControl;
 
 public class OperatorInterface extends UserInterface {
 boolean logged_in = false;
-String Operator_id;
+Long Operator_id;
 
-  public OperatorInterface(String id){
+  public OperatorInterface(Long id){
     Operator_id = id;
   }
 
   public boolean login(){
     boolean success = true;
-    for (int i = 0; i < operatorIds.size; i++){       //provider_data_user has to be an array from the main program
-      if (operatorIds[i].equals(Operator_id)) {
+    for (int i = 0; i < ChocAnControl.operatorIds.size(); i++){       //provider_data_user has to be an array from the main program
+      if (ChocAnControl.operatorIds.get(i) == (Operator_id)) {
     	  success = true;
     	  break;
       }

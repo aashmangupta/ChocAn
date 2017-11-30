@@ -13,13 +13,10 @@ public class ManagerInterface extends UserInterface {
 
   public boolean login(){
     boolean success = false;
-<<<<<<< HEAD
-    for (int i = 0; i < managerIds.size(); i++){       //manager_data_user has to be an array from the main program
-      if (managerIds[i].equals(Manager_id)){
-=======
     for (int i = 0; i < ChocAnControl.managerIds.size(); i++){       //manager_data_user has to be an array from the main program
       if (ChocAnControl.managerIds.get(i).equals(Manager_id)){
->>>>>>> 3ad8dafa71ea16e5d1835dde3a2964e9ae0c2e8d
+    for (int j = 0; i < ChocAnControl.managerIds.size(); i++){       //manager_data_user has to be an array from the main program
+      if (ChocAnControl.managerIds.get(i).equals(Manager_id)){
     	  success = true;
     	  break;
           }
@@ -32,7 +29,7 @@ public class ManagerInterface extends UserInterface {
       UserInterface.prompt("Incorrect manager Login");
       return false;
     }
-  }
+      }
   public boolean produceMemberReport(){
     //produces report for members
     //separate text file output
