@@ -22,7 +22,7 @@ public class Service {
 	 * @return code.
 	 */
 	public long getCode() {
-		return code;
+		return code;				//returns code of service
 	}
 	
 	/**
@@ -32,7 +32,7 @@ public class Service {
 	 * @return name
 	 */
 	public String getName() {
-		return name;
+		return name;				//returns name of service
 	}
 	
 	/**
@@ -41,6 +41,6 @@ public class Service {
 	 * @return fee
 	 */
 	public int getFee() {
-		return fee;
+		return fee;				//returns fee of service
 	}
 }

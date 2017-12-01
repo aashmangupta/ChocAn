@@ -9,9 +9,10 @@ public class Visit {
 	public Service service = new Service();
 	
 	public Visit() {
+		
 	}
 	
-	public Visit(Date d, Member m, Provider p, Service s) {
+	public Visit(Member m, Provider p, Service s, Date d) {
 		dateOfService = d;
 		member = m;
 		provider = p;
@@ -25,7 +26,7 @@ public class Visit {
 	 * @return Date, this returns the date the visit is on.
 	 */
 	public Date getDate() {
-		return dateOfService;
+		return dateOfService;			//returns date of service
 	}
 	
 	/**
@@ -35,7 +36,7 @@ public class Visit {
 	 * @return void.
 	 */
 	public void setDate(Date newDate) {
-		dateOfService = newDate;
+		dateOfService = newDate;			//sets new date
 	}
 	
 }

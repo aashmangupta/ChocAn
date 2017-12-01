@@ -2,9 +2,9 @@ package control;
 
 import objects.Member;
 import objects.Provider;
+import control.ChocAnControl;
 import objects.Visit;
 import objects.Service;
-import control.ChocAnControl;
 import interfaces.UserInterface;
 import java.util.Date;
 import java.util.Scanner;
@@ -12,17 +12,18 @@ import java.util.Scanner;
 public class ServiceControl {
 	private long code;
 	private Date date;
-	private String comments;
-	Scanner sc = new Scanner(System.in); 
-	Service service = new Service();
-	String commentString = "";
+	private Scanner sc = new Scanner(System.in); 
+	private Service service = new Service();
+	private String commentString = "";
+	private Member mem = new Member();
+	private Provider pro = new Provider();
 	int i = 0;
 	
 	
 	public ServiceControl(long c, Date d, String com, UserInterface userI) {
 		code = c;
 		date = d;
-		comments = com;
+		commentString = com;
 	}
 	
 	/**
@@ -31,8 +32,22 @@ public class ServiceControl {
 	 * @param Member, Provider.
 	 * @return boolean.
 	 */
-	public boolean createVisit(Member m, Provider p, Service s){
-		Visit newVisit = new Visit(date, m, p, s);
+	public boolean createVisit(long m, long p, Service s){
+		//loop to find member
+		for(i = 0; i < ChocAnControl.members.size(); ++i) {
+			if(ChocAnControl.members.get(i).id == m) {
+				mem = ChocAnControl.members.get(i);
+			}
+		}
+		//loop to find provider
+		for(i = 0; i < ChocAnControl.providers.size(); ++i) {
+			if(ChocAnControl.providers.get(i).id == m) {
+				pro = ChocAnControl.providers.get(i);
+			}
+		}
+		date = new Date();	//gets current time and date
+		Visit newVisit = new Visit(mem, pro, s, date);	//creates visit
+		ChocAnControl.visits.add(newVisit);	//stores visit in ArrayList
 		return true;
 	}
 	
