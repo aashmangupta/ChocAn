@@ -73,4 +73,9 @@ public class ProviderInterface extends UserInterface {
 	  return false;
   }
   */
+
+public static String providerMenu() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

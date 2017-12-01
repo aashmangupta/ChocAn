@@ -54,4 +54,9 @@ Long Operator_id;
 	UserManager usermanager = new UserManager();
     usermanager.deleteProvider();
   }
+
+public static String operatorMenu() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

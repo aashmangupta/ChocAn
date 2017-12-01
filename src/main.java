@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 import control.ChocAnControl;
 import interfaces.ManagerInterface;
@@ -8,93 +7,94 @@ import interfaces.UserInterface;
 
 public class main {
 
-  public static void main(String[] args) {
-    
-    Scanner scan = new Scanner(System.in);
-    String input;
-    long id;
-    boolean match;
-    boolean loggedIn = false;
-    boolean programActive = true;
-    ProviderInterface pi;
-    ManagerInterface mi;
-    
-    ChocAnControl control = new ChocAnControl();
-    
-    while(!loggedIn) {
-    UserInterface.prompt("Welcome to ChocAn!");
-    UserInterface.prompt("Provider, Manager, or Operator?");
-    input = scan.nextLine();
-    UserInterface.prompt("Enter ID:");
-    id = scan.nextLong();
-    if(checkUser(id, input)) {
-      if(input.equals("p")) {
-        pi = new ProviderInterface(id);
-        while(programActive)
-        pi.prompt("Create Visit, Get Directory, Swipe Member Card");
-        input = scan.nextLine();
-        if(input.equals("create")) {
-          if(pi.current_member == 0) pi.prompt("Swipe a Member first!");
-          //else ChocAnControl.serviceControl.createVisit(pi.current_member, pi.provider_id, pi.getService());
-        }
-        if(input.equals("get")) {
-          
-        }
-        if(input.equals("swipe")) {
-          
-        }
-      }
-      if(input.equals("m")) {
-        mi = new ManagerInterface(id);
-        while(programActive) {
-          mi.prompt("Which reports do you want to generate (p for provider");
-          input = scan.nextLine();
-          if(input.equals("p")) {
-            mi.produceProviderReport();
-          }
-        }
-      }
-      if(input == "o") {
-        
-      }    
-      loggedIn = true;
-    }
-    else {
-      UserInterface.prompt("Invalid ID");
-      loggedIn = false;
-    }
-   }
-    
-   
-   
-   
-    
-    
-    
-    
+	public static void main(String[] args) {
 
-  }
-  
-  public static boolean checkUser(Long id, String type) {
-    if(type.equals("p")) {
-      for(int i = 0; i < ChocAnControl.providers.size(); i++) {
-        if(id == ChocAnControl.providers.get(i).id) return true;
-      }
-      return false;
-    }
-    if(type.equals("m")) {
-      for(int i = 0; i < ChocAnControl.managerIds.size(); i++) {
-        if(id.equals(ChocAnControl.managerIds.get(i))) return true;
-      }
-      return false;
-    }
-    if(type == "o") {
-      for(int i = 0; i < ChocAnControl.operatorIds.size(); i++) {
-        if(id == ChocAnControl.operatorIds.get(i)) return true;
-      }
-      return false;
-    }
-    return false;
-  }
+		final Scanner scan = new Scanner(System.in);
+		boolean programActive = true;
+		String s = "login";
+		UserInterface ui;
+		ChocAnControl control = new ChocAnControl();
+
+		while (programActive) {
+			switch (s) {
+
+			case "login":
+				printWelcome();
+				s = printLoginMenu(scan);
+				break;
+
+			case "manager":
+				ui = new ManagerInterface();
+				if (ui.login()) 
+					s = ManagerInterface.managerMenu();
+				break;
+
+			case "operator":
+				ui = new OperatorInterface((long) 100);
+				if (ui.login()) s = OperatorInterface.operatorMenu();
+				break;
+
+			case "provider":
+				ui = new ProviderInterface(100);
+				if (ui.login()) s = ProviderInterface.providerMenu();
+				break;
+
+			default:
+				break;
+			}
+		}
+
+	}
+
+	public static boolean checkUser(Long id, String type) {
+		if (type.equals("p")) {
+			for (int i = 0; i < ChocAnControl.providers.size(); i++) {
+				if (id == ChocAnControl.providers.get(i).id)
+					return true;
+			}
+			return false;
+		}
+		if (type.equals("m")) {
+			for (int i = 0; i < ChocAnControl.managerIds.size(); i++) {
+				if (id.equals(ChocAnControl.managerIds.get(i)))
+					return true;
+			}
+			return false;
+		}
+		if (type == "o") {
+			for (int i = 0; i < ChocAnControl.operatorIds.size(); i++) {
+				if (id == ChocAnControl.operatorIds.get(i))
+					return true;
+			}
+			return false;
+		}
+		return false;
+	}
+
+	public static void printWelcome() {
+		UserInterface.prompt("\n\n");
+		UserInterface.prompt("**************************");
+		UserInterface.prompt("**************************");
+		UserInterface.prompt("*** Welcome to ChocAn! ***");
+		UserInterface.prompt("**************************");
+		UserInterface.prompt("**************************");
+		UserInterface.prompt("");
+	}
+
+	public static String printLoginMenu(Scanner scan) {
+		UserInterface.prompt("Log In as Provider, Manager, or Operator?");
+		UserInterface.prompt("'p' - provider, 'm' - manager, 'o'- operator");
+		String type = scan.nextLine();
+		if (type.equals("provider") || type.equals("Provider") || type.equals("p") || type.equals("P")) {
+			return "provider";
+		} else if (type.equals("manager") || type.equals("Manager") || type.equals("m") || type.equals("M")) {
+			return "manager";
+		} else if (type.equals("operator") || type.equals("Operator") || type.equals("o") || type.equals("O")) {
+			return "operator";
+		} else {
+			UserInterface.prompt("Invalid log-in selection");
+			return "login";
+		}
+	}
 
 }
