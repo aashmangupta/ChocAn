@@ -27,7 +27,12 @@ public class ManagerInterface extends UserInterface {
       UserInterface.prompt("Incorrect manager Login");
       return false;
     }
+<<<<<<< Updated upstream
   }
+=======
+   }
+
+>>>>>>> Stashed changes
   public boolean produceMemberReport(){
     //produces report for members
     //separate text file output

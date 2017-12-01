@@ -27,6 +27,23 @@ public class ChocAnControl {
       providerDirectory = new ProviderDirectory();
       mainProcedure = new AccountingProcedure();
       isFridayAtMidnight = false;
+      
+      members.add(new Member("Frank", 000000001, "123 paul bryant", "tuscaloosa", "35401", "alabama", true));
+      members.add(new Member("Tom", 000000002, "321 university blvd", "tuscaloosa", "35401", "alabama", true));
+      members.add(new Member("Jan", 000000003, "100 campus dr", "tuscaloosa", "35401", "alabama", false));
+
+      providers.add(new Provider("Phil", 98765432, "111 14th ave", "tuscaloosa", "35401", "alabama", 20, 0));
+      providers.add(new Provider("Matt", 200000000, "1000 15th st", "tuscaloosa", "35401", "alabama", 80, 0));
+      providers.add(new Provider("John", 300000000, "100 16th st", "tuscaloosa", "35401", "alabama", 20, 0));
+
+      managerIds.add((long) 001);
+      managerIds.add((long) 002);
+      managerIds.add((long) 003);
+
+      operatorIds.add((long)001);
+      operatorIds.add((long)002);
+      operatorIds.add((long)003);
+      
     }
     
 

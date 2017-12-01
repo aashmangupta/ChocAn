@@ -6,7 +6,6 @@ import interfaces.OperatorInterface;
 import interfaces.ProviderInterface;
 import interfaces.UserInterface;
 
-<<<<<<< Updated upstream
 public class main {
 
   public static void main(String[] args) {
@@ -14,7 +13,10 @@ public class main {
     Scanner scan = new Scanner(System.in);
     String input;
     Long id;
-    boolean match, loggedIn;
+    boolean match;
+    boolean loggedIn = false;
+    boolean programActive = true;
+    ProviderInterface pi;
     
     ChocAnControl control = new ChocAnControl();
     
@@ -25,14 +27,27 @@ public class main {
     UserInterface.prompt("Enter ID:");
     id = scan.nextLong();
     if(checkUser(id, input)) {
-      if(input == "p") {
-        ProviderInterface pi = new ProviderInterface(id);
+      if(input.equals("p")) {
+        pi = new ProviderInterface(id);
+        while(programActive)
+        pi.prompt("Create Visit, Get Directory, Swipe Member Card");
+        input = scan.nextLine();
+        if(input.equals("create")) {
+          if(pi.current_member == 0) pi.prompt("Swipe a Member first!");
+          else ChocAnControl.serviceControl.createVisit(pi.current_member, pi.provider_id, pi.getService());
+        }
+        if(input.equals("get")) {
+          
+        }
+        if(input.equals("swipe")) {
+          
+        }
       }
       if(input == "m") {
-        ManagerInterface mi = new ManagerInterface();
+       
       }
       if(input == "o") {
-        OperatorInterface mi = new OperatorInterface();
+        
       }    
       loggedIn = true;
     }
@@ -42,6 +57,10 @@ public class main {
     }
    }
     
+   
+   
+   
+    
     
     
     
@@ -49,7 +68,7 @@ public class main {
   }
   
   public static boolean checkUser(Long id, String type) {
-    if(type == "p") {
+    if(type.equals("p")) {
       for(int i = 0; i < ChocAnControl.providers.size(); i++) {
         if(id == ChocAnControl.providers.get(i).id) return true;
       }
@@ -71,5 +90,3 @@ public class main {
   }
 
 }
-=======
->>>>>>> Stashed changes
