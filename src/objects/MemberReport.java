@@ -3,6 +3,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.io.FileReader;
+
 
 public class MemberReport {
 	File currFile;
@@ -15,6 +17,12 @@ public class MemberReport {
 		currFile = new File(currMember.name + currMember.id + ".txt");
 		visitArray = visits;
 	}
+	
+	/**
+	   * This is the generate file function. It creates a file for a specific user detailing the user's credentials and history.
+	   * @param 
+	   * @return void
+	   */
 	
 	void generateFile() {
 		int i = 0, flag = 0;
@@ -49,8 +57,28 @@ public class MemberReport {
 			System.out.println("Error");
 		}
 	}
-
+	
+	
+	/**
+	   * This is the email function. It will print out the file on the screen. 
+	   * @param
+	   * @return void
+	   */
+	
 	void email() {
-		
+		try {
+			FileReader fileReader = new FileReader(currFile);
+			
+			
+			fileReader.close();
+		}
+		catch(IOException e) {
+			System.out.println("File doesn't exist");
+		}
 	}
 }
+
+
+
+
+
