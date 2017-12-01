@@ -12,11 +12,12 @@ public class main {
     
     Scanner scan = new Scanner(System.in);
     String input;
-    Long id;
+    long id;
     boolean match;
     boolean loggedIn = false;
     boolean programActive = true;
     ProviderInterface pi;
+    ManagerInterface mi;
     
     ChocAnControl control = new ChocAnControl();
     
@@ -34,7 +35,7 @@ public class main {
         input = scan.nextLine();
         if(input.equals("create")) {
           if(pi.current_member == 0) pi.prompt("Swipe a Member first!");
-          else ChocAnControl.serviceControl.createVisit(pi.current_member, pi.provider_id, pi.getService());
+          //else ChocAnControl.serviceControl.createVisit(pi.current_member, pi.provider_id, pi.getService());
         }
         if(input.equals("get")) {
           
@@ -43,8 +44,15 @@ public class main {
           
         }
       }
-      if(input == "m") {
-       
+      if(input.equals("m")) {
+        mi = new ManagerInterface(id);
+        while(programActive) {
+          mi.prompt("Which reports do you want to generate (p for provider");
+          input = scan.nextLine();
+          if(input.equals("p")) {
+            mi.produceProviderReport();
+          }
+        }
       }
       if(input == "o") {
         
@@ -74,9 +82,9 @@ public class main {
       }
       return false;
     }
-    if(type == "m") {
+    if(type.equals("m")) {
       for(int i = 0; i < ChocAnControl.managerIds.size(); i++) {
-        if(id == ChocAnControl.managerIds.get(i)) return true;
+        if(id.equals(ChocAnControl.managerIds.get(i))) return true;
       }
       return false;
     }

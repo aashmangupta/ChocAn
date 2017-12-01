@@ -1,5 +1,7 @@
 package control;
 
+import objects.ProviderReport;
+
 public class AccountingProcedure {
     boolean produceMemberReport() {
         return false;
@@ -9,7 +11,10 @@ public class AccountingProcedure {
         return false;
     }
 
-    boolean produceProviderReports() {
+    public boolean produceProviderReports() {
+      for(int i =0; i < ChocAnControl.providers.size(); i++) {
+        ProviderReport report = new ProviderReport(ChocAnControl.providers.get(i), ChocAnControl.visits);
+      }
         return false;
     }
 

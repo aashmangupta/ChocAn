@@ -10,10 +10,11 @@ public class ProviderReport {
 	ArrayList<Visit> visitArray;
 	String dateVisit;
 	
-	ProviderReport(Provider provider, ArrayList<Visit> visits) {
+	public ProviderReport(Provider provider, ArrayList<Visit> visits) {
 		currProvider = provider;
 		currFile = new File(currProvider.name + currProvider.id + ".txt");
 		visitArray = visits;
+		generateFile();
 	}
 	
 	void generateFile() {

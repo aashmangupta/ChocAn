@@ -5,16 +5,16 @@ import control.ChocAnControl;
 public class ManagerInterface extends UserInterface {
   boolean logged_in = false;
   boolean reportGenerated = false; //default is false
-  String Manager_id;
+  long manager_id;
 
-  public ManagerInterface(String id){
-    Manager_id = id;
+  public ManagerInterface(long id){
+    manager_id = id;
   }
 
   public boolean login(){
     boolean success = false;
     for (int i = 0; i < ChocAnControl.managerIds.size(); i++){       //manager_data_user has to be an array from the main program
-      if (ChocAnControl.managerIds.get(i).equals(Manager_id)){
+      if (ChocAnControl.managerIds.get(i).equals(manager_id)){
     	  success = true;
     	  break;
           }
@@ -26,21 +26,17 @@ public class ManagerInterface extends UserInterface {
     else {
       UserInterface.prompt("Incorrect manager Login");
       return false;
+    } 
     }
-<<<<<<< Updated upstream
-  }
-=======
-   }
+   
 
->>>>>>> Stashed changes
   public boolean produceMemberReport(){
     //produces report for members
     //separate text file output
 	  return false;
   }
-  public boolean producemanagerReport(){
-    //produces report for members
-    //separate text file output
+  public boolean produceProviderReport(){
+      ChocAnControl.mainProcedure.produceProviderReports();
 	  return false;
   }
   public boolean produceManagerSummary(){
