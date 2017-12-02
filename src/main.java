@@ -107,7 +107,9 @@ public class main {
 			return "manager";
 		} else if (type.equals("operator") || type.equals("Operator") || type.equals("o") || type.equals("O")) {
 			return "operator";
-		} else {
+		} else if(type.equals("help")) return "help"; 
+		
+		else {
 			UserInterface.prompt("Invalid log-in selection");
 			return "login";
 		}

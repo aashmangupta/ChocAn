@@ -14,7 +14,9 @@ public class ProviderInterface extends UserInterface {
   static Scanner scan;
   static String input;
 
-  public ProviderInterface() {}
+  public ProviderInterface() {
+    scan = new Scanner(System.in);
+  }
 
   public boolean login() {
     boolean success = false;
@@ -96,9 +98,11 @@ public class ProviderInterface extends UserInterface {
 
         case "directory":
           getProviderDirectory();
+          break;
 
         case "visit":
           createVisit();
+          break;
 
         case "logout":
           menuActive = false;
