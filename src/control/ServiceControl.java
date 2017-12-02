@@ -19,6 +19,8 @@ public class ServiceControl {
 	private Provider pro = new Provider();
 	int i = 0;
 	
+	public ServiceControl() {
+	}
 	
 	public ServiceControl(long c, Date d, String com, UserInterface userI) {
 		code = c;
