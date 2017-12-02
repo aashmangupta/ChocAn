@@ -15,17 +15,24 @@ public class ProviderInterface extends UserInterface {
   static Scanner scan;
   static String input;
   
-  public ProviderInterface(long id){
+  public ProviderInterface(){
   }
 
   public boolean login(){
-	  UserInterface.prompt("Enter ID");
-	  Scanner login_id = new Scanner(System.in);
-	  provider_id = login_id.nextLong();
-      boolean success = false;
+	  boolean success = false;
+	  
+	  UserInterface.prompt("Enter Provider ID or type 'x' to exit:");
+	  input = scan.next();
+	  if (input.equals("x")) {
+		  return false;
+	  }
+	  else {
+		  provider_id = Long.parseLong(input);
+		  
       for (int i = 0; i < ChocAnControl.providers.size(); i++){       //provider_data_user has to be an array from the main program
         if ((ChocAnControl.providers.get(i).id) == (provider_id)){		//tell my boy to implement getId functionality
         	success = true;
+        	break;
         }
       }
       if (success == true){
@@ -33,10 +40,12 @@ public class ProviderInterface extends UserInterface {
         return true;
       }
       else {
-        UserInterface.prompt("Incorrect Provider Login");
-        return false;
+        UserInterface.prompt("Incorrect Provider Login - Try again");
+        return login();
       }
+	  }
   }
+  
   public boolean swipeMemberCard(){
 	UserInterface.prompt("Enter member ID");
 	Scanner swipe_id = new Scanner(System.in);
@@ -92,9 +101,9 @@ public static String providerMenu() {
 	UserInterface.prompt("");
 	UserInterface.prompt("Enter a selection:");
 	UserInterface.prompt("Enter member ID - \"ID\"");
-	UserInterface.prompt("Generate Provider Reports - \"provider\"");
-	UserInterface.prompt("Generate Summary Reports - \"summary\"");
-	UserInterface.prompt("Generate EFT files - \"eft\"");
+	UserInterface.prompt("Get Provider Directory - \"directory\"");
+	UserInterface.prompt("Check Provider Service - \"service\"");
+	UserInterface.prompt("Create Visit \"visit\"");
 	UserInterface.prompt("Log Out and return to main menu - \"logout\"");
 	input = scan.nextLine();
 	switch (input){

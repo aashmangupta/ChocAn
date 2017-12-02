@@ -5,17 +5,25 @@ import java.util.Scanner;
 import control.ChocAnControl;
 
 public class OperatorInterface extends UserInterface {
-boolean logged_in = false;
-long operator_id;
-
-  public OperatorInterface(Long id){
+	boolean logged_in = false;
+	public long operator_id;
+	static String input;
+	static Scanner scan;
+	
+  public OperatorInterface(){
   }
 
   public boolean login(){
-	UserInterface.prompt("Enter ID");
-	Scanner id = new Scanner(System.in);
-	operator_id = id.nextLong();
-    boolean success = true;
+	 boolean success = false;
+	
+	UserInterface.prompt("Enter Operator ID or type 'x' to exit:");
+	input = scan.next();
+	if (input.equals("x")){
+		return false;
+	}
+	else {
+		operator_id = Long.parseLong(input);
+		
     for (int i = 0; i < ChocAnControl.operatorIds.size(); i++){       //provider_data_user has to be an array from the main program
       if (ChocAnControl.operatorIds.get(i) == (operator_id)) {
     	  success = true;
@@ -29,7 +37,7 @@ long operator_id;
     }
     else {
       UserInterface.prompt("Incorrect Operator Login");
-      return false;
+      return login();
     }
   }
 
