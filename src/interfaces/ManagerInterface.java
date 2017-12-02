@@ -18,11 +18,15 @@ public class ManagerInterface extends UserInterface {
 	public boolean login() {
 		boolean success = false;
 
-		UserInterface.prompt("Enter Manager ID:");
-		manager_id = scan.nextLong();
+		UserInterface.prompt("Enter Manager ID or type 'x' to exit:");
+		input = scan.next();
+        if(input.equals("x")) {
+          return false;
+        }
+        else {
+		manager_id = Long.parseLong(input);
 
-		for (int i = 0; i < ChocAnControl.managerIds.size(); i++) { // manager_data_user has to be an array from the
-																	// main program
+		for (int i = 0; i < ChocAnControl.managerIds.size(); i++) { 
 			if (ChocAnControl.managerIds.get(i).equals(manager_id)) {
 				success = true;
 				break;
@@ -32,9 +36,10 @@ public class ManagerInterface extends UserInterface {
 			UserInterface.prompt("Manager Login Successful");
 			return true;
 		} else {
-			UserInterface.prompt("Incorrect manager Login");
-			return false;
+			UserInterface.prompt("Incorrect Manager Login - try again");
+			return login();
 		}
+        }
 	}
 
 	public static String managerMenu() {
@@ -53,7 +58,7 @@ public class ManagerInterface extends UserInterface {
 			UserInterface.prompt("Generate Summary Reports - \"summary\"");
 			UserInterface.prompt("Generate EFT files - \"eft\"");
 			UserInterface.prompt("Log Out and return to main menu - \"logout\"");
-			input = scan.nextLine();
+			input = scan.next();
 			switch(input) {
 			case "member":
 				UserInterface.prompt("Generating reports...");

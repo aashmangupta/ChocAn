@@ -19,6 +19,7 @@ public class main {
 			switch (s) {
 
 			case "login":
+			    printSpace();
 				printWelcome();
 				s = printLoginMenu(scan);
 				break;
@@ -27,6 +28,7 @@ public class main {
 				ui = new ManagerInterface();
 				if (ui.login()) 
 					s = ManagerInterface.managerMenu();
+				else s = "login";
 				break;
 
 			case "operator":
@@ -46,7 +48,11 @@ public class main {
 
 	}
 
-	public static boolean checkUser(Long id, String type) {
+	private static void printSpace() {
+      UserInterface.prompt("\n\n\n\n\n\n\n\n");
+  }
+
+  public static boolean checkUser(Long id, String type) {
 		if (type.equals("p")) {
 			for (int i = 0; i < ChocAnControl.providers.size(); i++) {
 				if (id == ChocAnControl.providers.get(i).id)
@@ -83,7 +89,6 @@ public class main {
 
 	public static String printLoginMenu(Scanner scan) {
 		UserInterface.prompt("Log In as Provider, Manager, or Operator?");
-		UserInterface.prompt("'p' - provider, 'm' - manager, 'o'- operator");
 		String type = scan.nextLine();
 		if (type.equals("provider") || type.equals("Provider") || type.equals("p") || type.equals("P")) {
 			return "provider";

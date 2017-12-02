@@ -22,7 +22,7 @@ public class ProviderInterface extends UserInterface {
 	  provider_id = id.nextLong();
       boolean success = false;
       for (int i = 0; i < ChocAnControl.providers.size(); i++){       //provider_data_user has to be an array from the main program
-        if (ChocAnControl.providers.get(i).id == (provider_id)){		//tell my boy to implement getId functionality
+        if ((ChocAnControl.providers.get(i).id) == (provider_id)){		//tell my boy to implement getId functionality
         	success = true;
         }
       }
