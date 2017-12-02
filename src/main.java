@@ -31,13 +31,13 @@ public class main {
 				break;
 
 			case "operator":
-				ui = new OperatorInterface((long) 100);
+				ui = new OperatorInterface();
 				if (ui.login()) s = OperatorInterface.operatorMenu();
 				else s = "login";
 				break;
 
 			case "provider":
-				ui = new ProviderInterface(100);
+				ui = new ProviderInterface();
 				if (ui.login()) s = ProviderInterface.providerMenu();
 				else s = "login";
 				break;
