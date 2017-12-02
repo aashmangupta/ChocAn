@@ -1,6 +1,7 @@
 package interfaces;
 
 import java.util.Date;
+
 import java.util.Scanner;
 import objects.Provider;
 import objects.ProviderDirectory;
@@ -13,10 +14,12 @@ public class ProviderInterface extends UserInterface {
   public long current_member = 0;
 
   public ProviderInterface(long id){
-    provider_id = id;
   }
 
   public boolean login(){
+	  UserInterface.prompt("Enter ID");
+	  Scanner id = new Scanner(System.in);
+	  provider_id = id.nextLong();
       boolean success = false;
       for (int i = 0; i < ChocAnControl.providers.size(); i++){       //provider_data_user has to be an array from the main program
         if (ChocAnControl.providers.get(i).id == (provider_id)){		//tell my boy to implement getId functionality
@@ -53,7 +56,7 @@ public class ProviderInterface extends UserInterface {
   public Service getService(){
     UserInterface.prompt("Enter 6 digit service code");
     Scanner service = new Scanner(System.in);
-    long code = service.nextInt();
+    long code = service.nextLong();
     ProviderDirectory provider = new ProviderDirectory();
     return provider.getService(code);
     
