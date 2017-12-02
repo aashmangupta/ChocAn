@@ -1,20 +1,23 @@
 package interfaces;
 
 import control.UserManager;
+import java.util.Scanner;
 import control.ChocAnControl;
 
 public class OperatorInterface extends UserInterface {
 boolean logged_in = false;
-Long Operator_id;
+long operator_id;
 
   public OperatorInterface(Long id){
-    Operator_id = id;
   }
 
   public boolean login(){
+	UserInterface.prompt("Enter ID");
+	Scanner id = new Scanner(System.in);
+	operator_id = id.nextLong();
     boolean success = true;
     for (int i = 0; i < ChocAnControl.operatorIds.size(); i++){       //provider_data_user has to be an array from the main program
-      if (ChocAnControl.operatorIds.get(i) == (Operator_id)) {
+      if (ChocAnControl.operatorIds.get(i) == (operator_id)) {
     	  success = true;
     	  break;
       }
