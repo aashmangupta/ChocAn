@@ -5,6 +5,7 @@ import java.util.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import interfaces.UserInterface;
 
 public class ProviderDirectory {
 	private ArrayList<Service> services = new ArrayList<Service>();	//makes service ArrayList
@@ -65,5 +66,26 @@ public class ProviderDirectory {
 			}
 		}
 		return services.get(5);						//service not found, return error service
+	}
+	
+	/**
+	 * This method prints the Provider Directory to the screen.
+	 * 
+	 * @param none
+	 * @return none
+	 */
+	public void getDirectory() {
+		int i = 0;
+		Service currServ = new Service();						//holder service
+		
+		UserInterface.prompt("Services:\n");
+		UserInterface.prompt("name - code - fee\n");
+		for(i = 0; i < services.size() - 1; ++i) {				//loops through services
+			currServ = services.get(i);							//service to be printed
+			UserInterface.prompt(currServ.getName() + " - ");		//prints name
+			UserInterface.prompt(currServ.getCode() + " - ");		//prints code
+			UserInterface.prompt(currServ.getFee() + "\n");		//prints fee
+		}
+		return;
 	}
 }
