@@ -26,30 +26,41 @@ public class main {
 
 			case "manager":
 				ui = new ManagerInterface();
-				if (ui.login()) 
-					s = ManagerInterface.managerMenu();
+				if (ui.login()) s = ManagerInterface.managerMenu();
 				else s = "login";
 				break;
 
 			case "operator":
 				ui = new OperatorInterface((long) 100);
 				if (ui.login()) s = OperatorInterface.operatorMenu();
+				else s = "login";
 				break;
 
 			case "provider":
 				ui = new ProviderInterface(100);
 				if (ui.login()) s = ProviderInterface.providerMenu();
+				else s = "login";
 				break;
+				
+			case "help":
+              printHelp();
+              s = "login";
+              break;
+              
+			case "shutdown":
+              return;
 
 			default:
+			    //UserInterface.prompt("Invalid selection, try again");
+			    //printSpace();
 				break;
 			}
 		}
 
 	}
 
-	private static void printSpace() {
-      UserInterface.prompt("\n\n\n\n\n\n\n\n");
+  private static void printSpace() {
+      UserInterface.prompt("\n\n\n\n\n\n\n");
   }
 
   public static boolean checkUser(Long id, String type) {
@@ -88,7 +99,7 @@ public class main {
 	}
 
 	public static String printLoginMenu(Scanner scan) {
-		UserInterface.prompt("Log In as Provider, Manager, or Operator?");
+		UserInterface.prompt("Log In as 'Provider', 'Manager', or 'Operator', or type 'help':");
 		String type = scan.nextLine();
 		if (type.equals("provider") || type.equals("Provider") || type.equals("p") || type.equals("P")) {
 			return "provider";
@@ -101,5 +112,17 @@ public class main {
 			return "login";
 		}
 	}
+	
+	private static void printHelp() {
+	  Scanner scan  = new Scanner(System.in);
+	  String temp;
+	  UserInterface.prompt("Log in as provider - 'p', 'P', 'provider', 'Provider'"); 
+	  UserInterface.prompt("Log in as operator - 'o', 'O', 'operator', 'Operator'"); 
+	  UserInterface.prompt("Log in as manager - 'm', 'M', 'manager', 'Manager'"); 
+	  UserInterface.prompt("Shut Down ChocAn - 'shutdown'"); 
+	  UserInterface.prompt("");
+	  UserInterface.prompt("Press any key to return to main menu");
+	  temp = scan.next();
+	  }
 
 }
