@@ -34,25 +34,27 @@ public class ProviderReport {
 			fileWriter.write(currProvider.zipCode + '\n');
 			
 			while(i <= visitArray.size()) {
-				for(i = flag; i < visitArray.size(); i++) {
+				/*for(i = flag; i <= visitArray.size(); i++) {
 					if(currProvider.name == visitArray.get(i).provider.name) {
 						break;
 					}
+				}*/
+				if(currProvider.name == visitArray.get(i).provider.name) {
+					/*if((i == visitArray.size()) && (currProvider.name != visitArray.get(i).provider.name)) {
+						break;
+					}*/
+					dateVisit = visitArray.get(i).dateOfService.toString();
+					count = count + 1;
+					fileWriter.write(dateVisit + '\n');
+					fileWriter.write(visitArray.get(i).member.name + '\n');
+					fileWriter.write((int)visitArray.get(i).member.id + '\n');
+					fileWriter.write(visitArray.get(i).service.hashCode()+ '\n');			
+					fee = visitArray.get(i).service.getFee();
+					totalFee = totalFee + fee;
+					fileWriter.write(fee + '\n');		
+					fileWriter.write('\n');
+					//flag = i;
 				}
-				if((i == visitArray.size()) && (currProvider.name != visitArray.get(i).provider.name)) {
-					break;
-				}
-				dateVisit = visitArray.get(i).dateOfService.toString();
-				count = count + 1;
-				fileWriter.write(dateVisit + '\n');
-				fileWriter.write(visitArray.get(i).member.name + '\n');
-				fileWriter.write((int)visitArray.get(i).member.id + '\n');
-				fileWriter.write(visitArray.get(i).service.hashCode()+ '\n');			
-				fee = visitArray.get(i).service.getFee();
-				totalFee = totalFee + fee;
-				fileWriter.write(fee + '\n');		
-				fileWriter.write('\n');
-				flag = i;
 			}
 			fileWriter.write(count + " consultations in total." + '\n');
 			fileWriter.write("Total Feel: " + totalFee + '\n');
