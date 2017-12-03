@@ -9,15 +9,12 @@ import interfaces.UserInterface;
 import java.util.Scanner;
 
 public class ServiceControl {
-<<<<<<< Updated upstream
 	private Scanner sc;
 	private Service service;
 	private String commentString;
 	private Member mem;
 	private Provider pro;
 	int i;
-	
-=======
 	private long code;
 	private Date date;
 	private Scanner sc = new Scanner(System.in);
@@ -27,10 +24,6 @@ public class ServiceControl {
 	private Provider pro = new Provider();
 	int i = 0;
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	public ServiceControl() {
 		sc = new Scanner(System.in);
 		service = new Service();
@@ -39,24 +32,7 @@ public class ServiceControl {
 		pro = new Provider();
 		i = 0;
 	}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	
-	
-=======
-=======
->>>>>>> Stashed changes
 
-	public ServiceControl(long c, Date d, String com, UserInterface userI) {
-		code = c;
-		date = d;
-		commentString = com;
-	}
-
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	/**
 	 * This method is used by providers to create new visits for members.
 	 *
@@ -78,19 +54,11 @@ public class ServiceControl {
 				pro = ChocAnControl.providers.get(i);
 			}
 		}
-<<<<<<< Updated upstream
-		Visit newVisit = new Visit(mem, pro, s);	//creates visit
-=======
 		date = new Date();	//gets current time and date
 		Visit newVisit = new Visit(mem, pro, s, date);	//creates visit
 		PrintWriter out = new PrintWriter("visits.txt");	//writing to a separate text file
 		out.println(mem);
 		out.println()
-
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 		ChocAnControl.visits.add(newVisit);	//stores visit in ArrayList
 		return true;
 	}
