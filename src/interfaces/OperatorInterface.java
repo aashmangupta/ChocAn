@@ -11,6 +11,7 @@ public class OperatorInterface extends UserInterface {
 	static Scanner scan;
 	
   public OperatorInterface(){
+    scan = new Scanner(System.in);
   }
 
   public boolean login(){
@@ -84,7 +85,7 @@ public class OperatorInterface extends UserInterface {
 		UserInterface.prompt("Add Provider - \"addp\"");
 		UserInterface.prompt("Edit Provider - \"editp\"");
 		UserInterface.prompt("Delete Provider - \"deletep\"");
-		UserInterface.prompt("Log Out and return to main menu - \"logout\"")
+		UserInterface.prompt("Log Out and return to main menu - \"logout\"");
 		input = scan.next();
 		switch(input){
 		case "addm":

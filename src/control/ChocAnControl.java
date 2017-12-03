@@ -27,6 +27,7 @@ public class ChocAnControl {
       providerDirectory = new ProviderDirectory();
       mainProcedure = new AccountingProcedure();
       isFridayAtMidnight = false;
+      serviceControl = new ServiceControl();
       
       members.add(new Member("Frank", 000000001, "123 paul bryant", "tuscaloosa", "35401", "alabama", true));
       members.add(new Member("Tom", 000000002, "321 university blvd", "tuscaloosa", "35401", "alabama", true));
@@ -40,7 +41,7 @@ public class ChocAnControl {
       managerIds.add((long) 002);
       managerIds.add((long) 003);
 
-      operatorIds.add((long)001);
+      operatorIds.add((long)45632);
       operatorIds.add((long)002);
       operatorIds.add((long)003);
       

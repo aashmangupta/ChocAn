@@ -35,6 +35,8 @@ public class ServiceControl {
 	 * @return boolean.
 	 */
 	public boolean createVisit(long m, long p, Service s){
+	  
+	    UserInterface.prompt("Attempting to generate visit");
 		//loop to find member
 		for(i = 0; i < ChocAnControl.members.size(); ++i) {
 			if(ChocAnControl.members.get(i).id == m) {

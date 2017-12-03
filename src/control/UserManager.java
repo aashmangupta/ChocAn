@@ -26,7 +26,7 @@ public class UserManager {
 	public boolean areYouSure() {		
 		String check;																	//Return boolean to see if user is sure
 		UserInterface.prompt("Are you sure that you want to delete? (yes/no)");			//Access prompt
-		check = scan.nextLine();				
+		check = scan.next();				
 		if(check.equals("yes")) {						
 			return true;
 		}												//Check to make sure 
@@ -57,15 +57,15 @@ public class UserManager {
 			memToAdd = new Member();
 			memToAdd.id = memID;
 			UserInterface.prompt("Enter member name");							//Access prompt
-			memToAdd.name = scan.nextLine();
+			memToAdd.name = scan.next();
 			UserInterface.prompt("Enter member address");						//Access prompt
-			memToAdd.address = scan.nextLine();
+			memToAdd.address = scan.next();
 			UserInterface.prompt("Enter member city");							//Access prompt
-			memToAdd.city = scan.nextLine();
+			memToAdd.city = scan.next();
 			UserInterface.prompt("Enter member zip code");						//Access prompt
-			memToAdd.zipCode = scan.nextLine();
+			memToAdd.zipCode = scan.next();
 			UserInterface.prompt("Enter member state");							//Access prompt
-			memToAdd.state = scan.nextLine();
+			memToAdd.state = scan.next();
 			UserInterface.prompt("Enter account stauts: 1-active, 0-suspended");	//Access prompt
 			stat = scan.nextInt();
 			if(stat == 1) { memToAdd.accountStatus = true; }
@@ -101,7 +101,7 @@ public class UserManager {
 			while(query != "stop") {
 				if(out) {
 					UserInterface.prompt("What do you want to edit? (ID, name, add, city, zip, st, status) (stop) to end edit");					//Access prompt
-					query = scan.nextLine();
+					query = scan.next();
 					if(query.equals("ID")) {
 						UserInterface.prompt("Enter new member ID");					//Access prompt
 						ChocAnControl.members.get(memNum).id = scan.nextLong();			//Allow user to edit member ID
@@ -197,15 +197,15 @@ public class UserManager {
 			provToAdd = new Provider();	
 			provToAdd.id = provID;
 			UserInterface.prompt("Enter provider name");			//Access prompt
-			provToAdd.name = scan.nextLine();
+			provToAdd.name = scan.next();
 			UserInterface.prompt("Enter provider address");			//Access prompt
-			provToAdd.address = scan.nextLine();
+			provToAdd.address = scan.next();
 			UserInterface.prompt("Enter provider city");			//Access prompt
-			provToAdd.city = scan.nextLine();
+			provToAdd.city = scan.next();
 			UserInterface.prompt("Enter provider zip code");		//Access prompt
-			provToAdd.zipCode = scan.nextLine();
+			provToAdd.zipCode = scan.next();
 			UserInterface.prompt("Enter provider state");			//Access prompt
-			provToAdd.state = scan.nextLine();
+			provToAdd.state = scan.next();
 			UserInterface.prompt("Enter the number of visits");		//Access prompt
 			provToAdd.totalVisits = scan.nextInt();
 			UserInterface.prompt("Enter the total cost of fees");	//Access prompt
@@ -242,7 +242,7 @@ public class UserManager {
 				if(out) {
 					UserInterface.prompt("What do you want to edit? "
 							+ "(ID, name, add, city, zip, st, fees, visits) (stop) to end edit");		//Access prompt
-					query = scan.nextLine();
+					query = scan.next();
 					if(query.equals("ID")) {											//Allow user to edit provider ID
 						UserInterface.prompt("Enter new member ID");					//Access prompt
 						ChocAnControl.providers.get(provNum).id = scan.nextLong();	
