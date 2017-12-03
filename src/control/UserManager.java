@@ -75,6 +75,7 @@ public class UserManager {
 			return true;
 		}
 		else {
+			UserInterface.prompt("A member already exists with that ID");
 			return false;
 		}
 	}
@@ -99,46 +100,45 @@ public class UserManager {
 		}
 		if(out) {
 			while(!(query.equals("stop"))) {
-				if(out) {
-					UserInterface.prompt("What do you want to edit? (ID, name, add, city, zip, st, status) (stop) to end edit");					//Access prompt
-					query = scan.next();
-					if(query.equals("ID")) {
-						UserInterface.prompt("Enter new member ID");					//Access prompt
-						ChocAnControl.members.get(memNum).id = scan.nextLong();			//Allow user to edit member ID
-						memID = ChocAnControl.members.get(memNum).id;
-					}
-					else if(query.equals("name")) {
-						UserInterface.prompt("Enter new member name");					//Access prompt
-						ChocAnControl.members.get(memNum).name = scan.nextLine();		//Allow user to edit member name
-					}
-					else if(query.equals("add")) {
-						UserInterface.prompt("Enter new member address");				//Access prompt
-						ChocAnControl.members.get(memNum).address = scan.nextLine();	//Allow user to edit member state
-					}
-					else if(query.equals("city")) {
-						UserInterface.prompt("Enter new member city");					//Access prompt
-						ChocAnControl.members.get(memNum).city = scan.nextLine();		//Allow user to edit member city
-					}
-					else if(query.equals("zip")) {
-						UserInterface.prompt("Enter new member zipCode");				//Access prompt
-						ChocAnControl.members.get(memNum).zipCode = scan.nextLine();	//Allow user to edit member  zip code
-					}
-					else if(query.equals("st")) {
-						UserInterface.prompt("Enter new member state");					//Access prompt
-						ChocAnControl.members.get(memNum).state = scan.nextLine();		//Allow user to edit member state
-					}
-					else if(query.equals("status")) {
-						UserInterface.prompt("Enter new member status (1 for active, 0 for suspended");		//Access prompt
-						test = scan.nextInt();																//Allow user to edit member account status
-						if(test == 0) { ChocAnControl.members.get(memNum).accountStatus = true; }
-						if(test == 1) { ChocAnControl.members.get(memNum).accountStatus = false; }
+				UserInterface.prompt("What do you want to edit? (ID, name, add, city, zip, st, status) (stop) to end edit");					//Access prompt
+				query = scan.next();
+				if(query.equals("ID")) {
+					UserInterface.prompt("Enter new member ID");					//Access prompt
+					ChocAnControl.members.get(memNum).id = scan.nextLong();			//Allow user to edit member ID
+					memID = ChocAnControl.members.get(memNum).id;
+				}
+				else if(query.equals("name")) {
+					UserInterface.prompt("Enter new member name");					//Access prompt
+					ChocAnControl.members.get(memNum).name = scan.nextLine();		//Allow user to edit member name
+				}
+				else if(query.equals("add")) {
+					UserInterface.prompt("Enter new member address");				//Access prompt
+					ChocAnControl.members.get(memNum).address = scan.nextLine();	//Allow user to edit member state
+				}
+				else if(query.equals("city")) {
+					UserInterface.prompt("Enter new member city");					//Access prompt
+					ChocAnControl.members.get(memNum).city = scan.nextLine();		//Allow user to edit member city
+				}
+				else if(query.equals("zip")) {
+					UserInterface.prompt("Enter new member zipCode");				//Access prompt
+					ChocAnControl.members.get(memNum).zipCode = scan.nextLine();	//Allow user to edit member  zip code
+				}
+				else if(query.equals("st")) {
+					UserInterface.prompt("Enter new member state");					//Access prompt
+					ChocAnControl.members.get(memNum).state = scan.nextLine();		//Allow user to edit member state
+				}
+				else if(query.equals("status")) {
+					UserInterface.prompt("Enter new member status (1 for active, 0 for suspended");		//Access prompt
+					test = scan.nextInt();																//Allow user to edit member account status
+					if(test == 0) { ChocAnControl.members.get(memNum).accountStatus = true; }
+					if(test == 1) { ChocAnControl.members.get(memNum).accountStatus = false; }
 						
-					}
 				}
 			}
 			return true;
 		}
 		else {
+			UserInterface.prompt("A member with that ID does not exist");
 			return false;
 		}
 	}
@@ -222,6 +222,7 @@ public class UserManager {
 			return true;
 		}
 		else {
+			UserInterface.prompt("A provider with that ID already exists");
 			return false;
 		}
 	}
@@ -290,6 +291,7 @@ public class UserManager {
 			return true;
 		}
 		else {
+			UserInterface.prompt("A user with that provider ID does not exist");
 			return false;
 		}
 	}
