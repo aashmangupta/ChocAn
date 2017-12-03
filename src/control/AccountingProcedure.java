@@ -3,11 +3,11 @@ package control;
 import objects.ProviderReport;
 
 public class AccountingProcedure {
-    boolean produceMemberReport() {
+    public boolean produceMemberReports() {
         return false;
     }
     
-    boolean produceManagerSummary() {
+    public boolean produceManagerSummary() {
         return false;
     }
 
@@ -18,11 +18,11 @@ public class AccountingProcedure {
         return false;
     }
 
-    boolean produceEFT() {
+    public boolean produceEFT() {
         return false;
     }
 
-    boolean checkVisits() {
+    public boolean checkVisits() {
         
         return true;
     }
