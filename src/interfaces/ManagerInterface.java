@@ -26,7 +26,7 @@ public class ManagerInterface extends UserInterface {
         else {
 		manager_id = Long.parseLong(input);
 
-		for (int i = 0; i < ChocAnControl.managerIds.size(); i++) { 
+		for (int i = 0; i < ChocAnControl.managerIds.size(); i++) {
 			if (ChocAnControl.managerIds.get(i).equals(manager_id)) {
 				success = true;
 				break;
@@ -43,9 +43,9 @@ public class ManagerInterface extends UserInterface {
 	}
 
 	public static String managerMenu() {
-		
+
 		boolean menuActive = true;
-		
+
 		while(menuActive) {
 			UserInterface.prompt("\n\n");
 			UserInterface.prompt("**************************");
@@ -65,53 +65,55 @@ public class ManagerInterface extends UserInterface {
 				produceMemberReport();
 				UserInterface.prompt("...done.");
 				break;
-				
+
 			case "provider":
 				UserInterface.prompt("Generating reports...");
 				produceProviderReport();
 				UserInterface.prompt("...done.");
 				break;
-				
+
 			case "summary":
 				UserInterface.prompt("Generating reports...");
 				produceManagerSummary();
 				UserInterface.prompt("...done.");
 				break;
-				
+
 			case "eft":
 				UserInterface.prompt("Generating reports...");
-				//EFT method?
+				produceEFTReport();
 				UserInterface.prompt("...done.");
 				break;
-				
+
 			case "logout":
 				menuActive = false;
 				break;
-				
+
 			default:
 				UserInterface.prompt("Invalid selection, try again.");
 				break;
-				
+
 			}
-			
+
 		}
 		return "login";
 	}
 
 	public static boolean produceMemberReport() {
-		// produces report for members
-		// separate text file output
-		return false;
+		ChocAnControl.mainProcedure.produceMemberReports();
+		return true;
 	}
 
 	public static boolean produceProviderReport() {
 		ChocAnControl.mainProcedure.produceProviderReports();
-		return false;
+		return true;
 	}
 
 	public static boolean produceManagerSummary() {
-		// produces a report for managers
-		// separate text file output
-		return false;
+		ChocAnControl.mainProcedure.produceManagerSummary();
+		return true;
+	}
+	public static boolean produceEFTReport(){
+		ChocAnControl.mainProcedure.produceEFT();
+		return true;
 	}
 }
