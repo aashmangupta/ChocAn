@@ -117,12 +117,13 @@ public class ProviderInterface extends UserInterface {
 
   private static void createVisit() {
     if (current_member == -1){
+      UserInterface.prompt("Please swipe member card");
       return;
     }
     Service svc;
 
     UserInterface.prompt("Enter 6 digit service code");
-    long code = code.valueOf(scan.nextLong());
+    long code = Long.valueOf(scan.nextLong());
 
     svc = ChocAnControl.providerDirectory.getService(code);
     if (svc.getName().equals("Error: invalid code")){
