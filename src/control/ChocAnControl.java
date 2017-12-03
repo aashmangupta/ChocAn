@@ -60,7 +60,7 @@ public class ChocAnControl {
 	}
 	
 	public void runMainAccountingProcedure() {
-	    mainProcedure.produceMemberReport();
+	    mainProcedure.produceMemberReports();
 	    mainProcedure.produceManagerSummary();
 	    mainProcedure.produceProviderReports();
 	    mainProcedure.produceEFT();
@@ -71,7 +71,7 @@ public class ChocAnControl {
 	}
 	
 	public boolean generateReport(String type) {
-	    if(type == "member") mainProcedure.produceMemberReport();
+	    if(type == "member") mainProcedure.produceMemberReports();
 	    if(type == "manager") mainProcedure.produceManagerSummary();
 	    if(type == "provider") mainProcedure.produceProviderReports();
 	    if(type == "EFT") mainProcedure.produceEFT();
