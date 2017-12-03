@@ -9,14 +9,14 @@ public class OperatorInterface extends UserInterface {
 	public long operator_id;
 	static String input;
 	static Scanner scan;
-	
+
   public OperatorInterface(){
     scan = new Scanner(System.in);
   }
 
   public boolean login(){
 	 boolean success = false;
-	
+
 	UserInterface.prompt("Enter Operator ID or type 'x' to exit:");
 	input = scan.next();
 	if (input.equals("x")){
@@ -24,7 +24,7 @@ public class OperatorInterface extends UserInterface {
 	}
 	else {
 		operator_id = Long.parseLong(input);
-		
+
     for (int i = 0; i < ChocAnControl.operatorIds.size(); i++){       //provider_data_user has to be an array from the main program
       if (ChocAnControl.operatorIds.get(i) == (operator_id)) {
     	  success = true;
@@ -69,9 +69,9 @@ public class OperatorInterface extends UserInterface {
   }
 
   public static String operatorMenu() {
-	
+
 	boolean menuActive = true;
-	
+
 	while(menuActive){
 		UserInterface.prompt("\n\n");
 		UserInterface.prompt("**************************");
@@ -92,43 +92,43 @@ public class OperatorInterface extends UserInterface {
 			UserInterface.prompt("Adding member...");
 			addMember();
 			break;
-	
+
 		case "editm":
 			UserInterface.prompt("Editing member...");
 			editMember();
 			break;
-	
+
 		case "deletem":
 			UserInterface.prompt("Deleting member...");
 			deleteMember();
 			break;
-	
+
 		case "addp":
 			UserInterface.prompt("Adding provider...");
 			addProvider();
 			break;
-	
+
 		case "editp":
 			UserInterface.prompt("Editing provider...");
 			editProvider();
 			break;
-		
+
 		case "deletep":
 			UserInterface.prompt("Delete provider...");
-			editProvider();
+			deleteProvider();
 			break;
-	
+
 		case "logout":
 			menuActive = false;
 			break;
-	
+
 		default:
 			UserInterface.prompt("Invalid selection, try again");
 			break;
 		}
 	}
 	return "login";
-	
+
 }
-  
+
 }
