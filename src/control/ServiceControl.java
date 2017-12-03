@@ -6,27 +6,25 @@ import control.ChocAnControl;
 import objects.Visit;
 import objects.Service;
 import interfaces.UserInterface;
-import java.util.Date;
 import java.util.Scanner;
 
 public class ServiceControl {
-	private long code;
-	private Date date;
-	private Scanner sc = new Scanner(System.in); 
-	private Service service = new Service();
-	private String commentString = "";
-	private Member mem = new Member();
-	private Provider pro = new Provider();
-	int i = 0;
+	private Scanner sc;
+	private Service service;
+	private String commentString;
+	private Member mem;
+	private Provider pro;
+	int i;
 	
 	public ServiceControl() {
+		sc = new Scanner(System.in);
+		service = new Service();
+		commentString = "";
+		mem = new Member();
+		pro = new Provider();
+		i = 0;
 	}
 	
-	public ServiceControl(long c, Date d, String com, UserInterface userI) {
-		code = c;
-		date = d;
-		commentString = com;
-	}
 	
 	/**
 	 * This method is used by providers to create new visits for members.
@@ -49,8 +47,7 @@ public class ServiceControl {
 				pro = ChocAnControl.providers.get(i);
 			}
 		}
-		date = new Date();	//gets current time and date
-		Visit newVisit = new Visit(mem, pro, s, date);	//creates visit
+		Visit newVisit = new Visit(mem, pro, s);	//creates visit
 		ChocAnControl.visits.add(newVisit);	//stores visit in ArrayList
 		return true;
 	}

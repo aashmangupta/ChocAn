@@ -12,8 +12,8 @@ public class Visit {
 		
 	}
 	
-	public Visit(Member m, Provider p, Service s, Date d) {
-		dateOfService = d;
+	public Visit(Member m, Provider p, Service s) {
+		dateOfService = new Date();
 		member = m;
 		provider = p;
 		service = s;
