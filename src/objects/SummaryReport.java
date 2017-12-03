@@ -23,11 +23,37 @@ public class SummaryReport {
 	}
 	
 	void generateFile() {
-		int currProvider;
+		Provider currProvider;
+		int indivFeeTotal = 0, totalProviders = 0, totalConsultations = 0, indivConsult = 0, totalFee = 0;
 		
-		for(int i = 0; i < providerArray.size(); i++) {
-	
+		try {
+			FileWriter fileWriter = new FileWriter(currFile);
+			for(int i = 0; i < providerArray.size(); i++) {
+				currProvider = providerArray.get(i);
+				for(int j = 0; j < visitArray.size(); j++) {
+					if(currProvider.name == visitArray.get(j).provider.name) {
+						indivConsult++;
+						indivFeeTotal = indivFeeTotal + visitArray.get(j).service.getFee();
+					}
+				}
+				if(indivConsult > 0) {
+					fileWriter.write(currProvider.name + '\n');
+					fileWriter.write(indivConsult + '\n');
+					fileWriter.write(indivFeeTotal + "\n\n");
+					totalProviders++;
+					totalFee = totalFee + indivFeeTotal;
+					totalConsultations = totalConsultations + indivConsult;
+				}
+			}
+			fileWriter.write("Total providers: " + totalProviders + '\n');
+			fileWriter.write("Total consultations: " + totalConsultations + '\n');
+			fileWriter.write("Total fee: " + totalFee + '\n');
+			fileWriter.close();
 		}
+		catch(IOException e) {
+			System.out.println("Error IOexception e.");
+		}
+		return;
 	}
 	
 	void email() {
