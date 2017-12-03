@@ -1,9 +1,11 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.Date;
 import objects.Member;
 import objects.Provider;
 import objects.ProviderDirectory;
+import objects.Service;
 import objects.Visit;
 
 public class ChocAnControl {
@@ -29,6 +31,9 @@ public class ChocAnControl {
       isFridayAtMidnight = false;
       serviceControl = new ServiceControl();
       
+      
+      
+      //Populating with initial sample data
       members.add(new Member("Frank", 000000001, "123 paul bryant", "tuscaloosa", "35401", "alabama", true));
       members.add(new Member("Tom", 000000002, "321 university blvd", "tuscaloosa", "35401", "alabama", true));
       members.add(new Member("Jan", 000000003, "100 campus dr", "tuscaloosa", "35401", "alabama", false));
@@ -44,6 +49,8 @@ public class ChocAnControl {
       operatorIds.add((long)45632);
       operatorIds.add((long)002);
       operatorIds.add((long)003);
+      
+      visits.add(new Visit(members.get(0), providers.get(1), new Service("servicename", 92349, 234), new Date()));
       
     }
     
