@@ -1,5 +1,7 @@
 package objects;
 
+//Coded by Ben Sanders
+
 import objects.Service;
 import java.util.*;
 import java.io.File;
@@ -29,11 +31,11 @@ public class ProviderDirectory {
 	public void email() {
 		int i = 0;
 		
-		if(new File("release").exists()){
-		  writeFile = new File("release\\data\\ProviderDirectory.txt");
+		if(new File("release").exists()){								//checks if release folder exits
+		  writeFile = new File("release\\data\\ProviderDirectory.txt");	//sets up new file to write to in the data folder
 		}
 		else {
-		  writeFile = new File("data\\ProviderDirectory.txt");
+		  writeFile = new File("data\\ProviderDirectory.txt");			//if no release file exists, creates directory file in data folder
 		}
 		
 		//creates file
@@ -84,20 +86,20 @@ public class ProviderDirectory {
 	 */
 	public void getDirectory() {
 		int i = 0;
-		Service currServ = new Service();						//holder service
+		Service currServ = new Service();			//holder service
 		String outStr = "";
 		
 		UserInterface.state("Services:\n");
 		UserInterface.state("name - code - fee\n");
-		for(i = 0; i < services.size() - 1; ++i) {				//loops through services
-			currServ = services.get(i);							//service to be printed
-			outStr += currServ.getName();
+		for(i = 0; i < services.size() - 1; ++i) {	//loops through services
+			currServ = services.get(i);				//service to be printed
+			outStr += currServ.getName();			//adds name to string
 			outStr += " - ";
-			outStr += currServ.getCode();
+			outStr += currServ.getCode();			//adds code to string
 			outStr += " - ";
-			outStr += currServ.getFee();
-			UserInterface.prompt(outStr);
-			outStr = "";
+			outStr += currServ.getFee();				//adds fee to sting
+			UserInterface.prompt(outStr);			//sends string to UserInterface to be printed to screen
+			outStr = "";								//resets outStr
 		}
 		return;
 	}

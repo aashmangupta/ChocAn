@@ -1,5 +1,7 @@
 package objects;
 
+//Coded by Ben Sanders
+
 public class Service {
 	private String name;
 	private long code;

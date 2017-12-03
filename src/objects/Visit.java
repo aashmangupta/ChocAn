@@ -1,5 +1,7 @@
 package objects;
 
+//Coded by Ben Sanders
+
 import java.util.Date;
 
 public class Visit {
