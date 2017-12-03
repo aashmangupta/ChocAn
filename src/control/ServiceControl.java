@@ -27,6 +27,9 @@ public class ServiceControl {
 	private Provider pro = new Provider();
 	int i = 0;
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	public ServiceControl() {
 		sc = new Scanner(System.in);
@@ -37,9 +40,12 @@ public class ServiceControl {
 		i = 0;
 	}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
 	
 =======
+=======
+>>>>>>> Stashed changes
 
 	public ServiceControl(long c, Date d, String com, UserInterface userI) {
 		code = c;
@@ -47,6 +53,9 @@ public class ServiceControl {
 		commentString = com;
 	}
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	/**
 	 * This method is used by providers to create new visits for members.
@@ -78,6 +87,9 @@ public class ServiceControl {
 		out.println(mem);
 		out.println()
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 		ChocAnControl.visits.add(newVisit);	//stores visit in ArrayList
 		return true;
