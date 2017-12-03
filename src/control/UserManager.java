@@ -216,9 +216,6 @@ public class UserManager {
 			provToAdd.totalFees = scan.nextInt();
 			
 			ChocAnControl.providers.add(provToAdd);
-			/*UserInterface.prompt("this works");*/
-			UserInterface.prompt("" + ChocAnControl.providers.size());
-			UserInterface.prompt("" + ChocAnControl.providers.get(3).id);
 			return true;
 		}
 		else {
@@ -241,8 +238,6 @@ public class UserManager {
 		provID = scan.nextLong();
 		scan.nextLine();
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {	//Find the input provider ID to set index for later use
-			UserInterface.prompt("" + ChocAnControl.providers.size());
-			UserInterface.prompt("" + ChocAnControl.providers.get(i).id);
 			if(ChocAnControl.providers.get(i).id == provID)  {
 				out = true;
 				provNum = i;
