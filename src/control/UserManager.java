@@ -10,11 +10,9 @@ import java.util.Scanner;
 
 public class UserManager {
 	
-	ChocAnControl ChocAn;
 	Scanner scan;
 	
 	public UserManager() {						//Constructor 
-		ChocAn = new ChocAnControl();			//creating local chocAnControl to access arrayLists
 		scan = new Scanner(System.in);			//Creates scanner to use in conjunction with prompt
 	}
 	
@@ -156,8 +154,8 @@ public class UserManager {
 		long memID;													//Scan variable to take in member ID to look for/edit
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
-		for(int i = 0; i < ChocAn.members.size(); i++) {
-			if(ChocAn.members.get(i).id == memID)  {				//Find the input member ID to set index for later use
+		for(int i = 0; i < ChocAnControl.members.size(); i++) {
+			if(ChocAnControl.members.get(i).id == memID)  {				//Find the input member ID to set index for later use
 				out = true;										
 				memNum = i;
 			}
