@@ -116,11 +116,14 @@ public class ProviderInterface extends UserInterface {
   }
 
   private static void createVisit() {
-
+    if (current_member == -1){
+      return;
+    }
     Service svc;
 
     UserInterface.prompt("Enter 6 digit service code");
-    long code = scan.nextLong();
+    long code = code.valueOf(scan.nextLong());
+
     svc = ChocAnControl.providerDirectory.getService(code);
     if (svc.getName().equals("Error: invalid code")){
       UserInterface.prompt("Error: invalid code");
@@ -130,7 +133,7 @@ public class ProviderInterface extends UserInterface {
 
     ChocAnControl.serviceControl.createVisit(current_member, provider_id, svc);
 
-    UserInterface.prompt("Visit for member #" + Long.toString(current_member) + "created.");
+    UserInterface.prompt("Visit for member #" + Long.toString(current_member) + " created.");
     UserInterface.prompt("Service Provided: " + svc.getName());
     UserInterface.prompt("Fee: " + Integer.toString(svc.getFee()));
     }
