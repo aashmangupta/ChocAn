@@ -10,7 +10,7 @@ public abstract class UserInterface {
       System.out.println(prompt);
   }
   public static void state(String state){
-	  System.out.println(state);
+	  System.out.print(state);
   }
 
 }
