@@ -28,7 +28,15 @@ public class ProviderDirectory {
 	 */
 	public void email() {
 		int i = 0;
-		writeFile = new File("ProviderDirectory.txt");			//creates file
+		
+		if(new File("release").exists()){
+		  writeFile = new File("release\\data\\ProviderDirectory.txt");
+		}
+		else {
+		  writeFile = new File("data\\ProviderDirectory.txt");
+		}
+		
+		//creates file
 		Service currServ = new Service();						//holder service
 		
 		try {
