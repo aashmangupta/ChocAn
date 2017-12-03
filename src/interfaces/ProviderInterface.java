@@ -122,7 +122,7 @@ public class ProviderInterface extends UserInterface {
     Service svc;
 
     UserInterface.prompt("Enter 6 digit service code");
-    long code = code.valueOf(scan.nextLong());
+    long code = Long.valueOf(scan.nextLong());
 
     svc = ChocAnControl.providerDirectory.getService(code);
     if (svc.getName().equals("Error: invalid code")){

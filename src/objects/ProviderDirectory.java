@@ -88,7 +88,6 @@ public class ProviderDirectory {
 			outStr += currServ.getCode();
 			outStr += " - ";
 			outStr += currServ.getFee();
-			outStr += " - ";
 			UserInterface.prompt(outStr);
 			outStr = "";
 		}
