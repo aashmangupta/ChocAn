@@ -58,7 +58,9 @@ public class ServiceControl {
 		Visit newVisit = new Visit(mem, pro, s, date);	//creates visit
 		PrintWriter out = new PrintWriter("visits.txt");	//writing to a separate text file
 		out.println(mem);
-		out.println()
+		out.println(pro);
+		out.println(s);
+		out.println(date);
 		ChocAnControl.visits.add(newVisit);	//stores visit in ArrayList
 		return true;
 	}
