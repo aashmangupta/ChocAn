@@ -1,5 +1,7 @@
 package control;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import objects.Member;
@@ -19,8 +21,10 @@ public class ChocAnControl {
     public static AccountingProcedure mainProcedure;	
     public static ServiceControl serviceControl;
     public static boolean isFridayAtMidnight;
+    static DateFormat dateFormat;
     
     public ChocAnControl(){
+      dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
       managerIds = new ArrayList<Long>();
       operatorIds = new ArrayList<Long>();
       members = new ArrayList<Member>();
