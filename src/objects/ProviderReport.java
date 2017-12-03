@@ -14,6 +14,10 @@ public class ProviderReport {
 		currProvider = provider;
 		currFile = new File(currProvider.name + currProvider.id + ".txt");
 		visitArray = visits;
+		if(visits.isEmpty()) {
+			System.out.println("ERROR: No visits exist so far.");
+			return;
+		}
 		generateFile();
 	}
 	

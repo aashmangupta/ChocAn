@@ -77,14 +77,19 @@ public class ProviderDirectory {
 	public void getDirectory() {
 		int i = 0;
 		Service currServ = new Service();						//holder service
+		String outStr = "";
 		
 		UserInterface.state("Services:\n");
 		UserInterface.state("name - code - fee\n");
 		for(i = 0; i < services.size() - 1; ++i) {				//loops through services
 			currServ = services.get(i);							//service to be printed
-			UserInterface.state(currServ.getName() + " - ");		//prints name
-			UserInterface.state(currServ.getCode() + " - ");		//prints code
-			UserInterface.state(currServ.getFee() + "\n");		//prints fee
+			outStr += currServ.getName();
+			outStr += " - ";
+			outStr += currServ.getCode();
+			outStr += " - ";
+			outStr += currServ.getFee();
+			UserInterface.prompt(outStr);
+			outStr = "";
 		}
 		return;
 	}

@@ -123,7 +123,7 @@ public class main {
 	  UserInterface.prompt("Log in as manager - 'm', 'M', 'manager', 'Manager'"); 
 	  UserInterface.prompt("Shut Down ChocAn - 'shutdown'"); 
 	  UserInterface.prompt("");
-	  UserInterface.prompt("Press any key to return to main menu");
+	  UserInterface.prompt("Enter any key to return to main menu");
 	  temp = scan.next();
 	  }
 
