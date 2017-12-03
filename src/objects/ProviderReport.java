@@ -19,6 +19,7 @@ public class ProviderReport {
 			return;
 		}
 		generateFile();
+		return;
 	}
 	
 	void generateFile() {
@@ -59,7 +60,7 @@ public class ProviderReport {
 		}
 		
 		catch(IOException e) {
-			System.out.println("Error");
+			System.out.println("Error IOexception e.");
 		}
 	}
 
