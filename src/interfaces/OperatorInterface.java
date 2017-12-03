@@ -103,17 +103,17 @@ public class OperatorInterface extends UserInterface {
 			deleteMember();
 			break;
 	
-		case "addprovider":
+		case "addp":
 			UserInterface.prompt("Adding provider...");
 			addProvider();
 			break;
 	
-		case "editprovider":
+		case "editp":
 			UserInterface.prompt("Editing provider...");
 			editProvider();
 			break;
 		
-		case "deleteprovider":
+		case "deletep":
 			UserInterface.prompt("Delete provider...");
 			editProvider();
 			break;

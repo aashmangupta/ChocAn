@@ -57,11 +57,13 @@ public class UserManager {
 			memToAdd = new Member();
 			memToAdd.id = memID;
 			UserInterface.prompt("Enter member name");							//Access prompt
-			memToAdd.name = scan.next();
+			memToAdd.name = scan.nextLine();
+			scan.nextLine();
 			UserInterface.prompt("Enter member address");						//Access prompt
-			memToAdd.address = scan.next();
+			memToAdd.address = scan.nextLine();
+			//scan.nextLine();
 			UserInterface.prompt("Enter member city");							//Access prompt
-			memToAdd.city = scan.next();
+			memToAdd.city = scan.nextLine();
 			UserInterface.prompt("Enter member zip code");						//Access prompt
 			memToAdd.zipCode = scan.next();
 			UserInterface.prompt("Enter member state");							//Access prompt
@@ -98,7 +100,7 @@ public class UserManager {
 			}
 		}
 		if(out) {
-			while(query != "stop") {
+			while(!(query.equals("stop"))) {
 				if(out) {
 					UserInterface.prompt("What do you want to edit? (ID, name, add, city, zip, st, status) (stop) to end edit");					//Access prompt
 					query = scan.next();
@@ -197,11 +199,14 @@ public class UserManager {
 			provToAdd = new Provider();	
 			provToAdd.id = provID;
 			UserInterface.prompt("Enter provider name");			//Access prompt
-			provToAdd.name = scan.next();
+			provToAdd.name = scan.nextLine();
+			scan.nextLine();
 			UserInterface.prompt("Enter provider address");			//Access prompt
-			provToAdd.address = scan.next();
+			provToAdd.address = scan.nextLine();
+			//scan.nextLine();
 			UserInterface.prompt("Enter provider city");			//Access prompt
 			provToAdd.city = scan.next();
+			scan.nextLine();
 			UserInterface.prompt("Enter provider zip code");		//Access prompt
 			provToAdd.zipCode = scan.next();
 			UserInterface.prompt("Enter provider state");			//Access prompt
@@ -238,44 +243,42 @@ public class UserManager {
 			}
 		}
 		if(out) {
-			while(query != "stop") {											//Allow user to keep editing until they enter "stop"
-				if(out) {
-					UserInterface.prompt("What do you want to edit? "
-							+ "(ID, name, add, city, zip, st, fees, visits) (stop) to end edit");		//Access prompt
-					query = scan.next();
-					if(query.equals("ID")) {											//Allow user to edit provider ID
-						UserInterface.prompt("Enter new member ID");					//Access prompt
-						ChocAnControl.providers.get(provNum).id = scan.nextLong();	
-						provID = ChocAnControl.providers.get(provNum).id;
-					}
-					else if(query.equals("name")) {										
-						UserInterface.prompt("Enter new member name");					//Access prompt
-						ChocAnControl.providers.get(provNum).name = scan.nextLine();	//Allow user to edit provider name
-					}
-					else if(query.equals("add")) {
-						UserInterface.prompt("Enter new provider address");					//Access prompt
-						ChocAnControl.providers.get(provNum).address = scan.nextLine();		//Allow user to edit provider address
-					}
-					else if(query.equals("city")) {
-						UserInterface.prompt("Enter new provider city");					//Access prompt
-						ChocAnControl.providers.get(provNum).city = scan.nextLine();		//Allow user to edit provider city
-					}
-					else if(query.equals("zip")) {
-						UserInterface.prompt("Enter new provider zipCode");					//Access prompt
-						ChocAnControl.providers.get(provNum).zipCode = scan.nextLine();		//Allow user to edit provider zip code
-					}
-					else if(query.equals("st")) {
-						UserInterface.prompt("Enter new member state");						//Access prompt
-						ChocAnControl.providers.get(provNum).state = scan.nextLine();		//Allow user to edit provider state
-					}
+			while(!(query.equals("stop"))) {											//Allow user to keep editing until they enter "stop"
+				UserInterface.prompt("What do you want to edit? "
+						+ "(ID, name, add, city, zip, st, fees, visits) (stop) to end edit");		//Access prompt
+				query = scan.next();
+				if(query.equals("ID")) {											//Allow user to edit provider ID
+					UserInterface.prompt("Enter new provider ID");					//Access prompt
+					ChocAnControl.providers.get(provNum).id = scan.nextLong();	
+					provID = ChocAnControl.providers.get(provNum).id;
+				}
+				else if(query.equals("name")) {										
+					UserInterface.prompt("Enter new provider name");					//Access prompt
+					ChocAnControl.providers.get(provNum).name = scan.nextLine();	//Allow user to edit provider name
+				}
+				else if(query.equals("add")) {
+					UserInterface.prompt("Enter new provider address");					//Access prompt
+					ChocAnControl.providers.get(provNum).address = scan.nextLine();		//Allow user to edit provider address
+				}
+				else if(query.equals("city")) {
+					UserInterface.prompt("Enter new provider city");					//Access prompt
+					ChocAnControl.providers.get(provNum).city = scan.nextLine();		//Allow user to edit provider city
+				}
+				else if(query.equals("zip")) {
+					UserInterface.prompt("Enter new provider zipCode");					//Access prompt
+					ChocAnControl.providers.get(provNum).zipCode = scan.nextLine();		//Allow user to edit provider zip code
+				}
+				else if(query.equals("st")) {
+					UserInterface.prompt("Enter new provider state");						//Access prompt
+					ChocAnControl.providers.get(provNum).state = scan.nextLine();		//Allow user to edit provider state
+				}
 					else if(query.equals("visits")) {
-						UserInterface.prompt("Enter new number of visits");					//Access prompt
-						ChocAnControl.providers.get(provNum).totalVisits = scan.nextInt();	//Allow user to edit provider number of visits			
-					}
-					else if(query.equals("fees")) {
-						UserInterface.prompt("Enter new provider fee total");				//Access prompt
-						ChocAnControl.providers.get(provNum).totalFees = scan.nextInt();	//Allow user to edit provider total fees
-					}
+					UserInterface.prompt("Enter new number of visits");					//Access prompt
+					ChocAnControl.providers.get(provNum).totalVisits = scan.nextInt();	//Allow user to edit provider number of visits			
+				}
+				else if(query.equals("fees")) {
+					UserInterface.prompt("Enter new provider fee total");				//Access prompt
+					ChocAnControl.providers.get(provNum).totalFees = scan.nextInt();	//Allow user to edit provider total fees
 				}
 			}
 			return true;
