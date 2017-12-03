@@ -189,6 +189,7 @@ public class UserManager {
 		long provID;												//Scan variable to take in provider ID to create and check existence
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = scan.nextLong();
+		scan.nextLine();
 		Provider provToAdd;									
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {		//Check to see if provider by that ID already exists
 			if(ChocAnControl.providers.get(i).id == provID)  {
@@ -200,7 +201,7 @@ public class UserManager {
 			provToAdd.id = provID;
 			UserInterface.prompt("Enter provider name");			//Access prompt
 			provToAdd.name = scan.nextLine();
-			scan.nextLine();
+			//scan.nextLine();
 			UserInterface.prompt("Enter provider address");			//Access prompt
 			provToAdd.address = scan.nextLine();
 			//scan.nextLine();
@@ -217,6 +218,9 @@ public class UserManager {
 			provToAdd.totalFees = scan.nextInt();
 			
 			ChocAnControl.providers.add(provToAdd);
+			/*UserInterface.prompt("this works");*/
+			UserInterface.prompt("" + ChocAnControl.providers.size());
+			UserInterface.prompt("" + ChocAnControl.providers.get(3).id);
 			return true;
 		}
 		else {
@@ -234,19 +238,23 @@ public class UserManager {
 		int provNum = 0;											//Int to use as index to keep track of provider to edit
 		long provID;												//Scan variable to take in provider ID to edit and check existence
 		String query = "none";										//String check for editing while loop
-		UserInterface.prompt("Enter provider ID");					//Access prompt
+		UserInterface.prompt("Enter provider ID to edit");					//Access prompt
 		provID = scan.nextLong();
+		scan.nextLine();
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {	//Find the input provider ID to set index for later use
+			UserInterface.prompt("" + ChocAnControl.providers.size());
+			UserInterface.prompt("" + ChocAnControl.providers.get(i).id);
 			if(ChocAnControl.providers.get(i).id == provID)  {
 				out = true;
 				provNum = i;
+				//UserInterface.prompt("this works" + i);
 			}
 		}
 		if(out) {
 			while(!(query.equals("stop"))) {											//Allow user to keep editing until they enter "stop"
 				UserInterface.prompt("What do you want to edit? "
 						+ "(ID, name, add, city, zip, st, fees, visits) (stop) to end edit");		//Access prompt
-				query = scan.next();
+				query = scan.nextLine();
 				if(query.equals("ID")) {											//Allow user to edit provider ID
 					UserInterface.prompt("Enter new provider ID");					//Access prompt
 					ChocAnControl.providers.get(provNum).id = scan.nextLong();	
