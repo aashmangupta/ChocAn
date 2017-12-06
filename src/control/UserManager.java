@@ -108,6 +108,7 @@ public class UserManager {
 	    }
 		}
 		else {
+			UserInterface.prompt("There is already a member with that ID");
 			return false;
 		}
 	}
@@ -172,6 +173,7 @@ public class UserManager {
 			return true;
 		}
 		else {
+			UserInterface.prompt("There is no meber with that ID");
 			return false;
 		}
 	}
@@ -280,6 +282,7 @@ public class UserManager {
 	    }
 		}
 		else {
+			UserInterface.prompt("There is already a provider with that ID");
 			return false;
 		}
 	}
@@ -298,12 +301,9 @@ public class UserManager {
 		provID = scan.nextLong();
 		scan.nextLine();
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {	//Find the input provider ID to set index for later use
-			UserInterface.prompt("" + ChocAnControl.providers.size());
-			UserInterface.prompt("" + ChocAnControl.providers.get(i).id);
 			if(ChocAnControl.providers.get(i).id == provID)  {
 				out = true;
 				provNum = i;
-				//UserInterface.prompt("this works" + i);
 			}
 		}
 		if(out) {
@@ -348,6 +348,7 @@ public class UserManager {
 			return true;
 		}
 		else {
+			UserInterface.prompt("There is no provider with that ID");
 			return false;
 		}
 	}
