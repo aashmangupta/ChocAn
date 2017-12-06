@@ -55,7 +55,6 @@ public class ChocAnControl {
       operatorIds.add((long)003);
 
       visits.add(new Visit(members.get(0), providers.get(1), new Service("servicename", 883950, 80)));
-
     }
 
 
