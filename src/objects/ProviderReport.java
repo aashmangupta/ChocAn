@@ -38,30 +38,43 @@ public class ProviderReport {
 		int i = 0, totalFee = 0, count = 0, fee;
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
-			fileWriter.write(currProvider.name + '\n');
-			fileWriter.write((int) currProvider.id + '\n');
-			fileWriter.write(currProvider.address  + '\n');
-			fileWriter.write(currProvider.city + '\n');
-			fileWriter.write(currProvider.state + '\n');
-			fileWriter.write(currProvider.zipCode + '\n');
+			fileWriter.write(currProvider.name);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write((int) currProvider.id);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currProvider.address);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currProvider.city);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currProvider.state);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currProvider.zipCode);
+			fileWriter.write(System.lineSeparator());
 
 			while(i < visitArray.size()) {
 				if(currProvider.name == visitArray.get(i).provider.name) {
 					dateVisit = visitArray.get(i).dateOfService.toString();
 					count = count + 1;
-					fileWriter.write(dateVisit + '\n');
-					fileWriter.write(visitArray.get(i).member.name + '\n');
-					fileWriter.write((int)visitArray.get(i).member.id + '\n');
-					fileWriter.write(visitArray.get(i).service.hashCode()+ '\n');
+					fileWriter.write(dateVisit);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write(visitArray.get(i).member.name);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write((int)visitArray.get(i).member.id);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write(visitArray.get(i).service.hashCode());
+					fileWriter.write(System.lineSeparator());
 					fee = visitArray.get(i).service.getFee();
 					totalFee = totalFee + fee;
-					fileWriter.write(fee + '\n');
-					fileWriter.write('\n');
+					fileWriter.write(fee);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write(System.lineSeparator());
 				}
 				i++;
 			}
-			fileWriter.write(count + " consultations in total." + '\n');
-			fileWriter.write("Total Feel: " + totalFee + '\n');
+			fileWriter.write(count + " consultations in total.");
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write("Total Feel: " + totalFee);
+			fileWriter.write(System.lineSeparator());
 			fileWriter.close();
 		}
 
