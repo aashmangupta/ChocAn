@@ -2,6 +2,7 @@ package objects;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.io.IOException;
 
 //BUILT BY: AASHMAN GUPTA
@@ -28,14 +29,30 @@ public class EFTReport {
 	}
 	
 	void generateFile() {
+		int totalFee = 0;
+		String provId, fee, provName;
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
 			for(int i = 0; i < visitArray.size(); i++) {
 				fileWriter.write(visitArray.get(i).provider.name);
+				provName = visitArray.get(i).provider.name;
+				totalFee = visitArray.get(i).service.getFee();
+				
+				for(int j = i + 1; j < visitArray.size(); j++) {
+					if(provName == visitArray.get(j).provider.name) {
+						totalFee = totalFee + visitArray.get(j).service.getFee();
+						visitArray.remove(j);
+						j--;
+					}
+				}
+				
+				
 				fileWriter.write(System.lineSeparator());
-				fileWriter.write((int) visitArray.get(i).provider.id);
+				provId = Objects.toString(visitArray.get(i).provider.id); 
+				fileWriter.write(provId);
 				fileWriter.write(System.lineSeparator());
-				fileWriter.write(visitArray.get(i).service.getFee());
+				fee = Objects.toString(totalFee);
+				fileWriter.write(fee);
 				fileWriter.write(System.lineSeparator());
 				fileWriter.write(System.lineSeparator());
 			}

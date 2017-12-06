@@ -2,6 +2,7 @@ package objects;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.io.IOException;
 import java.io.FileReader;
 
@@ -37,11 +38,13 @@ public class ProviderReport {
 
 	void generateFile() {
 		int i = 0, totalFee = 0, count = 0, fee;
+		String provID, memID, feeStr, serviceCode;
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
 			fileWriter.write(currProvider.name);
 			fileWriter.write(System.lineSeparator());
-			fileWriter.write((int) currProvider.id);
+			provID = Objects.toString(currProvider.id);
+			fileWriter.write(provID);
 			fileWriter.write(System.lineSeparator());
 			fileWriter.write(currProvider.address);
 			fileWriter.write(System.lineSeparator());
@@ -60,13 +63,16 @@ public class ProviderReport {
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write(visitArray.get(i).member.name);
 					fileWriter.write(System.lineSeparator());
-					fileWriter.write((int)visitArray.get(i).member.id);
+					memID = Objects.toString(visitArray.get(i).member.id);
+					fileWriter.write(memID);
 					fileWriter.write(System.lineSeparator());
-					fileWriter.write(visitArray.get(i).service.hashCode());
+					serviceCode = Objects.toString(visitArray.get(i).service.getCode());
+					fileWriter.write(serviceCode);
 					fileWriter.write(System.lineSeparator());
 					fee = visitArray.get(i).service.getFee();
 					totalFee = totalFee + fee;
-					fileWriter.write(fee);
+					feeStr = Objects.toString(fee);
+					fileWriter.write(feeStr);
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write(System.lineSeparator());
 				}

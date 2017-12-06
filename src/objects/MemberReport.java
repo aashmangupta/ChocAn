@@ -2,6 +2,7 @@ package objects;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.io.IOException;
 import java.io.FileReader;
 
@@ -23,6 +24,7 @@ public class MemberReport {
 		      currFile = new File("reports\\" + currMember.name + currMember.id + ".txt");
 		}
 		visitArray = visits;
+		generateFile();
 	}
 	
 	/**
@@ -32,12 +34,14 @@ public class MemberReport {
 	   */
 	
 	void generateFile() {
-		int i = 0, flag = 0;
+		int i = 0;
+		String memID;
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
 			fileWriter.write(currMember.name);
 			fileWriter.write(System.lineSeparator());
-			fileWriter.write((int) currMember.id);
+			memID = Objects.toString(currMember.id);
+			fileWriter.write(memID);
 			fileWriter.write(System.lineSeparator());
 			fileWriter.write(currMember.address);
 			fileWriter.write(System.lineSeparator());
@@ -47,25 +51,20 @@ public class MemberReport {
 			fileWriter.write(System.lineSeparator());
 			fileWriter.write(currMember.zipCode);
 			fileWriter.write(System.lineSeparator());
+			fileWriter.write(System.lineSeparator());
 			
-			while(i <= visitArray.size()) {
-				for(i = flag; i < visitArray.size(); i++) {
-					if(currMember.name == visitArray.get(i).member.name) {
-						break;
-					}
+			while(i < visitArray.size()) {
+				if(currMember.name == visitArray.get(i).member.name)	{
+					dateVisit = visitArray.get(i).dateOfService.toString();
+					fileWriter.write(dateVisit);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write(visitArray.get(i).provider.name);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write(visitArray.get(i).service.getName());
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write(System.lineSeparator());
 				}
-				if((i == visitArray.size()) && (currMember.name != visitArray.get(i).member.name)) {
-					break;
-				}
-				dateVisit = visitArray.get(i).dateOfService.toString();
-				fileWriter.write(dateVisit);
-				fileWriter.write(System.lineSeparator());
-				fileWriter.write(visitArray.get(i).provider.name);
-				fileWriter.write(System.lineSeparator());
-				fileWriter.write(visitArray.get(i).service.getName());
-				fileWriter.write(System.lineSeparator());
-				fileWriter.write(System.lineSeparator());
-				flag = i;
+				i++;
 			}
 			fileWriter.close();
 		}
