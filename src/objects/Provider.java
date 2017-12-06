@@ -17,7 +17,8 @@ public class Provider extends User{
 	}
 	
 	/**
-	   * Constructor.
+	   * Constructor. 
+	   * Inherited from User super class.
 	   * 
 	   * @param name, name of the provider
 	   * @param ID, ID of the provider
