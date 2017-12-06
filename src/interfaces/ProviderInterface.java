@@ -63,17 +63,26 @@ public class ProviderInterface extends UserInterface {
     Scanner swipe_id = new Scanner(System.in);
     long member_id = swipe_id.nextLong();
     boolean success = false;
+    boolean suspended = true;
     for (int i = 0; i < ChocAnControl.members.size(); i++) {      //checks if member id exists
       if (ChocAnControl.members.get(i).id == (member_id)) {
         success = true;
-        break;
+        if (ChocAnControl.members.get(i).accountStatus == (false)){
+        suspended = true;
+        }
+      break;
       }
     }
     if (success == true) {                                      //member number exists
       UserInterface.prompt("Member number is verified");
       current_member = member_id;
       return true;
-    } else {
+    } 
+    else if (suspended == true){
+    	UserInterface.prompt("Member number is suspended");
+    	return false;
+    }
+    else {
       UserInterface.prompt("Member number does not exist");     //member number does not exist
       return false;
     }
