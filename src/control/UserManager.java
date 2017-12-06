@@ -52,6 +52,7 @@ public class UserManager {
 		int stat;													//Scan int variable to use as glorified scan boolean
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
+		scan.nextLine();
 		String member;
 		Member memToAdd;
 		for(int i = 0; i < ChocAnControl.members.size(); i++) {				//Search member list (arrayList in control)
