@@ -13,7 +13,7 @@ public class MemberReport {
 	ArrayList<Visit> visitArray;
 	String dateVisit;
 	
-	MemberReport(Member member, ArrayList<Visit> visits) {
+	public MemberReport(Member member, ArrayList<Visit> visits) {
 		currMember = member;
 		//currFile = new File(currMember.name + currMember.id + ".txt");
 		if (new File("release").exists()) {

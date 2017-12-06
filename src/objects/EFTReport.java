@@ -10,7 +10,7 @@ public class EFTReport {
 	File currFile;
 	ArrayList<Visit> visitArray;
 
-	EFTReport(ArrayList<Visit> visits) {
+	public EFTReport(ArrayList<Visit> visits) {
 		//currFile = new File("EFT.txt");
 		if (new File("release").exists()) {
 		      currFile = new File("release\\reports\\summaryReports.txt");
