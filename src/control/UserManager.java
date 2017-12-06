@@ -84,10 +84,14 @@ public class UserManager {
 			String state = scan.next();
 			memToAdd.state = state;
 			
+			String status;
+			
 			UserInterface.prompt("Enter account status: 1-active, 0-suspended");	//Access prompt
 			stat = scan.nextInt();
-			if(stat == 1) { memToAdd.accountStatus = true; }
-			if(stat == 0) { memToAdd.accountStatus = false; }
+			if(stat == 0) { memToAdd.accountStatus = false;
+			                status = "false";}
+			else { memToAdd.accountStatus = true;
+			    status = "true";}
 
 			ChocAnControl.members.add(memToAdd);						//Add member to the arrayList in control
 
@@ -105,7 +109,7 @@ public class UserManager {
 				out.write(city + " ");
 				out.write(zip + " ");
 				out.write(state + " ");
-				out.write(stat + " ");
+				out.write(status + " ");
 	      out.close();
 	      return true;
 	    } catch (IOException e) {

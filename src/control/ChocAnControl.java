@@ -41,7 +41,7 @@ public class ChocAnControl {
       serviceControl = new ServiceControl();
 
       
-     /* Scanner s;
+     Scanner s;
       try {
         s = new Scanner(new File("release"+File.separator+"data"+ File.separator+"members.txt"));
       
@@ -69,7 +69,7 @@ public class ChocAnControl {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
-*/
+
       providers.add(new Provider("Phil", 98765432, "111 14th ave", "tuscaloosa", "35401", "alabama", 20, 0));
       providers.add(new Provider("Matt", 200000000, "1000 15th st", "tuscaloosa", "35401", "alabama", 80, 0));
       providers.add(new Provider("John", 300000000, "100 16th st", "tuscaloosa", "35401", "alabama", 20, 0));
