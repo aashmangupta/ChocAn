@@ -4,12 +4,20 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.io.IOException;
 
+//BUILT BY: AASHMAN GUPTA
+
 public class EFTReport {
 	File currFile;
 	ArrayList<Visit> visitArray;
 
 	EFTReport(ArrayList<Visit> visits) {
-		currFile = new File("EFT.txt");
+		//currFile = new File("EFT.txt");
+		if (new File("release").exists()) {
+		      currFile = new File("release\\reports\\summaryReports.txt");
+		}		
+		else {
+		      currFile = new File("reports\\summaryReports.txt");
+		}
 		visitArray = visits;
 		if(visits.isEmpty()) {
 			System.out.println("ERROR: No visits exist so far.");

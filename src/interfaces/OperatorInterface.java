@@ -5,74 +5,127 @@ import java.util.Scanner;
 import control.ChocAnControl;
 
 public class OperatorInterface extends UserInterface {
-	boolean logged_in = false;
-	public long operator_id;
+	//boolean logged_in = false;					//default is false
+	public long operator_id;						//variable to store operator id
 	static String input;
 	static Scanner scan;
 
-  public OperatorInterface(){
-    scan = new Scanner(System.in);
+  public OperatorInterface(){				//Constructor
+    scan = new Scanner(System.in);	//Defining a new scanner
   }
 
+	/**
+  * This method is used for providers to login
+  *
+  * @param none.
+  * @return boolean.
+  */
   public boolean login(){
 	 boolean success = false;
 
 	UserInterface.prompt("Enter Operator ID or type 'x' to exit:");
 	input = scan.next();
-	if (input.equals("x")){
+	if (input.equals("x")){								//checks if the manager wants to exit
 		return false;
 	}
 	else {
 		operator_id = Long.parseLong(input);
 
-    for (int i = 0; i < ChocAnControl.operatorIds.size(); i++){       //provider_data_user has to be an array from the main program
+    for (int i = 0; i < ChocAnControl.operatorIds.size(); i++){       //checks if operator login exists
       if (ChocAnControl.operatorIds.get(i) == (operator_id)) {
     	  success = true;
     	  break;
       }
     }
-    if (success == true){
+    if (success == true){																						//login exists
       UserInterface.prompt("Operator Login Successful");
-      logged_in = true;
+      //logged_in = true;
       return true;
     }
-    else {
+    else {																													//login doesnt exist
       UserInterface.prompt("Incorrect Operator Login");
       return login();
     }
 	}
   }
 
+	/**
+  * This is the option an operator can take to add a member
+  *
+  * @param none.
+  * @return void.
+  */
   public static void addMember(){
 	  UserManager usermanager = new UserManager();
-      usermanager.addMember();
-  }
-  public static void editMember(){
-	  UserManager usermanager = new UserManager();
-      usermanager.editMember();
-  }
-  public static void deleteMember(){
-	  UserManager usermanager = new UserManager();
-	  usermanager.deleteMember();
-  }
-  public static void addProvider(){
-	  UserManager usermanager = new UserManager();
-	  usermanager.addProvider();
-  }
-  public static void editProvider(){
-    UserManager usermanager = new UserManager();
-    usermanager.editProvider();
-  }
-  public static void deleteProvider(){
-	UserManager usermanager = new UserManager();
-    usermanager.deleteProvider();
+      usermanager.addMember();																		//calls the method to add a member
   }
 
+	/**
+  * This is the option an operator can take to edit a member
+  *
+  * @param none.
+  * @return void.
+  */
+  public static void editMember(){
+	  UserManager usermanager = new UserManager();
+      usermanager.editMember();																	//calls the method to edit a member
+  }
+
+	/**
+  * This is the option an operator can take to delete a member
+  *
+  * @param none.
+  * @return void.
+  */
+  public static void deleteMember(){
+	  UserManager usermanager = new UserManager();
+	  usermanager.deleteMember();																	//calls the method to delete a member
+  }
+
+	/**
+  * This is the option an operator can take to add a provider
+  *
+  * @param none.
+  * @return void.
+  */
+  public static void addProvider(){
+	  UserManager usermanager = new UserManager();
+	  usermanager.addProvider();																//calls the method to add a provider
+  }
+
+	/**
+  * This is the option an operator can take to edit a provider
+  *
+  * @param none.
+  * @return void.
+  */
+  public static void editProvider(){
+    UserManager usermanager = new UserManager();
+    usermanager.editProvider();																//calls the method to edit a provider
+  }
+
+	/**
+  * This is the option an operator can take to delete a provider
+  *
+  * @param none.
+  * @return void.
+  */
+  public static void deleteProvider(){
+	UserManager usermanager = new UserManager();
+    usermanager.deleteProvider();														//calls the method to delete a provider
+  }
+
+	/**
+  * This method lists the options that a given operator can take
+  *
+  * @param none.
+  * @return String.
+  */
   public static String operatorMenu() {
 
 	boolean menuActive = true;
 
-	while(menuActive){
+	while(menuActive){															//stays active until the operator decides to logout
 		UserInterface.prompt("\n\n");
 		UserInterface.prompt("**************************");
 		UserInterface.prompt("** Choc-An Operator Menu **");
@@ -90,39 +143,39 @@ public class OperatorInterface extends UserInterface {
 		switch(input){
 		case "addm":
 			UserInterface.prompt("Adding member...");
-			addMember();
+			addMember();																			//calls the method to add a member
 			break;
 
 		case "editm":
 			UserInterface.prompt("Editing member...");
-			editMember();
+			editMember();																			//calls the method to edit a member
 			break;
 
 		case "deletem":
 			UserInterface.prompt("Deleting member...");
-			deleteMember();
+			deleteMember();																	 //calls the method to delete a member
 			break;
 
 		case "addp":
 			UserInterface.prompt("Adding provider...");
-			addProvider();
+			addProvider();																	//calls the method to add a provider
 			break;
 
 		case "editp":
 			UserInterface.prompt("Editing provider...");
-			editProvider();
+			editProvider();																	//calls the method to edit a provider
 			break;
 
 		case "deletep":
 			UserInterface.prompt("Delete provider...");
-			deleteProvider();
+			deleteProvider();																//calls the method to delete a provider
 			break;
 
-		case "logout":
+		case "logout":																		//logs the operator out
 			menuActive = false;
 			break;
 
-		default:
+		default:																					//default method if an invalid selection is made
 			UserInterface.prompt("Invalid selection, try again");
 			break;
 		}

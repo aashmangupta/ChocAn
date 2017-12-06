@@ -1,7 +1,6 @@
 package interfaces;
 
 
-
 public abstract class UserInterface {
 
   public abstract boolean login();

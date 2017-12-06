@@ -9,76 +9,86 @@ import control.ChocAnControl;
 
 
 public class ProviderInterface extends UserInterface {
-  public static long provider_id;
-  public static long current_member = -1;
+  public static long provider_id;                  //defining variable to store provider id
+  public static long current_member = -1;         //defining variable to store member id
   static Scanner scan;
   static String input;
 
-  public ProviderInterface() {
-    scan = new Scanner(System.in);
+  public ProviderInterface() {      //Constructor
+    scan = new Scanner(System.in);  //Defining a new scanner
   }
 
+  /**
+  * This method is used for providers to login
+  *
+  * @param none.
+  * @return boolean.
+  */
   public boolean login() {
     boolean success = false;
 
     UserInterface.prompt("Enter Provider ID or type 'x' to exit:");
     input = scan.next();
-    if (input.equals("x")) {
+    if (input.equals("x")) {          //checks if provider wants to exit
       return false;
     } else {
       provider_id = Long.parseLong(input);
 
-      for (int i = 0; i < ChocAnControl.providers.size(); i++) { // provider_data_user has to be an
-                                                                 // array from the main program
-        if ((ChocAnControl.providers.get(i).id) == (provider_id)) { // tell my boy to implement
-                                                                    // getId functionality
+      for (int i = 0; i < ChocAnControl.providers.size(); i++) {    //checks if provider login exists
+        if ((ChocAnControl.providers.get(i).id) == (provider_id)) {
+
           success = true;
           break;
         }
       }
-      if (success == true) {
+      if (success == true) {                                    //login exists
         UserInterface.prompt("Provider Login Successful");
         return true;
-      } else {
+      }
+      else {                                                    //login doesnt exist
         UserInterface.prompt("Incorrect Provider Login - Try again");
         return login();
       }
     }
   }
 
+  /**
+  * This method is used for providers to enter member identification information
+  *
+  * @param none.
+  * @return boolean.
+  */
   public static boolean swipeMemberCard() {
     UserInterface.prompt("Enter member ID");
     Scanner swipe_id = new Scanner(System.in);
     long member_id = swipe_id.nextLong();
     boolean success = false;
-    for (int i = 0; i < ChocAnControl.members.size(); i++) { // member_numbers has to be an array
-                                                             // from the main program
+    for (int i = 0; i < ChocAnControl.members.size(); i++) {      //checks if member id exists
       if (ChocAnControl.members.get(i).id == (member_id)) {
         success = true;
         break;
       }
     }
-    if (success == true) {
+    if (success == true) {                                      //member number exists
       UserInterface.prompt("Member number is verified");
       current_member = member_id;
       return true;
     } else {
-      UserInterface.prompt("Member number does not exist");
+      UserInterface.prompt("Member number does not exist");     //member number does not exist
       return false;
     }
   }
 
-  /*
-   * May not be needed if ChocAnControl gathers the information itself public boolean enterCode(long
-   * code){ //checks whether code was entered correctly //returns true if so return false; } public
-   * boolean enterDate (Date date){ //checks database if date exists //returns true if so return
-   * false; }
-   */
-
+  /**
+  * This method lists the options that a given provider can take
+  *
+  * @param none.
+  * @return String.
+  */
   public static String providerMenu() {
     boolean menuActive = true;
 
-    while (menuActive) {
+    while (menuActive) {                                        //stays active until the provider decides to logout
       UserInterface.prompt("\n\n");
       UserInterface.prompt("**************************");
       UserInterface.prompt("** ChocAn Provider Menu **");
@@ -93,60 +103,74 @@ public class ProviderInterface extends UserInterface {
       switch (input) {
 
         case "swipe":
-          swipeMemberCard();
+          swipeMemberCard();                                  //calls the method to input member information
           break;
 
         case "directory":
-          getProviderDirectory();
+          getProviderDirectory();                             //calls the method to view the provider directory
           break;
 
         case "visit":
-          createVisit();
+          createVisit();                                      //calls the method to create a visit
           break;
 
         case "logout":
-          menuActive = false;
+          menuActive = false;                                 //logs the provider out
           break;
 
-        default:
+        default:                                              //default method if an invalid selection is made
+          UserInterface.prompt("Invalid selection, try again");
           break;
       }
     }
     return "login";
   }
 
+  /**
+  * This the option a provider can take to create a visit
+  *
+  * @param none.
+  * @return none.
+  */
   private static void createVisit() {
-    if (current_member == -1){
+    if (current_member == -1){                          //error detection member card hasnt been called
       UserInterface.prompt("Please swipe member card");
       return;
     }
     Service svc;
 
     UserInterface.prompt("Enter 6 digit service code");
-    long code = Long.valueOf(scan.nextLong());
+    long code = Long.valueOf(scan.nextLong());          //takes in service code to search with
 
-    svc = ChocAnControl.providerDirectory.getService(code);
-    if (svc.getName().equals("Error: invalid code")){
+    svc = ChocAnControl.providerDirectory.getService(code);     //searches directory for inputted code
+    if (svc.getName().equals("Error: invalid code")){       //error detection if the code doesnt exist
       UserInterface.prompt("Error: invalid code");
       createVisit();
     }
     else {
 
-    ChocAnControl.serviceControl.createVisit(current_member, provider_id, svc);
+    ChocAnControl.serviceControl.createVisit(current_member, provider_id, svc);     //calls method to create a vist
 
-    UserInterface.prompt("Visit for member #" + Long.toString(current_member) + " created.");
+    UserInterface.prompt("Visit for member #" + Long.toString(current_member) + " created.");   //outputs what occured
     UserInterface.prompt("Service Provided: " + svc.getName());
     UserInterface.prompt("Fee: " + Integer.toString(svc.getFee()));
     }
   }
 
+  /**
+  * This is the option a provider can take to access the directory
+  *
+  * @param none.
+  * @return boolean.
+  */
   private static void getProviderDirectory() {
-    ChocAnControl.providerDirectory.getDirectory();
+    ChocAnControl.providerDirectory.getDirectory();         //calls the method to retrieve the provider directory
     UserInterface.prompt("Emailing file...");
-    ChocAnControl.providerDirectory.email();
+    ChocAnControl.providerDirectory.email();                //gives the text file of the provider directory
     UserInterface.prompt("...done.");
 
   }
 
 
 }
+

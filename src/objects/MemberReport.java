@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.io.IOException;
 import java.io.FileReader;
 
+//BUILT BY: AASHMAN GUPTA
 
 public class MemberReport {
 	File currFile;
@@ -14,7 +15,13 @@ public class MemberReport {
 	
 	MemberReport(Member member, ArrayList<Visit> visits) {
 		currMember = member;
-		currFile = new File(currMember.name + currMember.id + ".txt");
+		//currFile = new File(currMember.name + currMember.id + ".txt");
+		if (new File("release").exists()) {
+		      currFile = new File("release\\reports\\" + currMember.name + currMember.id + ".txt");
+		}		
+		else {
+		      currFile = new File("reports\\" + currMember.name + currMember.id + ".txt");
+		}
 		visitArray = visits;
 	}
 	
@@ -77,7 +84,6 @@ public class MemberReport {
 		}
 	}
 }
-
 
 
 

@@ -11,18 +11,18 @@ import objects.Service;
 import objects.Visit;
 
 public class ChocAnControl {
-  
+
     public static ArrayList<Long> managerIds;
     public static ArrayList<Long> operatorIds;
     public static ArrayList<Member> members;
     public static ArrayList<Provider> providers;
     public static ArrayList<Visit> visits;
     public static ProviderDirectory providerDirectory;
-    public static AccountingProcedure mainProcedure;	
+    public static AccountingProcedure mainProcedure;
     public static ServiceControl serviceControl;
     public static boolean isFridayAtMidnight;
     static DateFormat dateFormat;
-    
+
     public ChocAnControl(){
       dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
       managerIds = new ArrayList<Long>();
@@ -34,9 +34,9 @@ public class ChocAnControl {
       mainProcedure = new AccountingProcedure();
       isFridayAtMidnight = false;
       serviceControl = new ServiceControl();
-      
-      
-      
+
+
+
       //Populating with initial sample data
       members.add(new Member("Frank", 000000001, "123 paul bryant", "tuscaloosa", "35401", "alabama", true));
       members.add(new Member("Tom", 000000002, "321 university blvd", "tuscaloosa", "35401", "alabama", true));
@@ -53,42 +53,42 @@ public class ChocAnControl {
       operatorIds.add((long)45632);
       operatorIds.add((long)002);
       operatorIds.add((long)003);
-      
+
       visits.add(new Visit(members.get(0), providers.get(1), new Service("servicename", 92349, 234)));
-      
+
     }
-    
+
 
 	public ProviderDirectory getProviderDirectory(){
 		return new ProviderDirectory();
 	}
-	
+
 	public void runMainAccountingProcedure() {
 	    mainProcedure.produceMemberReports();
 	    mainProcedure.produceManagerSummary();
 	    mainProcedure.produceProviderReports();
 	    mainProcedure.produceEFT();
 	}
-	
+
 	public void checkTimeAndDate() {
 	  //checks date
 	}
-	
+
 	public boolean generateReport(String type) {
 	    if(type == "member") mainProcedure.produceMemberReports();
 	    if(type == "manager") mainProcedure.produceManagerSummary();
 	    if(type == "provider") mainProcedure.produceProviderReports();
 	    if(type == "EFT") mainProcedure.produceEFT();
-	    
+
 	    return true;
 	}
 
 
   public static void runServiceControl() {
     // TODO Auto-generated method stub
-    
+
   }
-	
-	
+
+
 
 }
