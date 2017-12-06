@@ -52,6 +52,7 @@ public class UserManager {
 		int stat;													//Scan int variable to use as glorified scan boolean
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = scan.nextLong();
+		String member;
 		Member memToAdd;
 		for(int i = 0; i < ChocAnControl.members.size(); i++) {				//Search member list (arrayList in control)
 			if(ChocAnControl.members.get(i).id == memID)  {					//To see if member already exists
@@ -61,23 +62,27 @@ public class UserManager {
 		if(suc) {
 			memToAdd = new Member();
 			memToAdd.id = memID;
-			UserInterface.prompt("Enter member name");							//Access prompt
-			String member = scan.nextLine();
+			
+			UserInterface.prompt("Enter member name");		//Access prompt
+			member = scan.nextLine();
 			memToAdd.name = member;
-			scan.nextLine();
+			
 			UserInterface.prompt("Enter member address");						//Access prompt
 			String address = scan.nextLine();
 			memToAdd.address = address;
-			//scan.nextLine();
+			
 			UserInterface.prompt("Enter member city");							//Access prompt
 			String city = scan.nextLine();
 			memToAdd.city = city;
+			
 			UserInterface.prompt("Enter member zip code");						//Access prompt
 			String zip = scan.next();
 			memToAdd.zipCode = zip;
+			
 			UserInterface.prompt("Enter member state");							//Access prompt
 			String state = scan.next();
 			memToAdd.state = state;
+			
 			UserInterface.prompt("Enter account status: 1-active, 0-suspended");	//Access prompt
 			stat = scan.nextInt();
 			if(stat == 1) { memToAdd.accountStatus = true; }
@@ -86,9 +91,9 @@ public class UserManager {
 			ChocAnControl.members.add(memToAdd);						//Add member to the arrayList in control
 
 			if (new File("release").exists()) {
-	      writeFile = new File("release\\data\\members.txt");
+	      writeFile = new File("release"+File.separator+"data"+File.separator+"members.txt");
 	    } else {
-	      writeFile = new File("data\\members.txt");
+	      writeFile = new File("data"+File.separator+"members.txt");
 	    }
 
 	    try {

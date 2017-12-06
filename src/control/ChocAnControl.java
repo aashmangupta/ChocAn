@@ -1,9 +1,14 @@
 package control;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
+import interfaces.UserInterface;
 import objects.Member;
 import objects.Provider;
 import objects.ProviderDirectory;
@@ -35,13 +40,36 @@ public class ChocAnControl {
       isFridayAtMidnight = false;
       serviceControl = new ServiceControl();
 
-
-
-      //Populating with initial sample data
-      members.add(new Member("Frank", 000000001, "123 paul bryant", "tuscaloosa", "35401", "alabama", true));
-      members.add(new Member("Tom", 000000002, "321 university blvd", "tuscaloosa", "35401", "alabama", true));
-      members.add(new Member("Jan", 000000003, "100 campus dr", "tuscaloosa", "35401", "alabama", false));
-
+      
+     /* Scanner s;
+      try {
+        s = new Scanner(new File("release"+File.separator+"data"+ File.separator+"members.txt"));
+      
+      Member temp;
+      UserInterface.state("loading members...");
+      while (s.hasNextLine()){
+           temp = new Member();
+           UserInterface.state(".");
+           temp.id = s.nextLong();
+           temp.name = s.next();
+           temp.address = s.next();
+           temp.city = s.next();
+           temp.zipCode =  s.next();
+           temp.state = s.next();
+           temp.accountStatus = s.nextBoolean();
+           
+           members.add(temp);
+           
+      }
+      s.close();
+      UserInterface.prompt("...done");
+      
+      }
+      catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+*/
       providers.add(new Provider("Phil", 98765432, "111 14th ave", "tuscaloosa", "35401", "alabama", 20, 0));
       providers.add(new Provider("Matt", 200000000, "1000 15th st", "tuscaloosa", "35401", "alabama", 80, 0));
       providers.add(new Provider("John", 300000000, "100 16th st", "tuscaloosa", "35401", "alabama", 20, 0));
