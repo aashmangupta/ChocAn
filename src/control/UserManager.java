@@ -6,11 +6,18 @@ import objects.Member;
 import objects.Provider;
 import control.ChocAnControl;
 import interfaces.UserInterface;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+
+//BUILT BY: DEREK HASTINGS
 
 public class UserManager {
 
 	Scanner scan;
+	File writeFile;
 
 	public UserManager() {						//Constructor
 		scan = new Scanner(System.in);			//Creates scanner to use in conjunction with prompt
@@ -40,7 +47,7 @@ public class UserManager {
 	   * @return boolean
 	   */
 	public boolean addMember() {
-		boolean out = true;											//Check variable to make sure the member exists and is created
+		boolean suc = true;											//Check variable to make sure the member exists and is created
 		long memID;													//Scan variable to take in member ID to make sure it doesnt exist
 		int stat;													//Scan int variable to use as glorified scan boolean
 		UserInterface.prompt("Enter member ID");					//Access prompt
@@ -48,10 +55,10 @@ public class UserManager {
 		Member memToAdd;
 		for(int i = 0; i < ChocAnControl.members.size(); i++) {				//Search member list (arrayList in control)
 			if(ChocAnControl.members.get(i).id == memID)  {					//To see if member already exists
-				out = false;
+				suc = false;
 			}
 		}
-		if(out) {
+		if(suc) {
 			memToAdd = new Member();
 			memToAdd.id = memID;
 			UserInterface.prompt("Enter member name");							//Access prompt
@@ -99,7 +106,6 @@ public class UserManager {
 	      UserInterface.prompt("Error writing file for members");
 	      return false;
 	    }
-			return true;
 		}
 		else {
 			return false;
@@ -210,7 +216,7 @@ public class UserManager {
 	   * @return boolean
 	   */
 	public boolean addProvider() {
-		boolean out = true;											//Check variable to make sure the provider exists and is created
+		boolean suc = true;											//Check variable to make sure the provider exists and is created
 		long provID;												//Scan variable to take in provider ID to create and check existence
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = scan.nextLong();
@@ -218,10 +224,10 @@ public class UserManager {
 		Provider provToAdd;
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {		//Check to see if provider by that ID already exists
 			if(ChocAnControl.providers.get(i).id == provID)  {
-				out = false;
+				suc = false;
 			}
 		}
-		if(out) {													//If its not found then create it
+		if(suc) {													//If its not found then create it
 			provToAdd = new Provider();
 			provToAdd.id = provID;
 			UserInterface.prompt("Enter provider name");			//Access prompt
@@ -272,7 +278,6 @@ public class UserManager {
 	      UserInterface.prompt("Error writing file for providers");
 	      return false;
 	    }
-			return true;
 		}
 		else {
 			return false;

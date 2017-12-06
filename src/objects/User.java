@@ -1,5 +1,7 @@
 package objects;
 
+//BUILT BY: DEREK HASTINGS
+
 public class User {
 	
 	public String name;

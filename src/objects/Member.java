@@ -1,5 +1,7 @@
 package objects;
 
+//BUILT BY: DEREK HASTINGS
+
 public class Member extends User{
 	
 	public boolean accountStatus;
