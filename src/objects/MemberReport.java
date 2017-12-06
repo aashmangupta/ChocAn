@@ -35,12 +35,18 @@ public class MemberReport {
 		int i = 0, flag = 0;
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
-			fileWriter.write(currMember.name + '\n');
-			fileWriter.write((int) currMember.id + '\n');
-			fileWriter.write(currMember.address  + '\n');
-			fileWriter.write(currMember.city + '\n');
-			fileWriter.write(currMember.state + '\n');
-			fileWriter.write(currMember.zipCode + '\n');
+			fileWriter.write(currMember.name);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write((int) currMember.id);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currMember.address);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currMember.city);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currMember.state);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write(currMember.zipCode);
+			fileWriter.write(System.lineSeparator());
 			
 			while(i <= visitArray.size()) {
 				for(i = flag; i < visitArray.size(); i++) {
@@ -52,10 +58,13 @@ public class MemberReport {
 					break;
 				}
 				dateVisit = visitArray.get(i).dateOfService.toString();
-				fileWriter.write(dateVisit + '\n');
-				fileWriter.write(visitArray.get(i).provider.name + '\n');
-				fileWriter.write(visitArray.get(i).service.getName() + '\n');			
-				fileWriter.write('\n');
+				fileWriter.write(dateVisit);
+				fileWriter.write(System.lineSeparator());
+				fileWriter.write(visitArray.get(i).provider.name);
+				fileWriter.write(System.lineSeparator());
+				fileWriter.write(visitArray.get(i).service.getName());
+				fileWriter.write(System.lineSeparator());
+				fileWriter.write(System.lineSeparator());
 				flag = i;
 			}
 			fileWriter.close();
