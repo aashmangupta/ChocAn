@@ -16,6 +16,7 @@ public class Member extends User{
 	
 	/**
 	   * Constructor.
+	   * Inherited from Sser super class. 
 	   * 
 	   * @param name, name of the member
 	   * @param ID, ID of the member
