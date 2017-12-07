@@ -16,6 +16,8 @@ import objects.ProviderDirectory;
 import objects.Service;
 import objects.Visit;
 
+//Created by Alexander Ramsayer
+
 public class ChocAnControl {
 
     public static ArrayList<Long> managerIds;
@@ -182,7 +184,7 @@ public class ChocAnControl {
 	   *
 	   * @return void
 	   */
-	public void runMainAccountingProcedure() {
+	public static void runMainAccountingProcedure() {
 	    mainProcedure.produceMemberReports();
 	    mainProcedure.produceManagerSummary();
 	    mainProcedure.produceProviderReports();
@@ -194,7 +196,7 @@ public class ChocAnControl {
 	   * 
 	   * @return void
 	   */
-	public void checkTimeAndDate() {
+	public static void checkTimeAndDate() {
 	  runMainAccountingProcedure();
 	}
 

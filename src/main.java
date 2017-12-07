@@ -5,6 +5,8 @@ import interfaces.OperatorInterface;
 import interfaces.ProviderInterface;
 import interfaces.UserInterface;
 
+//Created by Alexander Ramsayer
+
 public class main {
 
 	public static void main(String[] args) {
@@ -45,6 +47,10 @@ public class main {
 			case "help":
               printHelp();
               s = "login";
+              break;
+              
+			case "friday":
+			  ChocAnControl.checkTimeAndDate();
               break;
               
 			case "shutdown":
