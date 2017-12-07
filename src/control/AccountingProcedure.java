@@ -5,6 +5,7 @@ import objects.Member;
 import objects.ProviderReport;
 import objects.Visit;
 import objects.MemberReport;
+import objects.Provider;
 import objects.SummaryReport;
 import objects.EFTReport;
 
@@ -17,6 +18,7 @@ public class AccountingProcedure {
     }
     
     public boolean produceManagerSummary() {
+    		SummaryReport sumRep = new SummaryReport(ChocAnControl.visits, ChocAnControl.providers);
         return false;
     }
 

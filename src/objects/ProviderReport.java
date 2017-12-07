@@ -91,14 +91,6 @@ public class ProviderReport {
 	}
 
 	void email() {
-		try {
-			FileReader fileReader = new FileReader(currFile);
-			
-			fileReader.close();
-		}
-		catch(IOException e) {
-			System.out.println("File doesn't exist");
-		}
-		//no emails need to be actually sent for the demo
+		
 	}
 }
