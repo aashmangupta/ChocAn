@@ -28,7 +28,11 @@ public class ChocAnControl {
     public static ServiceControl serviceControl;
     public static boolean isFridayAtMidnight;
     static DateFormat dateFormat;
-
+    
+    /**
+	   * Constructor.
+	   * Sets up the central control for the ChocAn system
+	   */
     public ChocAnControl(){
       dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
       managerIds = new ArrayList<Long>();
@@ -163,22 +167,42 @@ public class ChocAnControl {
 
     }
 
-
+    /**
+	   * Creates new provider directory for use.
+	   *
+	   * @return ProviderDirectory
+	   */
 	public ProviderDirectory getProviderDirectory(){
 		return new ProviderDirectory();
 	}
-
+	
+	/**
+	   * Method called to run the Main Accounting Procedure.
+	   *
+	   * @return void
+	   */
 	public void runMainAccountingProcedure() {
 	    mainProcedure.produceMemberReports();
 	    mainProcedure.produceManagerSummary();
 	    mainProcedure.produceProviderReports();
 	    mainProcedure.produceEFT();
 	}
-
+	
+	/**
+	   * Checks time to run the Main Accounting Procedure.
+	   * 
+	   * @return void
+	   */
 	public void checkTimeAndDate() {
 	  runMainAccountingProcedure();
 	}
 
+	/**
+	   * Method called to generate a report.
+	   * 
+	   * @param type, string used to check what kind of report to generate
+	   * @return boolean
+	   */
 	public boolean generateReport(String type) {
 	    if(type == "member") mainProcedure.produceMemberReports();
 	    if(type == "manager") mainProcedure.produceManagerSummary();
@@ -188,7 +212,11 @@ public class ChocAnControl {
 	    return true;
 	}
 
-
+	/**
+	   * Method called to start service control.
+	   * 
+	   * @return void
+	   */
   public static void runServiceControl() {
     // TODO Auto-generated method stub
 
