@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,13 +51,14 @@ public class ChocAnControl {
       while (s.hasNextLine()){
            temp = new Member();
            UserInterface.state(".");
-           temp.id = s.nextLong();
-           temp.name = s.next();
-           temp.address = s.next();
-           temp.city = s.next();
-           temp.zipCode =  s.next();
-           temp.state = s.next();
-           temp.accountStatus = s.nextBoolean();
+           
+           temp.id = Long.parseLong(s.nextLine());
+           temp.name = s.nextLine();
+           temp.address = s.nextLine();
+           temp.city = s.nextLine();
+           temp.zipCode =  s.nextLine();
+           temp.state = s.nextLine();
+           temp.accountStatus = Boolean.parseBoolean(s.nextLine());
            
            members.add(temp);
            
@@ -69,20 +71,95 @@ public class ChocAnControl {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
+      
+      try {
+        s = new Scanner(new File("release"+File.separator+"data"+ File.separator+"providers.txt"));
+      
+      Provider temp;
+      UserInterface.state("loading providers...");
+      while (s.hasNextLine()){
+           temp = new Provider();
+           UserInterface.state(".");
+           
+           temp.id = Long.parseLong(s.nextLine());
+           temp.name = s.nextLine();
+           temp.address = s.nextLine();
+           temp.city = s.nextLine();
+           temp.zipCode =  s.nextLine();
+           temp.state = s.nextLine();
+           temp.totalFees = Integer.parseInt(s.nextLine());
+           temp.totalVisits = Integer.parseInt(s.nextLine());
+           
+           providers.add(temp);
+           
+      }
+      s.close();
+      UserInterface.prompt("...done");
+      
+      }
+      catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      
+      try {
+        s = new Scanner(new File("release"+File.separator+"data"+ File.separator+"visits.txt"));
+      
+      Visit temp;
+      UserInterface.state("loading visits...");
+      while (s.hasNextLine()){
+           temp = new Visit();
+           UserInterface.state(".");
+           
+           long memberId = Long.parseLong(s.nextLine());
+           long providerId = Long.parseLong(s.nextLine());
+           long serviceId = Long.parseLong(s.nextLine());
+           
+           Member tempM = new Member();
+           Provider tempP = new Provider();
+           Service tempS = new Service();
+           
+           for (int i = 0; i < members.size(); ++i) { //loop to find member
+             if (members.get(i).id == memberId) {
+               tempM = members.get(i);
+             }
+           }
+           for (int i = 0; i < providers.size(); ++i) {  //loop to find provider
+             if (providers.get(i).id == providerId) {
+               tempP = providers.get(i);
+             }
+           }
+           for (int i = 0; i < providerDirectory.services.size(); ++i) {  //loop to find provider
+             if (providerDirectory.services.get(i).code == serviceId) {
+               tempS = providerDirectory.services.get(i);
+             }
+           }
+           
+           temp.member = tempM;
+           temp.provider = tempP;
+           temp.service = tempS;
+           try {temp.dateOfService = dateFormat.parse(s.nextLine());}
+           catch(ParseException p) {}
+                     
+           visits.add(temp);
+           
+      }
+      s.close();
+      UserInterface.prompt("...done");
+      
+      }
+      catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
 
-      providers.add(new Provider("Phil", 98765432, "111 14th ave", "tuscaloosa", "35401", "alabama", 20, 0));
-      providers.add(new Provider("Matt", 200000000, "1000 15th st", "tuscaloosa", "35401", "alabama", 80, 0));
-      providers.add(new Provider("John", 300000000, "100 16th st", "tuscaloosa", "35401", "alabama", 20, 0));
+      managerIds.add((long) 900000001);
+      managerIds.add((long) 900000002);
+      managerIds.add((long) 900000003);
 
-      managerIds.add((long) 9876543);
-      managerIds.add((long) 002);
-      managerIds.add((long) 003);
-
-      operatorIds.add((long)45632);
-      operatorIds.add((long)002);
-      operatorIds.add((long)003);
-
-      //visits.add(new Visit(members.get(0), providers.get(1), new Service("servicename", 883950, 80)));
+      operatorIds.add((long) 1000000001);
+      operatorIds.add((long) 1000000002);
+      operatorIds.add((long) 1000000003);
 
     }
 
@@ -99,7 +176,7 @@ public class ChocAnControl {
 	}
 
 	public void checkTimeAndDate() {
-	  //checks date
+	  runMainAccountingProcedure();
 	}
 
 	public boolean generateReport(String type) {

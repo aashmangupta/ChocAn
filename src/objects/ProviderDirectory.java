@@ -10,7 +10,7 @@ import java.io.IOException;
 import interfaces.UserInterface;
 
 public class ProviderDirectory {
-	private ArrayList<Service> services = new ArrayList<Service>();	//makes service ArrayList
+	public ArrayList<Service> services = new ArrayList<Service>();	//makes service ArrayList
 	File writeFile;	//makes file to be written to and sent as an email
 	
 	public ProviderDirectory() {
@@ -42,7 +42,7 @@ public class ProviderDirectory {
 		Service currServ = new Service();						//holder service
 		
 		try {
-			FileWriter fileWriter = new FileWriter(writeFile);	//sets up file writer
+			FileWriter fileWriter = new FileWriter(writeFile, true);	//sets up file writer
 			fileWriter.write("Services: \n");
 			fileWriter.write("name - code - fee \n");
 			fileWriter.write("");

@@ -76,13 +76,13 @@ public class UserManager {
 			String city = scan.nextLine();
 			memToAdd.city = city;
 			
-			UserInterface.prompt("Enter member zip code");						//Access prompt
-			String zip = scan.next();
-			memToAdd.zipCode = zip;
-			
 			UserInterface.prompt("Enter member state");							//Access prompt
 			String state = scan.next();
 			memToAdd.state = state;
+		
+			UserInterface.prompt("Enter member zip code");                       //Access prompt
+            String zip = scan.next();
+            memToAdd.zipCode = zip;
 			
 			String status;
 			
@@ -102,14 +102,21 @@ public class UserManager {
 	    }
 
 	    try {
-	      FileWriter out = new FileWriter(writeFile); // writing to a separate text file
-	      out.write(Long.toString(memID) + " ");
-	      out.write(member + " ");
-				out.write(address + " ");
-				out.write(city + " ");
-				out.write(zip + " ");
-				out.write(state + " ");
-				out.write(status + " ");
+	      FileWriter out = new FileWriter(writeFile, true); // writing to a separate text file
+	      out.write(Long.toString(memID));
+	      out.write(System.lineSeparator());
+	      out.write(member);
+	      out.write(System.lineSeparator());
+	      out.write(address);
+	      out.write(System.lineSeparator());
+	      out.write(city);
+	      out.write(System.lineSeparator());
+	      out.write(state);
+	      out.write(System.lineSeparator());
+	      out.write(zip);
+	      out.write(System.lineSeparator());
+	      out.write(status);
+	      out.write(System.lineSeparator());
 	      out.close();
 	      return true;
 	    } catch (IOException e) {
@@ -254,12 +261,12 @@ public class UserManager {
 			String city = scan.next();
 			provToAdd.city = city;
 			scan.nextLine();
-			UserInterface.prompt("Enter provider zip code");		//Access prompt
-			String zip = scan.next();
-			provToAdd.zipCode = zip;
 			UserInterface.prompt("Enter provider state");			//Access prompt
 			String state = scan.next();
 			provToAdd.state = state;
+			UserInterface.prompt("Enter provider zip code");     //Access prompt
+            String zip = scan.next();
+            provToAdd.zipCode = zip;
 			UserInterface.prompt("Enter the number of visits");		//Access prompt
 			int visits = scan.nextInt();
 			provToAdd.totalVisits = visits;
@@ -278,12 +285,12 @@ public class UserManager {
 	      FileWriter out = new FileWriter(writeFile); // writing to a separate text file
 	      out.write(Long.toString(provID) + " ");
 	      out.write(provider + " ");
-				out.write(address + " ");
-				out.write(city + " ");
-				out.write(zip + " ");
-				out.write(state + " ");
-				out.write(visits + " ");
-				out.write(fees + " ");
+				out.write(address);
+				out.write(city);
+				out.write(state);
+				out.write(zip);
+				out.write(visits);
+				out.write(fees);
 	      out.close();
 	      return true;
 	    } catch (IOException e) {

@@ -64,11 +64,15 @@ public class ServiceControl {
     }
 
     try {
-      FileWriter out = new FileWriter(writeFile); // writing to a separate text file
-      out.write(Long.toString(mem.id) + " ");
-      out.write(Long.toString(pro.id) + " ");
-      out.write(Long.toString(s.getCode()) + " ");
-      out.write(ChocAnControl.dateFormat.format(newVisit.dateOfService) + " ");
+      FileWriter out = new FileWriter(writeFile, true); // writing to a separate text file
+      out.write(Long.toString(mem.id));
+      out.write(System.lineSeparator());
+      out.write(Long.toString(pro.id));
+      out.write(System.lineSeparator());
+      out.write(Long.toString(s.getCode()));
+      out.write(System.lineSeparator());
+      out.write(ChocAnControl.dateFormat.format(newVisit.dateOfService));
+      out.write(System.lineSeparator());
       out.close();	//closes file
       return true;
     } catch (IOException e) {	//catches IOException
@@ -84,16 +88,16 @@ public class ServiceControl {
    * @return void.
    *
    */
-  public void displayName(long c) {
+  public boolean displayName(long c) {
     for (i = 0; i < 5; ++i) {	//loops through services
       if (service.getCode() == c) {	//checks service code against code being searched for
         UserInterface.prompt(service.getName());	//prints name of service
-        return;
+        return true;
       }
     }
 
     UserInterface.prompt("Error: Service not found.");
-    return;
+    return false;
   }
 
   /**

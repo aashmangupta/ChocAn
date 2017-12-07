@@ -4,7 +4,7 @@ package objects;
 
 public class Service {
 	private String name;
-	private long code;
+	public long code;
 	private int fee;
 	
 	public Service() {

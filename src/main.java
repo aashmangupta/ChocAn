@@ -108,6 +108,8 @@ public class main {
 		} else if (type.equals("operator") || type.equals("Operator") || type.equals("o") || type.equals("O")) {
 			return "operator";
 		} else if(type.equals("help")) return "help"; 
+		else if(type.equals("shutdown")) return "shutdown"; 
+	
 		
 		else {
 			UserInterface.prompt("Invalid log-in selection");
