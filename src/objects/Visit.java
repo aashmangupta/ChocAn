@@ -9,16 +9,18 @@ public class Visit {
 	public Member member = new Member();
 	public Provider provider = new Provider();
 	public Service service = new Service();
+	public String comments;
 	
 	public Visit() {
 		
 	}
 	
-	public Visit(Member m, Provider p, Service s) {
+	public Visit(Member m, Provider p, Service s, String comment) {
 		dateOfService = new Date();
 		member = m;
 		provider = p;
 		service = s;
+		comments = comment;
 	}
 	
 	/**

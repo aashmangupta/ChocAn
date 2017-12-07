@@ -167,8 +167,10 @@ public class ProviderInterface extends UserInterface {
     }	
     
     svc = ChocAnControl.providerDirectory.getService(code);     //searches directory for inputted code
+    
+    String comments = ChocAnControl.serviceControl.enterComments();
 
-    ChocAnControl.serviceControl.createVisit(current_member, provider_id, svc);     //calls method to create a vist
+    ChocAnControl.serviceControl.createVisit(current_member, provider_id, svc, comments);     //calls method to create a vist
 
     UserInterface.prompt("Consultation for member #" + Long.toString(current_member) + " created.");   //outputs what occured
     UserInterface.prompt("Service Provided: " + svc.getName());

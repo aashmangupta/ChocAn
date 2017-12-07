@@ -27,7 +27,7 @@ public class ChocAnControl {
     public static AccountingProcedure mainProcedure;
     public static ServiceControl serviceControl;
     public static boolean isFridayAtMidnight;
-    static DateFormat dateFormat;
+    public static DateFormat dateFormat;
     
     /**
 	   * Constructor.
@@ -144,6 +144,7 @@ public class ChocAnControl {
            temp.service = tempS;
            try {temp.dateOfService = dateFormat.parse(s.nextLine());}
            catch(ParseException p) {}
+           temp.comments = s.nextLine();
                      
            visits.add(temp);
            

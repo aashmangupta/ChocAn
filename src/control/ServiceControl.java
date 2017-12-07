@@ -39,7 +39,7 @@ public class ServiceControl {
    * @param Member, Provider.
    * @return boolean.
    */
-  public boolean createVisit(long m, long p, Service s) {
+  public boolean createVisit(long m, long p, Service s, String comment) {
 
     UserInterface.prompt("Attempting to generate visit");
     
@@ -50,17 +50,17 @@ public class ServiceControl {
     }
     for (i = 0; i < ChocAnControl.providers.size(); ++i) {	//loop to find provider
       if (ChocAnControl.providers.get(i).id == p) {
-        UserInterface.prompt("Checking provider " + ChocAnControl.providers.get(i).toString());
         pro = ChocAnControl.providers.get(i);
       }
     }
-    Visit newVisit = new Visit(mem, pro, s);	//creates visit
+    
+    Visit newVisit = new Visit(mem, pro, s, comment);	//creates visit
     ChocAnControl.visits.add(newVisit); 		//adds visit to visit list
 
     if (new File("release").exists()) {	//checks if outside or inside release folder
-      writeFile = new File("release\\data\\visits.txt");	//moves into release and stores in data
+      writeFile = new File("release"+File.separator+"data"+File.separator+"visits.txt");	//moves into release and stores in data
     } else {
-      writeFile = new File("data\\visits.txt");	//stores in data
+      writeFile = new File("data"+File.separator+"visits.txt");	//stores in data
     }
 
     try {
@@ -72,6 +72,8 @@ public class ServiceControl {
       out.write(Long.toString(s.getCode()));
       out.write(System.lineSeparator());
       out.write(ChocAnControl.dateFormat.format(newVisit.dateOfService));
+      out.write(System.lineSeparator());
+      out.write(comment);
       out.write(System.lineSeparator());
       out.close();	//closes file
       return true;
@@ -106,11 +108,21 @@ public class ServiceControl {
    * @param none.
    * @return void.
    */
-  public void enterComments() {
+  public String enterComments() {
     UserInterface.prompt("Enter comments:");	//prints to screen
-    commentString = sc.next();	//takes in user input
-    commentString += sc.nextLine();	//takes in user input
-    return;
+    commentString = sc.nextLine();
+    
+    boolean stillLonger = true;
+    
+    while(stillLonger)
+    if(commentString.length() > 100) {
+      UserInterface.prompt("Please shorten comments by " + (commentString.length()-100) + " characters.");
+      UserInterface.prompt("Enter comments:");
+      commentString = sc.nextLine();
+    }
+    else stillLonger = false;
+    
+    return commentString;
   }
 
   /**
