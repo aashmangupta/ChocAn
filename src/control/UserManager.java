@@ -353,9 +353,9 @@ public class UserManager {
 	      out.write(System.lineSeparator());
 	      out.write(zip);
 	      out.write(System.lineSeparator());
-	      out.write(consul);
+	      out.write(Integer.toString(consul));
 	      out.write(System.lineSeparator());
-	      out.write(fees);
+	      out.write(Integer.toString(fees));
 	      out.write(System.lineSeparator());
 	      out.close();
 	      return true;
