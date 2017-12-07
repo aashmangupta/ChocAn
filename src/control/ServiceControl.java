@@ -89,9 +89,9 @@ public class ServiceControl {
    *
    */
   public boolean displayName(long c) {
-    for (i = 0; i < 5; ++i) {	//loops through services
-      if (service.getCode() == c) {	//checks service code against code being searched for
-        UserInterface.prompt(service.getName());	//prints name of service
+    for (i = 0; i < ChocAnControl.providerDirectory.services.size(); ++i) {	//loops through services
+      if (ChocAnControl.providerDirectory.services.get(i).code == c) {	//checks service code against code being searched for
+        UserInterface.prompt(ChocAnControl.providerDirectory.services.get(i).getName());	//prints name of service
         return true;
       }
     }

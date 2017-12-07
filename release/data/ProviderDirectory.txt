@@ -5,3 +5,10 @@ Cardio Exercse Session - 883951 - 20
 Dietitian Session - 598470 - 30 
 Hypnosis Session - 883950 - 80 
 Shock Therapy Session - 883949 - 60 
+Services: 
+name - code - fee 
+Aerobics Exercise Session - 883948 - 20 
+Cardio Exercse Session - 883951 - 20 
+Dietitian Session - 598470 - 30 
+Hypnosis Session - 883950 - 80 
+Shock Therapy Session - 883949 - 60 

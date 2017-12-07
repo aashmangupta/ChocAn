@@ -77,11 +77,11 @@ public class UserManager {
 			memToAdd.city = city;
 			
 			UserInterface.prompt("Enter member state");							//Access prompt
-			String state = scan.next();
+			String state = scan.nextLine();
 			memToAdd.state = state;
 		
 			UserInterface.prompt("Enter member zip code");                       //Access prompt
-            String zip = scan.next();
+            String zip = scan.nextLine();
             memToAdd.zipCode = zip;
 			
 			String status;
@@ -252,45 +252,56 @@ public class UserManager {
 			UserInterface.prompt("Enter provider name");			//Access prompt
 			String provider = scan.nextLine();
 			provToAdd.name = provider;
-			//scan.nextLine();
+			
 			UserInterface.prompt("Enter provider address");			//Access prompt
 			String address = scan.nextLine();
 			provToAdd.address = address;
-			//scan.nextLine();
+			
 			UserInterface.prompt("Enter provider city");			//Access prompt
-			String city = scan.next();
+			String city = scan.nextLine();
 			provToAdd.city = city;
-			scan.nextLine();
+			
 			UserInterface.prompt("Enter provider state");			//Access prompt
-			String state = scan.next();
+			String state = scan.nextLine();
 			provToAdd.state = state;
+			
 			UserInterface.prompt("Enter provider zip code");     //Access prompt
-            String zip = scan.next();
+            String zip = scan.nextLine();
             provToAdd.zipCode = zip;
+            
 			UserInterface.prompt("Enter the number of visits");		//Access prompt
-			int visits = scan.nextInt();
+			int visits = Integer.parseInt(scan.nextLine());
 			provToAdd.totalVisits = visits;
+			
 			UserInterface.prompt("Enter the total cost of fees");	//Access prompt
-			int fees = scan.nextInt();
+			int fees = Integer.parseInt(scan.nextLine());
 			provToAdd.totalFees = fees;
 
 			ChocAnControl.providers.add(provToAdd);
 			if (new File("release").exists()) {
-	      writeFile = new File("release\\data\\providers.txt");
+	      writeFile = new File("release"+File.separator+ "data"+File.separator+"providers.txt");
 	    } else {
-	      writeFile = new File("data\\providers.txt");
+	      writeFile = new File("data"+File.separator+"providers.txt");
 	    }
 
 	    try {
-	      FileWriter out = new FileWriter(writeFile); // writing to a separate text file
-	      out.write(Long.toString(provID) + " ");
-	      out.write(provider + " ");
-				out.write(address);
-				out.write(city);
-				out.write(state);
-				out.write(zip);
-				out.write(visits);
-				out.write(fees);
+	      FileWriter out = new FileWriter(writeFile, true); // writing to a separate text file
+	      out.write(Long.toString(provID));
+	      out.write(System.lineSeparator());
+	      out.write(provider);
+	      out.write(System.lineSeparator());
+	      out.write(address);
+	      out.write(System.lineSeparator());
+	      out.write(city);
+	      out.write(System.lineSeparator());
+	      out.write(state);
+	      out.write(System.lineSeparator());
+	      out.write(zip);
+	      out.write(System.lineSeparator());
+	      out.write(visits);
+	      out.write(System.lineSeparator());
+	      out.write(fees);
+	      out.write(System.lineSeparator());
 	      out.close();
 	      return true;
 	    } catch (IOException e) {

@@ -107,7 +107,7 @@ public class ProviderInterface extends UserInterface {
       UserInterface.prompt("Enter a selection:");
       UserInterface.prompt("Swipe member card - \"swipe\"");
       UserInterface.prompt("Get Provider Directory - \"directory\"");
-      UserInterface.prompt("Create Visit \"visit\"");
+      UserInterface.prompt("Create Consultation \"consult\"");
       UserInterface.prompt("Log Out and return to main menu - \"logout\"");
       input = scan.next();
       switch (input) {
@@ -170,7 +170,7 @@ public class ProviderInterface extends UserInterface {
 
     ChocAnControl.serviceControl.createVisit(current_member, provider_id, svc);     //calls method to create a vist
 
-    UserInterface.prompt("Visit for member #" + Long.toString(current_member) + " created.");   //outputs what occured
+    UserInterface.prompt("Consultation for member #" + Long.toString(current_member) + " created.");   //outputs what occured
     UserInterface.prompt("Service Provided: " + svc.getName());
     UserInterface.prompt("Fee: " + Integer.toString(svc.getFee()));
     }
