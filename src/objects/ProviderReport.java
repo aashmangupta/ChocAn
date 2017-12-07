@@ -15,7 +15,11 @@ public class ProviderReport {
 	String dateVisit;
 
 
-
+	/**
+	   * Constructor.
+	   * @param member, current provider.
+	   * @param visits, record containing all the visits.
+	   */
 
 	public ProviderReport(Provider provider, ArrayList<Visit> visits) {
 		currProvider = provider;
@@ -37,6 +41,12 @@ public class ProviderReport {
 		return;
 	}
 
+	/**
+	   * This is the generate file function. It creates a file for a specific user detailing the user's credentials and history.
+	   * @param 
+	   * @return void
+	   */
+	
 	void generateFile() {
 		int i = 0, totalFee = 0, count = 0, fee;
 		String provID, memID, feeStr, serviceCode;
@@ -105,6 +115,12 @@ public class ProviderReport {
 		}
 	}
 
+	/**
+	   * This is the email function. It will print out the file on the screen. 
+	   * @param
+	   * @return void
+	   */
+	
 	void email() {
 		
 	}

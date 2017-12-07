@@ -14,6 +14,13 @@ public class MemberReport {
 	ArrayList<Visit> visitArray;
 	String dateVisit;
 	
+	/**
+	   * Constructor.
+	   * 
+	   * @param member, current member.
+	   * @param visits, record containing all the visits.
+	   */
+	
 	public MemberReport(Member member, ArrayList<Visit> visits) {
 		currMember = member;
 		//currFile = new File(currMember.name + currMember.id + ".txt");
@@ -29,7 +36,7 @@ public class MemberReport {
 	}
 	
 	/**
-	   * This is the generate file function. It creates a file for a specific user detailing the user's credentials and history.
+	   * This is the generate file function. It creates a file for a specific member detailing their history.
 	   * @param 
 	   * @return void
 	   */

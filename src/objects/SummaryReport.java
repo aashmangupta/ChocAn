@@ -11,7 +11,14 @@ public class SummaryReport {
 	ArrayList<Visit> visitArray;
 	ArrayList<Provider> providerArray;
 	String dateVisit;
-
+	
+	
+	/**
+	   * Constructor.
+	   * @param visits, record containing all the visits.
+	   * @param providers, array containing all the providers.
+	   */
+	
 	public SummaryReport(ArrayList<Visit> visits, ArrayList<Provider> providers) {
 		//currFile = new File("summaryReport.txt");
 
@@ -31,6 +38,12 @@ public class SummaryReport {
 		return;
 	}
 
+	/**
+	   * This is the generate file function. It creates a record of visits and transactions.
+	   * @param 
+	   * @return void
+	   */
+	
 	void generateFile() {
 		Provider currProvider;
 		int indivFeeTotal = 0, totalProviders = 0, totalConsultations = 0, indivConsult = 0, totalFee = 0;
@@ -65,6 +78,13 @@ public class SummaryReport {
 		return;
 	}
 
+	
+	/**
+	   * This is the email function. It will print out the file on the screen. 
+	   * @param
+	   * @return void
+	   */
+	
 	void email() {
 		//no email needs to be actually sent in the demo
 	}

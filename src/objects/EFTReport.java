@@ -11,8 +11,13 @@ public class EFTReport {
 	File currFile;
 	ArrayList<Visit> visitArray;
 
+	
+	/**
+	   * Constructor.
+	   * @param visits, record containing all the visits.
+	   */
+	
 	public EFTReport(ArrayList<Visit> visits) {
-		//currFile = new File("EFT.txt");
 		if (new File("release").exists()) {
 		      currFile = new File("release" + File.separator + "reports" + File.separator + "EFT.txt");
 		}		
@@ -28,6 +33,12 @@ public class EFTReport {
 		generateFile();
 		return;
 	}
+	
+	/**
+	   * This is the generate file function. It creates a Electronic Funds Transfer report.
+	   * @param 
+	   * @return void
+	   */
 	
 	void generateFile() {
 		int totalFee = 0;
