@@ -126,6 +126,7 @@ public class UserManager {
 		}
 		else {
 			UserInterface.prompt("There is already a member with that ID");
+			this.addMember();
 			return false;
 		}
 	}
@@ -311,6 +312,7 @@ public class UserManager {
 		}
 		else {
 			UserInterface.prompt("There is already a provider with that ID");
+			this.addProvider();
 			return false;
 		}
 	}
