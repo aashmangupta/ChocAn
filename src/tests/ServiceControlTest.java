@@ -26,17 +26,18 @@ public class ServiceControlTest {
 	public void setUp() throws Exception {
 		chocAn = new ChocAnControl();
 		servCont = new ServiceControl();
-		
-		mem = new Member();
-		pro = new Provider();
+		serv = new Service("test", 900000009, 10);
+		mem = new Member(String name, long ID, String add, String city, String zip, String st, 
+				boolean status);
+		pro = new Provider(String name, long ID, String add, String city, String zip, String st, 
+				int fees, int consul);
 		com = "";
 		tester = true;
-		id = 123456789;
 	}
 
 	@Test
 	public void testCreateVisit() {
-		tester = servCont.createVisit(mem.id, pro.id, serv, com);
+		tester = servCont.createVisit(700000001, 800000001, serv, com);
 		assertTrue(tester);
 	}
 	
