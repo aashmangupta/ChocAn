@@ -192,6 +192,7 @@ public class UserManager {
 		}
 		else {
 			UserInterface.prompt("There is no meber with that ID");
+			this.editMember();
 			return false;
 		}
 	}
@@ -226,6 +227,7 @@ public class UserManager {
 		}
 		else {																				//otherwise report error
 			UserInterface.prompt("The member with ID" + memID + "does not exist");
+			this.deleteMember();
 			return false;
 		}
 	}
@@ -379,6 +381,7 @@ public class UserManager {
 		}
 		else {
 			UserInterface.prompt("There is no provider with that ID");
+			this.editProvider();
 			return false;
 		}
 	}
@@ -412,6 +415,7 @@ public class UserManager {
 		}
 		else {
 			UserInterface.prompt("The provider with ID" + provID + "does not exist");				//otherwise report error
+			this.deleteProvider();
 			return false;
 		}
 	}
