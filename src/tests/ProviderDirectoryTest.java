@@ -29,7 +29,7 @@ public class ProviderDirectoryTest {
 	public void testGetServiceSuccessServiceFee() {
 		long code = 883950;
 		srv = test.getService(code);
-		assertEquals("80", srv.getFee());
+		assertEquals("80", Integer.toString(srv.getFee()));
 	}
 	@Test
 	public void testGetSerivceFailure() {
