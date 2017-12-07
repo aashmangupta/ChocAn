@@ -167,7 +167,7 @@ public class OperatorInterface extends UserInterface {
 			break;
 
 		case "deletep":
-			UserInterface.prompt("Delete provider...");
+			UserInterface.prompt("Deleting provider...");
 			deleteProvider();																//calls the method to delete a provider
 			break;
 
