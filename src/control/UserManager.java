@@ -129,6 +129,7 @@ public class UserManager {
 			return false;
 		}
 	}
+	
 	/**
 	   * This is the function initiated by the user to edit an existing member in the system list.
 	   * @param
@@ -192,6 +193,59 @@ public class UserManager {
 		else {
 			UserInterface.prompt("There is no member with that ID");
 			this.editMember();
+			return false;
+		}
+	}
+	
+	/**
+	   * This is the function initiated by the user to edit an existing member in the system list.
+	   * 
+	   * @param id, string converted to long in order to search for appropriate user
+	   * @param edit, string used to specify which member field to edit
+	   * @param newString, the new value placed into the choosen slot to edit
+	   * @return boolean
+	   */
+	public boolean editMember(String id, String edit, String newString) {
+		boolean out = false;						//Check variable to make sure the member exists and is edited
+		int memNum = 0;								//Starting the member in the array index
+		long memID = Long.parseLong(id);;									//Scan variable to take in member ID to look for/edit
+		String test;									//Glorified boolean to use with scan
+		for(int i = 0; i < ChocAnControl.members.size(); i++) {
+			if(ChocAnControl.members.get(i).id == memID)  {					//Check arrayList in control to find the referenced member
+				out = true;
+				memNum = i;
+			}
+		}
+		if(out) {
+				if(edit.equals("ID")) {
+					ChocAnControl.members.get(memNum).id = Long.parseLong(newString);			//Allow user to edit member ID
+					memID = ChocAnControl.members.get(memNum).id;
+				}
+				else if(edit.equals("name")) {
+					ChocAnControl.members.get(memNum).name = newString;		//Allow user to edit member name
+				}
+				else if(edit.equals("add")) {
+					ChocAnControl.members.get(memNum).address = newString;	//Allow user to edit member state
+				}
+				else if(edit.equals("city")) {
+					ChocAnControl.members.get(memNum).city = newString;		//Allow user to edit member city
+				}
+				else if(edit.equals("zip")) {
+					ChocAnControl.members.get(memNum).zipCode = newString;	//Allow user to edit member  zip code
+				}
+				else if(edit.equals("st")) {
+					ChocAnControl.members.get(memNum).state = newString;		//Allow user to edit member state
+				}
+				else if(edit.equals("status")) {
+					test = newString;															//Allow user to edit member account status
+					if(test.equals("true")) { ChocAnControl.members.get(memNum).accountStatus = true; }
+					if(test.equals("false")) { ChocAnControl.members.get(memNum).accountStatus = false; }
+				}
+
+			return true;
+		}
+		else {
+			UserInterface.prompt("There is no member with that ID");
 			return false;
 		}
 	}

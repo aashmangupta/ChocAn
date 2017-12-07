@@ -19,7 +19,6 @@ public class UserManagerTest {
 	//Test for exception: 	  		Enter an ID that does not exist to edit
 	//Test to edit and edit back:	Edit the name of a member and then edit it back 
 	
-	ChocAnControl ChocAn;
 	UserManager userManager;
 
 	@Before
@@ -29,20 +28,8 @@ public class UserManagerTest {
 
 	@Test
 	public void testSuccess() {
-		String input = "7000000002";
-		userManager.editMember();
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-  		System.setIn(in);
-		input = "name";
-		in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		input = "Not Ben";
-		in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		input = "stop";
-		in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
-		assertEquals("Not Ben", ChocAn.members.get(1).name);
+		userManager.editMember("7000000002", "name", "Not Ben");
+		assertEquals("Not Ben", ChocAnControl.members.get(1).name);
 	}
 	
 	@Test
@@ -50,34 +37,18 @@ public class UserManagerTest {
 		boolean check;
 		String input;
 		check = userManager.editMember();
-		input = "8000000002";
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		System.setIn(in);
+		userManager.editMember("8000000002", "name", "Not Ben");
 		assertEquals(false, check);
 	}
 	
 	@Test
-	public void testDelete() {
-		String nameHolder = ChocAn.members.get(1).name;
+	public void testEditing() {
+		String nameHolder = ChocAnControl.members.get(1).name;
 		String checkName;
 		String input;
-		userManager.editMember();
-		input = "7000000002";
-		userManager.editMember();
-		InputStream in = new ByteArrayInputStream(input.getBytes());
-		input = "name";
-		userManager.editMember();
-		in = new ByteArrayInputStream(input.getBytes());
-		input = "Not Ben";
-		userManager.editMember();
-		in = new ByteArrayInputStream(input.getBytes());
-		input = "name";
-		userManager.editMember();
-		in = new ByteArrayInputStream(input.getBytes());
-		input = "Ben Sanders";
-		userManager.editMember();
-		in = new ByteArrayInputStream(input.getBytes());
-		checkName = ChocAn.members.get(1).name;
+		userManager.editMember("7000000002", "name", "Not Ben");
+		userManager.editMember("7000000002", "name", "Ben Sanders");
+		checkName = ChocAnControl.members.get(1).name;
 
 		assertEquals(nameHolder, checkName);
 	}
