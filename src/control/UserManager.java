@@ -270,9 +270,9 @@ public class UserManager {
             String zip = scan.nextLine();
             provToAdd.zipCode = zip;
             
-			UserInterface.prompt("Enter the number of visits");		//Access prompt
-			int visits = Integer.parseInt(scan.nextLine());
-			provToAdd.totalVisits = visits;
+			UserInterface.prompt("Enter the number of consultations");		//Access prompt
+			int consul = Integer.parseInt(scan.nextLine());
+			provToAdd.totalConsultations = consul;
 			
 			UserInterface.prompt("Enter the total cost of fees");	//Access prompt
 			int fees = Integer.parseInt(scan.nextLine());
@@ -299,7 +299,7 @@ public class UserManager {
 	      out.write(System.lineSeparator());
 	      out.write(zip);
 	      out.write(System.lineSeparator());
-	      out.write(visits);
+	      out.write(consul);
 	      out.write(System.lineSeparator());
 	      out.write(fees);
 	      out.write(System.lineSeparator());
@@ -338,7 +338,7 @@ public class UserManager {
 		if(out) {
 			while(!(query.equals("stop"))) {											//Allow user to keep editing until they enter "stop"
 				UserInterface.prompt("What do you want to edit? "
-						+ "(ID, name, add, city, zip, st, fees, visits) (stop) to end edit");		//Access prompt
+						+ "(ID, name, add, city, zip, st, fees, consul) (stop) to end edit");		//Access prompt
 				query = scan.nextLine();
 				if(query.equals("ID")) {											//Allow user to edit provider ID
 					UserInterface.prompt("Enter new provider ID");					//Access prompt
@@ -365,9 +365,9 @@ public class UserManager {
 					UserInterface.prompt("Enter new provider state");						//Access prompt
 					ChocAnControl.providers.get(provNum).state = scan.nextLine();		//Allow user to edit provider state
 				}
-					else if(query.equals("visits")) {
-					UserInterface.prompt("Enter new number of visits");					//Access prompt
-					ChocAnControl.providers.get(provNum).totalVisits = Integer.parseInt(scan.nextLine());	//Allow user to edit provider number of visits
+					else if(query.equals("consul")) {
+					UserInterface.prompt("Enter new number of consultationss");					//Access prompt
+					ChocAnControl.providers.get(provNum).totalConsultations = Integer.parseInt(scan.nextLine());	//Allow user to edit provider number of visits
 				}
 				else if(query.equals("fees")) {
 					UserInterface.prompt("Enter new provider fee total");				//Access prompt
