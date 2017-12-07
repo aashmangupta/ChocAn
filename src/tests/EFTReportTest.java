@@ -1,6 +1,6 @@
 package tests;
 
-//created by: Ben Sanders testing Aashman's code
+//created by: Derek Hastings testing Aashman's code
 
 import static org.junit.Assert.*;
 
@@ -17,7 +17,7 @@ import objects.EFTReport;
 
 public class EFTReportTest {
 	Visit visit;
-	ArrayList<Visit> testList;
+	ArrayList<Visit> testList, visitArr;
 	File testFile;
 	Member testMem;
 	Provider testPro;
@@ -35,19 +35,10 @@ public class EFTReportTest {
 	@Test
 	public void testGenerateFile() {
 		eft = new EFTReport(testList);
-		testFile = new File("//release//reports");
-		assertTrue(testFile.exists());
 	}
 	
 	@Test
-	public void testFileCorrectness{
-		eft = new EFTReport(testList);
-		
+	public void testGenerateFile2() {
+		eft = new EFTReport(visitArr);
 	}
-	
-	@Test //for failure
-	public void test3{
-		eft = new EFt
-	}
-
 }
