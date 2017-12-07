@@ -14,11 +14,12 @@ public class EFTReport {
 	public EFTReport(ArrayList<Visit> visits) {
 		//currFile = new File("EFT.txt");
 		if (new File("release").exists()) {
-		      currFile = new File("release\\reports\\EFT.txt");
+		      currFile = new File("release" + File.separator + "reports" + File.separator + "EFT.txt");
 		}		
 		else {
-		      currFile = new File("reports\\EFT.txt");
+		      currFile = new File("reports" + File.separator + "EFT.txt");
 		}
+		
 		visitArray = visits;
 		if(visits.isEmpty()) {
 			System.out.println("ERROR: No visits exist so far.");
@@ -34,7 +35,7 @@ public class EFTReport {
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
 			for(int i = 0; i < visitArray.size(); i++) {
-				fileWriter.write(visitArray.get(i).provider.name);
+				fileWriter.write("Provider name: " + visitArray.get(i).provider.name);
 				provName = visitArray.get(i).provider.name;
 				totalFee = visitArray.get(i).service.getFee();
 				
@@ -49,10 +50,10 @@ public class EFTReport {
 				
 				fileWriter.write(System.lineSeparator());
 				provId = Objects.toString(visitArray.get(i).provider.id); 
-				fileWriter.write(provId);
+				fileWriter.write("Provider ID: " + provId);
 				fileWriter.write(System.lineSeparator());
 				fee = Objects.toString(totalFee);
-				fileWriter.write(fee);
+				fileWriter.write("Amount to be transferred: " + fee);
 				fileWriter.write(System.lineSeparator());
 				fileWriter.write(System.lineSeparator());
 			}

@@ -17,11 +17,12 @@ public class MemberReport {
 	public MemberReport(Member member, ArrayList<Visit> visits) {
 		currMember = member;
 		//currFile = new File(currMember.name + currMember.id + ".txt");
+
 		if (new File("release").exists()) {
-		      currFile = new File("release\\reports\\" + currMember.name + currMember.id + ".txt");
+			currFile = new File("release" + File.separator + "reports" + File.separator + currMember.name + currMember.id+ ".txt");
 		}		
 		else {
-		      currFile = new File("reports\\" + currMember.name + currMember.id + ".txt");
+			currFile = new File("reports" + File.separator + currMember.name + currMember.id + ".txt");
 		}
 		visitArray = visits;
 		generateFile();
@@ -38,29 +39,29 @@ public class MemberReport {
 		String memID;
 		try {
 			FileWriter fileWriter = new FileWriter(currFile);
-			fileWriter.write(currMember.name);
+			fileWriter.write("Member name: " + currMember.name);
 			fileWriter.write(System.lineSeparator());
-			memID = Objects.toString(currMember.id);
+			memID = Objects.toString("Member Id: " + currMember.id);
 			fileWriter.write(memID);
 			fileWriter.write(System.lineSeparator());
-			fileWriter.write(currMember.address);
+			fileWriter.write("Member address: " + currMember.address);
 			fileWriter.write(System.lineSeparator());
-			fileWriter.write(currMember.city);
+			fileWriter.write("Member city: " + currMember.city);
 			fileWriter.write(System.lineSeparator());
-			fileWriter.write(currMember.state);
+			fileWriter.write("Member state: " + currMember.state);
 			fileWriter.write(System.lineSeparator());
-			fileWriter.write(currMember.zipCode);
+			fileWriter.write("Member ZIP code: " + currMember.zipCode);
 			fileWriter.write(System.lineSeparator());
 			fileWriter.write(System.lineSeparator());
 			
 			while(i < visitArray.size()) {
 				if(currMember.name == visitArray.get(i).member.name)	{
 					dateVisit = visitArray.get(i).dateOfService.toString();
-					fileWriter.write(dateVisit);
+					fileWriter.write("Date of service: " + dateVisit);
 					fileWriter.write(System.lineSeparator());
-					fileWriter.write(visitArray.get(i).provider.name);
+					fileWriter.write("Provider name: " + visitArray.get(i).provider.name);
 					fileWriter.write(System.lineSeparator());
-					fileWriter.write(visitArray.get(i).service.getName());
+					fileWriter.write("Service name: " + visitArray.get(i).service.getName());
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write(System.lineSeparator());
 				}

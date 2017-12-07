@@ -14,11 +14,12 @@ public class SummaryReport {
 
 	public SummaryReport(ArrayList<Visit> visits, ArrayList<Provider> providers) {
 		//currFile = new File("summaryReport.txt");
+
 		if (new File("release").exists()) {
-		      currFile = new File("release\\reports\\summaryReports.txt");
-		}
+			currFile = new File("release" + File.separator + "reports" + File.separator + "summaryReport.txt");
+		}		
 		else {
-		      currFile = new File("reports\\summaryReports.txt");
+			currFile = new File("reports" + File.separator + "summaryReport.txt");
 		}
 		visitArray = visits;
 		providerArray = providers;
