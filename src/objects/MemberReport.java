@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.io.FileReader;
 
 //BUILT BY: AASHMAN GUPTA
@@ -63,7 +64,8 @@ public class MemberReport {
 			
 			while(i < visitArray.size()) {
 				if(currMember.name == visitArray.get(i).member.name)	{
-					dateVisit = visitArray.get(i).dateOfService.toString();
+					SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
+					dateVisit = dateFormat.format(visitArray.get(i).dateOfService);
 					fileWriter.write("Date of service: " + dateVisit);
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write("Provider name: " + visitArray.get(i).provider.name);

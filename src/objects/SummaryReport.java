@@ -59,13 +59,18 @@ public class SummaryReport {
 					}
 				}
 				if(indivConsult > 0) {
-					fileWriter.write(currProvider.name + '\n');
-					fileWriter.write(indivConsult + '\n');
-					fileWriter.write(indivFeeTotal + "\n\n");
+					fileWriter.write("Provider name: " + currProvider.name);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write("# of consultations: " + indivConsult);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write("Fee: " + indivFeeTotal);
+					fileWriter.write(System.lineSeparator());
+					fileWriter.write(System.lineSeparator());
 					totalProviders++;
 					totalFee = totalFee + indivFeeTotal;
 					totalConsultations = totalConsultations + indivConsult;
 				}
+				indivConsult = 0;
 			}
 			fileWriter.write("Total providers: " + totalProviders + '\n');
 			fileWriter.write("Total consultations: " + totalConsultations + '\n');

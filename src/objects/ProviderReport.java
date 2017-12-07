@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-
 import control.ChocAnControl;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.io.FileReader;
@@ -80,16 +78,18 @@ public class ProviderReport {
 
 			while(i < visitArray.size()) {
 				if(currProvider.name == visitArray.get(i).provider.name) {
-					String dateVisit2 = visitArray.get(i).dateOfService.toString();
-					dateVisit = ChocAnControl.dateFormat.format(visitArray.get(i).dateOfService.toString());
-					//String dateStr = date.toString();
+					SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
+					SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM/dd/YYYY HH:mm:ss");
+
+					String dateVisit2 = dateFormat2.format(visitArray.get(i).dateOfService);
+					dateVisit = dateFormat.format(visitArray.get(i).dateOfService);
 					
 					count = count + 1;
 					fileWriter.write("Date of service: ");
 					fileWriter.write(dateVisit);
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write("Date and time data were received by the computer: ");
-					fileWriter.write("dateVisit2");
+					fileWriter.write(dateVisit2);
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write("Member name: ");
 					fileWriter.write(visitArray.get(i).member.name);
