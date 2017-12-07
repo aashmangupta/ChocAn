@@ -62,8 +62,8 @@ public class ChocAnControl {
            temp.name = s.nextLine();
            temp.address = s.nextLine();
            temp.city = s.nextLine();
-           temp.zipCode =  s.nextLine();
            temp.state = s.nextLine();
+           temp.zipCode =  s.nextLine();
            temp.accountStatus = Boolean.parseBoolean(s.nextLine());
            
            members.add(temp);
@@ -91,8 +91,8 @@ public class ChocAnControl {
            temp.name = s.nextLine();
            temp.address = s.nextLine();
            temp.city = s.nextLine();
-           temp.zipCode =  s.nextLine();
            temp.state = s.nextLine();
+           temp.zipCode =  s.nextLine();
            temp.totalFees = Integer.parseInt(s.nextLine());
            temp.totalVisits = Integer.parseInt(s.nextLine());
            

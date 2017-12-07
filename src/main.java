@@ -115,6 +115,7 @@ public class main {
 			return "operator";
 		} else if(type.equals("help")) return "help"; 
 		else if(type.equals("shutdown")) return "shutdown"; 
+		else if(type.equals("friday")) return "friday";
 	
 		
 		else {
