@@ -94,7 +94,7 @@ public class ChocAnControl {
            temp.state = s.nextLine();
            temp.zipCode =  s.nextLine();
            temp.totalFees = Integer.parseInt(s.nextLine());
-           temp.totalVisits = Integer.parseInt(s.nextLine());
+           temp.totalConsultations = Integer.parseInt(s.nextLine());
            
            providers.add(temp);
            

@@ -73,25 +73,25 @@ public class ManagerInterface extends UserInterface {
 			input = scan.next();
 			switch(input) {
 			case "member":
-				UserInterface.prompt("Generating reports...");
+				UserInterface.prompt("Generating Member reports...");
 				produceMemberReport();												//calls the method to create the member report
 				UserInterface.prompt("...done.");
 				break;
 
 			case "provider":
-				UserInterface.prompt("Generating reports...");
+				UserInterface.prompt("Generating Provider reports...");
 				produceProviderReport();											//calls the method to create the provider report
 				UserInterface.prompt("...done.");
 				break;
 
 			case "summary":
-				UserInterface.prompt("Generating reports...");
+				UserInterface.prompt("Generating Summary reports...");
 				produceManagerSummary();											//calls the method to create the manager summary
 				UserInterface.prompt("...done.");
 				break;
 
 			case "eft":
-				UserInterface.prompt("Generating reports...");
+				UserInterface.prompt("Generating EFT files...");
 				produceEFTReport();														//calls the method to create the EFT report
 				UserInterface.prompt("...done.");
 				break;
