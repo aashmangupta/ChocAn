@@ -2,8 +2,14 @@ package objects;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
+import control.ChocAnControl;
+
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.io.FileReader;
 
 //BUILT BY: AASHMAN GUPTA
@@ -13,7 +19,6 @@ public class ProviderReport {
 	Provider currProvider;
 	ArrayList<Visit> visitArray;
 	String dateVisit;
-
 
 	/**
 	   * Constructor.
@@ -71,16 +76,20 @@ public class ProviderReport {
 			fileWriter.write("Provider ZIP code: ");
 			fileWriter.write(currProvider.zipCode);
 			fileWriter.write(System.lineSeparator());
+			fileWriter.write(System.lineSeparator());
 
 			while(i < visitArray.size()) {
 				if(currProvider.name == visitArray.get(i).provider.name) {
-					dateVisit = visitArray.get(i).dateOfService.toString();
+					String dateVisit2 = visitArray.get(i).dateOfService.toString();
+					dateVisit = ChocAnControl.dateFormat.format(visitArray.get(i).dateOfService.toString());
+					//String dateStr = date.toString();
+					
 					count = count + 1;
 					fileWriter.write("Date of service: ");
 					fileWriter.write(dateVisit);
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write("Date and time data were received by the computer: ");
-					fileWriter.write("FIX DATE OF SERVICE AND THIS");
+					fileWriter.write("dateVisit2");
 					fileWriter.write(System.lineSeparator());
 					fileWriter.write("Member name: ");
 					fileWriter.write(visitArray.get(i).member.name);
