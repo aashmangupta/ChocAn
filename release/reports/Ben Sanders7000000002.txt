@@ -5,7 +5,7 @@ Member city: South Lake
 Member state: Texas
 Member ZIP code: 76092
 
-Date of service: Sat Jan 06 21:12:20 CST 2018
+Date of service: 01/06/2018
 Provider name: Alex Ramsayer
 Service name: Shock Therapy Session
 

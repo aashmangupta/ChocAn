@@ -5,7 +5,7 @@ Member city: phoenix
 Member state: Arizona
 Member ZIP code: 85023
 
-Date of service: Thu Dec 07 21:12:20 CST 2017
+Date of service: 12/07/2017
 Provider name: Alex Ramsayer
 Service name: Shock Therapy Session
 

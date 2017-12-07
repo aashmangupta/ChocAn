@@ -51,7 +51,7 @@ public class UserManager {
 		long memID;													//Scan variable to take in member ID to make sure it doesnt exist
 		int stat;													//Scan int variable to use as glorified scan boolean
 		UserInterface.prompt("Enter member ID");					//Access prompt
-		memID = scan.nextLong();
+		memID = Long.parseLong(scan.nextLine());
 		scan.nextLine();
 		String member;
 		Member memToAdd;
@@ -87,7 +87,7 @@ public class UserManager {
 			String status;
 			
 			UserInterface.prompt("Enter account status: 1-active, 0-suspended");	//Access prompt
-			stat = scan.nextInt();
+			stat = Integer.parseInt(scan.nextLine());
 			if(stat == 0) { memToAdd.accountStatus = false;
 			                status = "false";}
 			else { memToAdd.accountStatus = true;
@@ -142,7 +142,7 @@ public class UserManager {
 		int test;									//Glorified boolean to use with scan
 		String query = "none";						//String check for editing while loop
 		UserInterface.prompt("Enter member ID");					//Access prompt
-		memID = scan.nextLong();
+		memID = Long.parseLong(scan.nextLine());
 		for(int i = 0; i < ChocAnControl.members.size(); i++) {
 			if(ChocAnControl.members.get(i).id == memID)  {					//Check arrayList in control to find the referenced member
 				out = true;
@@ -153,10 +153,10 @@ public class UserManager {
 			while(!(query.equals("stop"))) {
 				if(out) {
 					UserInterface.prompt("What do you want to edit? (ID, name, add, city, zip, st, status) (stop) to end edit");					//Access prompt
-					query = scan.next();
+					query = scan.nextLine();
 					if(query.equals("ID")) {
 						UserInterface.prompt("Enter new member ID");					//Access prompt
-						ChocAnControl.members.get(memNum).id = scan.nextLong();			//Allow user to edit member ID
+						ChocAnControl.members.get(memNum).id = Long.parseLong(scan.nextLine());			//Allow user to edit member ID
 						memID = ChocAnControl.members.get(memNum).id;
 					}
 					else if(query.equals("name")) {
@@ -181,7 +181,7 @@ public class UserManager {
 					}
 					else if(query.equals("status")) {
 						UserInterface.prompt("Enter new member status (1 for active, 0 for suspended");		//Access prompt
-						test = scan.nextInt();																//Allow user to edit member account status
+						test = Integer.parseInt(scan.nextLine());															//Allow user to edit member account status
 						if(test == 0) { ChocAnControl.members.get(memNum).accountStatus = true; }
 						if(test == 1) { ChocAnControl.members.get(memNum).accountStatus = false; }
 
@@ -191,7 +191,7 @@ public class UserManager {
 			return true;
 		}
 		else {
-			UserInterface.prompt("There is no meber with that ID");
+			UserInterface.prompt("There is no member with that ID");
 			this.editMember();
 			return false;
 		}
@@ -207,7 +207,7 @@ public class UserManager {
 		int memNum = 0;												//Int variable to represent the index in the member arrayList
 		long memID;													//Scan variable to take in member ID to look for/edit
 		UserInterface.prompt("Enter member ID");					//Access prompt
-		memID = scan.nextLong();
+		memID = Long.parseLong(scan.nextLine());
 		for(int i = 0; i < ChocAnControl.members.size(); i++) {
 			if(ChocAnControl.members.get(i).id == memID)  {				//Find the input member ID to set index for later use
 				out = true;
@@ -241,7 +241,7 @@ public class UserManager {
 		boolean suc = true;											//Check variable to make sure the provider exists and is created
 		long provID;												//Scan variable to take in provider ID to create and check existence
 		UserInterface.prompt("Enter provider ID");					//Access prompt
-		provID = scan.nextLong();
+		provID = Long.parseLong(scan.nextLine());
 		scan.nextLine();
 		Provider provToAdd;
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {		//Check to see if provider by that ID already exists
@@ -330,8 +330,7 @@ public class UserManager {
 		long provID;												//Scan variable to take in provider ID to edit and check existence
 		String query = "none";										//String check for editing while loop
 		UserInterface.prompt("Enter provider ID to edit");					//Access prompt
-		provID = scan.nextLong();
-		scan.nextLine();
+		provID = Long.parseLong(scan.nextLine());
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {	//Find the input provider ID to set index for later use
 			if(ChocAnControl.providers.get(i).id == provID)  {
 				out = true;
@@ -345,7 +344,7 @@ public class UserManager {
 				query = scan.nextLine();
 				if(query.equals("ID")) {											//Allow user to edit provider ID
 					UserInterface.prompt("Enter new provider ID");					//Access prompt
-					ChocAnControl.providers.get(provNum).id = scan.nextLong();
+					ChocAnControl.providers.get(provNum).id = Long.parseLong(scan.nextLine());
 					provID = ChocAnControl.providers.get(provNum).id;
 				}
 				else if(query.equals("name")) {
@@ -370,11 +369,11 @@ public class UserManager {
 				}
 					else if(query.equals("visits")) {
 					UserInterface.prompt("Enter new number of visits");					//Access prompt
-					ChocAnControl.providers.get(provNum).totalVisits = scan.nextInt();	//Allow user to edit provider number of visits
+					ChocAnControl.providers.get(provNum).totalVisits = Integer.parseInt(scan.nextLine());	//Allow user to edit provider number of visits
 				}
 				else if(query.equals("fees")) {
 					UserInterface.prompt("Enter new provider fee total");				//Access prompt
-					ChocAnControl.providers.get(provNum).totalFees = scan.nextInt();	//Allow user to edit provider total fees
+					ChocAnControl.providers.get(provNum).totalFees = Integer.parseInt(scan.nextLine());	//Allow user to edit provider total fees
 				}
 			}
 			return true;
@@ -396,7 +395,7 @@ public class UserManager {
 		int provNum = 0;											//Int to use as index to keep track of provider to edit
 		long provID;												//Scan variable to take in provider ID to edit and check existence
 		UserInterface.prompt("Enter provider ID");					//Access prompt
-		provID = scan.nextLong();
+		provID = Long.parseLong(scan.nextLine());
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {
 			if(ChocAnControl.providers.get(i).id == provID)  {		//Find the input provider ID to set index for later use
 				out = true;

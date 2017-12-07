@@ -5,11 +5,11 @@ Member city: Mt.  Pleasant
 Member state: South Carolina
 Member ZIP code: 29466
 
-Date of service: Wed Dec 06 21:12:20 CST 2017
+Date of service: 12/06/2017
 Provider name: Alex Ramsayer
 Service name: Shock Therapy Session
 
-Date of service: Thu Dec 06 21:12:20 CST 2018
+Date of service: 12/06/2018
 Provider name: Alex Ramsayer
 Service name: Hypnosis Session
 

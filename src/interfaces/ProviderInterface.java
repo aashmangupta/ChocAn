@@ -120,7 +120,7 @@ public class ProviderInterface extends UserInterface {
           getProviderDirectory();                             //calls the method to view the provider directory
           break;
 
-        case "visit":
+        case "consult":
           createVisit();                                      //calls the method to create a visit
           break;
 
