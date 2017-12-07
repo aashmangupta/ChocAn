@@ -71,6 +71,7 @@ public class SummaryReport {
 					totalConsultations = totalConsultations + indivConsult;
 				}
 				indivConsult = 0;
+				indivFeeTotal = 0;
 			}
 			fileWriter.write("Total providers: " + totalProviders);
 			fileWriter.write(System.lineSeparator());

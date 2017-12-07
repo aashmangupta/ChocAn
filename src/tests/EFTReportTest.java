@@ -33,7 +33,7 @@ public class EFTReportTest {
 	}
 
 	@Test
-	public void testGenerateFile() {
+	public void testGenerateFile(expected = IndexOutOfBoundsException.class) {
 		eft = new EFTReport(testList);
 	}
 	
