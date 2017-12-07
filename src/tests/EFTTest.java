@@ -17,6 +17,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
+
 public class EFTTest {
 	Visit visit;
 	ArrayList<Visit> visitArray;
@@ -44,10 +45,10 @@ public class EFTTest {
 	@Test (expected = NullPointerException.class)
 	//@Test (expected = AssertionError.class)
 	public void testFailure() {
-		File currFile = new File("release" + File.separator + "reports" + File.separator + "EFT.txt");
-		currFile.delete();
+		//File currFile = new File("release" + File.separator + "reports" + File.separator + "EFT.txt");
+		//currFile.delete();
 		x.produceEFT();
-		assertEquals(currFile.exists(), false);
+		//assertEquals(currFile.exists(), false);
 	}
 	
 }
