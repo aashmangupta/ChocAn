@@ -34,7 +34,7 @@ public class ServiceControlTest {
 
 	@Before
 	public void setUp() throws Exception {
-		com = "";
+		com = " ";
 		tester = true;
 	}
 
@@ -76,6 +76,8 @@ public class ServiceControlTest {
 		pro = new Provider("test_provider", 3311, "123 lane", "south", "132413", "New Mexico", 10, 0);
 		ChocAnControl.members.add(mem);
 		ChocAnControl.providers.add(pro);
+		com = "test test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test testtest test test test test";
+		
 		
 		
 		tester = servCont.createVisit(mem.id, pro.id, serv, com);

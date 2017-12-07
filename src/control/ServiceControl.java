@@ -40,6 +40,9 @@ public class ServiceControl {
    * @return boolean.
    */
   public boolean createVisit(long m, long p, Service s, String comment) {
+	  if (comment.length() > 100) {
+		  return false;
+	  }
 
     UserInterface.prompt("Attempting to generate visit");
     
