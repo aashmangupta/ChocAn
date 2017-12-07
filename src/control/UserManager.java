@@ -7,7 +7,10 @@ import objects.Provider;
 import control.ChocAnControl;
 import interfaces.UserInterface;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -94,7 +97,7 @@ public class UserManager {
 
 			ChocAnControl.members.add(memToAdd);						//Add member to the arrayList in control
 
-			if (new File("release").exists()) {
+		if (new File("release").exists()) {
 	      writeFile = new File("release"+File.separator+"data"+File.separator+"members.txt");
 	    } else {
 	      writeFile = new File("data"+File.separator+"members.txt");
@@ -267,7 +270,48 @@ public class UserManager {
 				memNum = i;
 			}
 		}
+		
+		File inputFile;
+		File tempFile;
 
+		if (new File("release").exists()) {
+		      inputFile = new File("release"+File.separator+"data"+File.separator+"members.txt");
+				tempFile = new File("release"+File.separator+"data"+File.separator+"membersTemp.txt");
+		    } else {
+		      inputFile = new File("data"+File.separator+"members.txt");
+				tempFile = new File("data"+File.separator+"membersTemp.txt");
+		    }
+		
+		try {
+
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+		String lineToRemove = Long.toString(memID);
+		String currentLine;
+		int count = 0;
+		boolean delete = false;
+		
+		while((currentLine = reader.readLine()) != null) {
+			if(delete){
+				if(count < 7) continue;
+				else delete = false;
+			}
+			else {
+		    String trimmedLine = currentLine.trim();
+		    if(trimmedLine.equals(lineToRemove)) {
+		    		delete = true;
+		    		continue;
+		    	}
+			}
+		    writer.write(currentLine + System.lineSeparator());
+		}
+		writer.close(); 
+		reader.close(); 
+		inputFile.delete();
+		tempFile.renameTo(inputFile);
+		} catch(IOException i) {}
+		
 		if(out) {													//If found then remove that indexed member from the arrayList
 			if(areYouSure()) {										//Prompt user to see if they are sure
 				ChocAnControl.members.remove(memNum);
@@ -454,6 +498,49 @@ public class UserManager {
 				provNum = i;
 			}
 		}
+		
+		
+		File inputFile;
+		File tempFile;
+
+		if (new File("release").exists()) {
+		      inputFile = new File("release"+File.separator+"data"+File.separator+"providers.txt");
+				tempFile = new File("release"+File.separator+"data"+File.separator+"providersTemp.txt");
+		    } else {
+		      inputFile = new File("data"+File.separator+"providers.txt");
+				tempFile = new File("data"+File.separator+"providersTemp.txt");
+		    }
+		
+		try {
+
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+		String lineToRemove = Long.toString(provID);
+		String currentLine;
+		int count = 0;
+		boolean delete = false;
+		
+		while((currentLine = reader.readLine()) != null) {
+			if(delete){
+				if(count < 8) continue;
+				else delete = false;
+			}
+			else {
+		    String trimmedLine = currentLine.trim();
+		    if(trimmedLine.equals(lineToRemove)) {
+		    		delete = true;
+		    		continue;
+		    	}
+			}
+		    writer.write(currentLine + System.lineSeparator());
+		}
+		writer.close(); 
+		reader.close(); 
+		inputFile.delete();
+		tempFile.renameTo(inputFile);
+		} catch(IOException i) {}
+		
 		if(out) {												//If a provider exists
 			if(areYouSure()) {									//Then ask if the user is sure
 				ChocAnControl.providers.remove(provNum);		//Then remove
