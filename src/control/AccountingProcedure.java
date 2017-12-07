@@ -45,6 +45,8 @@ public class AccountingProcedure {
     
 	/**
 	   * This is the produceEFT function and it produces the EFT report.
+	   * @param
+	   * @return boolean value. True if visitArray is empty.
 	   */
     
     public boolean produceEFT() {
@@ -55,10 +57,14 @@ public class AccountingProcedure {
     
 	/**
 	   * This is the checkVisits function and it checks if there are any visits.
+	   * @param
+	   * @return boolean value. false if visitArray is empty.
 	   */
     
     public boolean checkVisits() {
-        
+        if(ChocAnControl.visits.isEmpty()) {
+        		return false;
+        }
         return true;
     }
 }

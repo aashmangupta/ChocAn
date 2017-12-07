@@ -3,9 +3,7 @@ package tests;
 //created by: Derek Hastings testing Aashman's code
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 import objects.Visit;
@@ -18,6 +16,7 @@ import objects.EFTReport;
 public class EFTReportTest {
 	Visit visit;
 	ArrayList<Visit> testList, visitArr;
+	ArrayList<String> testList2;
 	File testFile;
 	Member testMem;
 	Provider testPro;
@@ -25,6 +24,7 @@ public class EFTReportTest {
 
 	@Before
 	public void setUp() throws Exception {
+		System.out.println("Hello world!");
 		testMem = new Member();
 		testPro = new Provider();
 		visit = new Visit();
@@ -33,12 +33,12 @@ public class EFTReportTest {
 	}
 
 	@Test
-	public void testGenerateFile(expected = IndexOutOfBoundsException.class) {
-		eft = new EFTReport(testList);
+	public void testGenerateFile() {
+		
 	}
 	
-	@Test
+	/*@Test
 	public void testGenerateFile2() {
 		eft = new EFTReport(visitArr);
-	}
+	}*/
 }

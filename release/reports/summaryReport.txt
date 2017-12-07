@@ -4,8 +4,8 @@ Fee: 260
 
 Provider name: Alex Ramsayer(evil version)
 # of consultations: 1
-Fee: 340
+Fee: 80
 
 Total providers: 2
 Total consultations: 5
-Total fee: 600
+Total fee: 340
