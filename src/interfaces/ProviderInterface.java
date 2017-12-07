@@ -85,7 +85,7 @@ public class ProviderInterface extends UserInterface {
       return true;
     } 
     else if (success == true && suspended == true){
-    	UserInterface.prompt("Member number is suspended");
+    	UserInterface.prompt("Member number is suspended");						//member number is suspended
     	return false;
     }
     else {

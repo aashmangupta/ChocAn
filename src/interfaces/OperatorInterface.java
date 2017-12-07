@@ -4,6 +4,8 @@ import control.UserManager;
 import java.util.Scanner;
 import control.ChocAnControl;
 
+//Created by Spencer Fuhriman
+
 public class OperatorInterface extends UserInterface {
 	//boolean logged_in = false;					//default is false
 	public long operator_id;						//variable to store operator id
@@ -119,7 +121,7 @@ public class OperatorInterface extends UserInterface {
   * This method lists the options that a given operator can take
   *
   * @param none.
-  * @return String.
+  * @return String, lets the software know the user is logged in
   */
   public static String operatorMenu() {
 

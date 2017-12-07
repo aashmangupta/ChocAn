@@ -5,26 +5,36 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import objects.ProviderDirectory;
+import objects.Service;
+
+//Created by Spencer Fuhriman, testing Ben Sanders' code
 
 public class ProviderDirectoryTest {
-	ProviderDirectory proDir;
-
+	ProviderDirectory test;
+	Service srv;
+	
 	@Before
 	public void setUp() throws Exception {
-		proDir = new ProviderDirectory();
+		test = new ProviderDirectory();
+		srv  = new Service();
 	}
 
 	@Test
-	public void testGetDirectory() {
-		proDir.getDirectory();
-		assertEquals("d", proDir.getDirectory());
+	public void testGetServiceSuccessServiceName() {
+		long code = 883948;
+		srv = test.getService(code);
+		assertEquals("Aerobics Exercise Session", srv.getName());
 	}
-
-	public void testException() {
-		
+	@Test
+	public void testGetServiceSuccessServiceFee() {
+		long code = 883950;
+		srv = test.getService(code);
+		assertEquals("80", srv.getFee());
 	}
-	
-	public void testFailure() {
-		
+	@Test
+	public void testGetSerivceFailure() {
+		long code = 3456453;
+		srv = test.getService(code);
+		assertEquals("Error: invalid code", srv.getName());
 	}
 }

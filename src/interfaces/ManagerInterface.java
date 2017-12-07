@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import control.ChocAnControl;
 
+//Created by Spencer Fuhriman
+
 public class ManagerInterface extends UserInterface {
 	//boolean l = false;
 	boolean reportGenerated = false; 				// default is false

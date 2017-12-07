@@ -62,8 +62,8 @@ public class ProviderDirectory {
 	}
 	
 	/**
-	 * This method finds a specific service in the service directory using its
-	 * 	code then returns it.
+	 * This method finds a specific service in the service directory using its code then returns it.
+	 * 
 	 * 
 	 * @param code
 	 * @return Service
