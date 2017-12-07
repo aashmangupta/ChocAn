@@ -16,8 +16,8 @@ import objects.EFTReport;
 
 
 public class EFTReportTest {
-	ArrayList<Visit> testList;
 	Visit visit;
+	ArrayList<Visit> testList;
 	File testFile;
 	Member testMem;
 	Provider testPro;
@@ -29,24 +29,25 @@ public class EFTReportTest {
 		testPro = new Provider();
 		visit = new Visit();
 		testList.add(visit);
-		eft = new EFTReport(visit);
+		eft = new EFTReport(testList);
 	}
 
 	@Test
 	public void testGenerateFile() {
+		eft = new EFTReport(testList);
 		testFile = new File("//release//reports");
 		assertTrue(testFile.exists());
-		
-	}
-	
-	@Test (expected )
-	public void test2{
-		
 	}
 	
 	@Test
-	public void test3{
+	public void testFileCorrectness{
+		eft = new EFTReport(testList);
 		
+	}
+	
+	@Test //for failure
+	public void test3{
+		eft = new EFt
 	}
 
 }
