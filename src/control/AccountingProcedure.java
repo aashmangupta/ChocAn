@@ -58,7 +58,7 @@ public class AccountingProcedure {
 	/**
 	   * This is the checkVisits function and it checks if there are any visits.
 	   * @param
-	   * @return boolean value. false if visitArray is empty.
+	   * @return boolean value. falseS if visitArray is empty.
 	   */
     
     public boolean checkVisits() {

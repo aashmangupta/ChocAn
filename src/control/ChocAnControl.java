@@ -169,6 +169,19 @@ public class ChocAnControl {
       operatorIds.add((long) 1000000003);
 
     }
+    
+    public ChocAnControl(boolean test) {
+    		dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        managerIds = new ArrayList<Long>();
+        operatorIds = new ArrayList<Long>();
+        members = new ArrayList<Member>();
+        providers = new ArrayList<Provider>();
+        visits = new ArrayList<Visit>();
+        providerDirectory = new ProviderDirectory();
+        mainProcedure = new AccountingProcedure();
+        isFridayAtMidnight = false;
+        serviceControl = new ServiceControl();
+    }
 
     /**
 	   * Creates new provider directory for use.

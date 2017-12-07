@@ -1,5 +1,6 @@
 package tests;
 import control.AccountingProcedure;
+import control.ChocAnControl;
 import javafx.scene.shape.Path;
 import objects.Member;
 import objects.Provider;
@@ -16,7 +17,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class accountingProcTest {
+public class EFTTest {
 	Visit visit;
 	ArrayList<Visit> visitArray;
 	AccountingProcedure x = new AccountingProcedure();
@@ -24,29 +25,29 @@ public class accountingProcTest {
 	Provider p = new Provider("Doc", 9876543, "address2", "Tusc", "85042", "street2", 80, 2);
 	Service s = new Service("chemo", 893, 90);
 	String comment = "No comment";
+	ChocAnControl control;
 	
 	@Before
 	public void setUp() throws Exception {
-		
+		control = new ChocAnControl(true);
 	}
 
 	@Test 
-	public void testFailure() {
+	public void testSuccess() {
 		visit = new Visit(m, p, s, comment);
 		File currFile = new File("release" + File.separator + "reports" + File.separator + "EFT.txt");
-		//visitArray.add(visit);
-		//x.produceEFT();
-		if(currFile.exists()) {
-			assertEquals(currFile.exists(), true);
-		}
-		else {
-			assertEquals(currFile.exists(), false);
-		}
+		ChocAnControl.visits.add(visit);
+		x.produceEFT();
+		assertEquals(currFile.exists(), true);
 	}
 	
 	@Test (expected = NullPointerException.class)
-	public void testFailure1() {
-		boolean y = x.produceMemberReports();
+	//@Test (expected = AssertionError.class)
+	public void testFailure() {
+		File currFile = new File("release" + File.separator + "reports" + File.separator + "EFT.txt");
+		currFile.delete();
+		x.produceEFT();
+		assertEquals(currFile.exists(), false);
 	}
 	
 }
