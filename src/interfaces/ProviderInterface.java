@@ -1,4 +1,4 @@
-package interfaces;
+ package interfaces;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -6,6 +6,7 @@ import objects.Provider;
 import objects.ProviderDirectory;
 import objects.Service;
 import control.ChocAnControl;
+import control.ServiceControl;
 
 
 public class ProviderInterface extends UserInterface {
@@ -147,16 +148,25 @@ public class ProviderInterface extends UserInterface {
       return;
     }
     Service svc;
-
-    UserInterface.prompt("Enter 6 digit service code");
-    long code = Long.valueOf(scan.nextLong());          //takes in service code to search with
-
+    
+    boolean visitSelect = true;
+    long code = 0;
+    while(visitSelect){
+    
+    	UserInterface.prompt("Enter 6 digit service code");				//prompts user to input a service code
+    	code = Long.valueOf(scan.nextLong());
+    	if (ChocAnControl.serviceControl.displayName(code)){			//checks if service code exists
+    		UserInterface.prompt("Is this the correct service? 'y' for yes, any other key to try again");
+    		if (scan.next().equals("y")){								//checks with the user if name of service is correct
+        	visitSelect = false;										//if not, they may keep entering
+    		}
+    	}
+    	else{
+    		UserInterface.prompt("Invalid service code");				//user is told if service code doesn't exist
+    	}
+    }	
+    
     svc = ChocAnControl.providerDirectory.getService(code);     //searches directory for inputted code
-    if (svc.getName().equals("Error: invalid code")){       //error detection if the code doesnt exist
-      UserInterface.prompt("Error: invalid code");
-      createVisit();
-    }
-    else {
 
     ChocAnControl.serviceControl.createVisit(current_member, provider_id, svc);     //calls method to create a vist
 
@@ -164,7 +174,6 @@ public class ProviderInterface extends UserInterface {
     UserInterface.prompt("Service Provided: " + svc.getName());
     UserInterface.prompt("Fee: " + Integer.toString(svc.getFee()));
     }
-  }
 
   /**
   * This is the option a provider can take to access the directory
