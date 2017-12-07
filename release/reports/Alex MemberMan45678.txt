@@ -1,0 +1,7 @@
+Member name: Alex MemberMan
+Member Id: 45678
+Member address: 563 Member Lane
+Member city: Member City
+Member state: State
+Member ZIP code: 9123
+

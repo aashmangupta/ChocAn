@@ -52,7 +52,6 @@ public class UserManager {
 		int stat;													//Scan int variable to use as glorified scan boolean
 		UserInterface.prompt("Enter member ID");					//Access prompt
 		memID = Long.parseLong(scan.nextLine());
-		scan.nextLine();
 		String member;
 		Member memToAdd;
 		for(int i = 0; i < ChocAnControl.members.size(); i++) {				//Search member list (arrayList in control)
@@ -242,7 +241,6 @@ public class UserManager {
 		long provID;												//Scan variable to take in provider ID to create and check existence
 		UserInterface.prompt("Enter provider ID");					//Access prompt
 		provID = Long.parseLong(scan.nextLine());
-		scan.nextLine();
 		Provider provToAdd;
 		for(int i = 0; i < ChocAnControl.providers.size(); i++) {		//Check to see if provider by that ID already exists
 			if(ChocAnControl.providers.get(i).id == provID)  {

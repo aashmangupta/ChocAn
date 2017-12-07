@@ -1,0 +1,7 @@
+Member name: ALex Ramsayer
+Member Id: 9056
+Member address: 1234 lane lane
+Member city: san diego
+Member state: californa
+Member ZIP code: 9212
+
