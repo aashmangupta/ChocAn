@@ -13,11 +13,4 @@ San Diego
 California
 92128
 23
-10009990
-alexander spencer
-address lane
-addressc ity
-asd
-934
-"
-{
+1000
