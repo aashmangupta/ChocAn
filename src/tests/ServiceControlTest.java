@@ -49,7 +49,7 @@ public class ServiceControlTest {
 		ChocAnControl.providers.add(pro);
 		
 		
-		tester = servCont.createVisit(1133, 3311, serv, com);
+		tester = servCont.createVisit(mem.id, pro.id, serv, com);
 		assertTrue(tester);
 	}
 	

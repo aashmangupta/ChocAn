@@ -1,6 +1,6 @@
 package control; 
 
-//Coded by Ben Sanders
+//Coded by Alex Ramsayer
 
 import objects.Member;
 import objects.Provider;
