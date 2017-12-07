@@ -1,0 +1,16 @@
+Provider name: Alex Ramsayer(evil version)
+Provider ID: 8000000002
+Provider address: 17575 Drayton
+Provider city: San Diego
+Provider state: California
+Provider ZIP code: 92128
+
+Date of service: 12/06/2018
+Date and time data were received by the computer: 12/06/2018 21:12:20
+Member name: Spencer Fuhriman
+Member ID: 7000000004
+Service code: 883950
+Fee to be paid: 80
+
+1 consultations in total.
+Total Feel: 80
