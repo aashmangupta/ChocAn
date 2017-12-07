@@ -72,9 +72,12 @@ public class SummaryReport {
 				}
 				indivConsult = 0;
 			}
-			fileWriter.write("Total providers: " + totalProviders + '\n');
-			fileWriter.write("Total consultations: " + totalConsultations + '\n');
-			fileWriter.write("Total fee: " + totalFee + '\n');
+			fileWriter.write("Total providers: " + totalProviders);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write("Total consultations: " + totalConsultations);
+			fileWriter.write(System.lineSeparator());
+			fileWriter.write("Total fee: " + totalFee);
+			fileWriter.write(System.lineSeparator());
 			fileWriter.close();
 		}
 		catch(IOException e) {

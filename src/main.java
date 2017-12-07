@@ -51,6 +51,7 @@ public class main {
               
 			case "friday":
 			  ChocAnControl.checkTimeAndDate();
+			  s = "login";
               break;
               
 			case "shutdown":
