@@ -208,7 +208,7 @@ public class UserManager {
 	public boolean editMember(String id, String edit, String newString) {
 		boolean out = false;						//Check variable to make sure the member exists and is edited
 		int memNum = 0;								//Starting the member in the array index
-		long memID = Long.parseLong(id);;									//Scan variable to take in member ID to look for/edit
+		long memID = Long.parseLong(id);								//Scan variable to take in member ID to look for/edit
 		String test;									//Glorified boolean to use with scan
 		for(int i = 0; i < ChocAnControl.members.size(); i++) {
 			if(ChocAnControl.members.get(i).id == memID)  {					//Check arrayList in control to find the referenced member

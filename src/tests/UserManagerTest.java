@@ -2,9 +2,6 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,9 +32,7 @@ public class UserManagerTest {
 	@Test
 	public void testFail() {
 		boolean check;
-		String input;
-		check = userManager.editMember();
-		userManager.editMember("8000000002", "name", "Not Ben");
+		check = userManager.editMember("8000000002", "name", "Not Ben");
 		assertEquals(false, check);
 	}
 	
@@ -45,7 +40,6 @@ public class UserManagerTest {
 	public void testEditing() {
 		String nameHolder = ChocAnControl.members.get(1).name;
 		String checkName;
-		String input;
 		userManager.editMember("7000000002", "name", "Not Ben");
 		userManager.editMember("7000000002", "name", "Ben Sanders");
 		checkName = ChocAnControl.members.get(1).name;
