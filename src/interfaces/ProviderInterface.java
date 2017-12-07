@@ -1,5 +1,6 @@
  package interfaces;
 
+import java.io.InputStream;
 import java.util.Date;
 import java.util.Scanner;
 import objects.Provider;
@@ -18,6 +19,10 @@ public class ProviderInterface extends UserInterface {
   public ProviderInterface() {      //Constructor
     scan = new Scanner(System.in);  //Defining a new scanner
   }
+  
+  public ProviderInterface(boolean test, InputStream in) {
+	    scan = new Scanner(in);  //Defining a new scanner
+	  }
 
   /**
   * This method is used for providers to login
@@ -29,7 +34,7 @@ public class ProviderInterface extends UserInterface {
     boolean success = false;
 
     UserInterface.prompt("Enter Provider ID or type 'x' to exit:");
-    input = scan.next();
+    input = scan.nextLine();
     if (input.equals("x")) {          //checks if provider wants to exit
       return false;
     } else {
@@ -61,10 +66,10 @@ public class ProviderInterface extends UserInterface {
   */
   public static boolean swipeMemberCard() {
     UserInterface.prompt("Enter member ID");
-    Scanner swipe_id = new Scanner(System.in);
-    long member_id = swipe_id.nextLong();
+    //Scanner swipe_id = new Scanner(System.in);
+    long member_id = scan.nextLong();
     boolean success = false;
-    boolean suspended = true;
+    boolean suspended = false;
     for (int i = 0; i < ChocAnControl.members.size(); i++) {      //checks if member id exists
       if (ChocAnControl.members.get(i).id == (member_id)) {
         success = true;
@@ -74,12 +79,12 @@ public class ProviderInterface extends UserInterface {
       break;
       }
     }
-    if (success == true) {                                      //member number exists
+    if (success == true && suspended == false) {                                      //member number exists
       UserInterface.prompt("Member number is verified");
       current_member = member_id;
       return true;
     } 
-    else if (suspended == true){
+    else if (success == true && suspended == true){
     	UserInterface.prompt("Member number is suspended");
     	return false;
     }
