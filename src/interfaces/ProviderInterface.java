@@ -183,7 +183,7 @@ public class ProviderInterface extends UserInterface {
   */
   private static void getProviderDirectory() {
     ChocAnControl.providerDirectory.getDirectory();         //calls the method to retrieve the provider directory
-    UserInterface.prompt("Emailing file...");
+    UserInterface.prompt("Emailing file to Provider ID: " + Long.toString(provider_id));
     ChocAnControl.providerDirectory.email();                //gives the text file of the provider directory
     UserInterface.prompt("...done.");
 
