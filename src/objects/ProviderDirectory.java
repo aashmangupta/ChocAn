@@ -15,7 +15,7 @@ public class ProviderDirectory {
 	
 	public ProviderDirectory() {
 		services.add(new Service("Aerobics Exercise Session", 883948, 20));	//populates ArrayList
-		services.add(new Service("Cardio Exercse Session", 883951, 20));		//populates ArrayList
+		services.add(new Service("Cardio Exercise Session", 883951, 20));		//populates ArrayList
 		services.add(new Service("Dietitian Session", 598470, 30));			//populates ArrayList
 		services.add(new Service("Hypnosis Session", 883950, 80));			//populates ArrayList
 		services.add(new Service("Shock Therapy Session", 883949, 60));		//populates ArrayList
